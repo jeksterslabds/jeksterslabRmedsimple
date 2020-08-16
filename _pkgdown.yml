@@ -1,0 +1,47 @@
+destination: docs
+url: https://github.com/jeksterslabds/jeksterslabRmedsimple/
+
+reference:
+- title: Parameters
+  desc:  Simulation parameters.
+- contents:
+  - has_keyword("parameters")
+- title: Reticular action model
+  desc:  Expected values and covariances using the reticular action model.
+- contents:
+  - has_keyword("ram")
+- title: Multivariate normal distribution
+  desc:  Data generation using the multivariate normal distribution.
+- contents:
+  - has_keyword("mvn")
+- title: Simple mediation model
+  desc:  Fitting the simple mediation model.
+- contents:
+  - has_keyword("fit")
+- title: Monte Carlo
+  desc:  The Monte Carlo method.
+- contents:
+  - has_keyword("mc")
+- title: Parametric bootstrap
+  desc:  The parametric bootstrap method.
+- contents:
+  - has_keyword("pb")
+- title: Nonparametric bootstrap
+  desc:  The nonparametric bootstrap method.
+- contents:
+  - has_keyword("nb")
+- title: Confidence intervals
+  desc:  Confidence intervals functions.
+- contents:
+  - has_keyword("ci")
+- title: Process
+  desc:  Process results.
+- contents:
+  - has_keyword("process")
+- title: Plot
+  desc:  Plot results.
+- contents:
+  - has_keyword("plot")
+  desc:  Results data.
+- contents:
+  - has_keyword("results")

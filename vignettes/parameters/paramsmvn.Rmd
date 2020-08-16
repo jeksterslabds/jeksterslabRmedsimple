@@ -1,0 +1,31 @@
+---
+title: "Parameters for Data Generated from a Multivariate Normal Distribution"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Parameters for Data Generated from a Multivariate Normal Distribution}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r}
+data(
+  paramsmvn,
+  package = "jeksterslabRmedsimple"
+)
+DT::datatable(
+  paramsmvn
+)
+```
+
+For more details see `jeksterslabRmedsimple::paramsmvn`.
