@@ -22,6 +22,10 @@ reference:
   desc:  The Monte Carlo method.
 - contents:
   - has_keyword("mc")
+- title: Jackknife
+  desc:  Jackknife method.
+- contents:
+  - has_keyword("jack")
 - title: Parametric bootstrap
   desc:  The parametric bootstrap method.
 - contents:
