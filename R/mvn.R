@@ -180,7 +180,7 @@ mvn <- function(n,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Generate Data from a Multivariate Normal Distribution
+#' @title Generate Data from a Multivariate Normal Distribution - Simple Mediation Model
 #'
 #' @family multivariate normal data functions
 #' @keywords mvn
@@ -202,7 +202,7 @@ mvn_dat <- function(taskid) {
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Generate Data from a Multivariate Normal Distribution
+#' @title Generate Data from a Multivariate Normal Distribution - Simple Mediation Model
 #'   (Single Task)
 #'
 #' @family multivariate normal data functions
@@ -280,7 +280,7 @@ mvn_dat_task <- function(taskid,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Generate Data from a Multivariate Normal Distribution
+#' @title Generate Data from a Multivariate Normal Distribution - Simple Mediation Model
 #'   (Simulation)
 #'
 #' @family multivariate normal data functions
