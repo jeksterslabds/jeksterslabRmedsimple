@@ -236,6 +236,7 @@ mvn_std_pbmvn_pcci_task <- function(taskid,
       rbind = TRUE
     )
   )
+  setwd(wd)
   process(
     taskid = taskid,
     out = out
@@ -301,7 +302,7 @@ mvn_std_pbmvn_pcci_simulation <- function(dir = getwd(),
     model = "Simple mediation model",
     std = TRUE
   )
-  fn <- "summary_medsimple_mvn_pb_pcci.Rds"
+  fn <- "summary_medsimple_mvn_pbmvn_pcci.Rds"
   saveRDS(
     object = out,
     file = fn
@@ -367,6 +368,7 @@ mvn_std_pbmvn_bcci_task <- function(taskid,
       rbind = TRUE
     )
   )
+  setwd(wd)
   process(
     taskid = taskid,
     out = out
@@ -432,7 +434,7 @@ mvn_std_pbmvn_bcci_simulation <- function(dir = getwd(),
     model = "Simple mediation model",
     std = TRUE
   )
-  fn <- "summary_medsimple_mvn_pb_bcci.Rds"
+  fn <- "summary_medsimple_mvn_pbmvn_bcci.Rds"
   saveRDS(
     object = out,
     file = fn
@@ -530,6 +532,7 @@ mvn_std_pbmvn_bcaci_task <- function(taskid,
       blas_threads = FALSE # should always be FALSE since this is wrapped around a parallel par_lapply
     )
   )
+  setwd(wd)
   process(
     taskid = taskid,
     out = out
