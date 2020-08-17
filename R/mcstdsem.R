@@ -432,6 +432,7 @@ mvn_std_mcmvnsem_pcci_task <- function(taskid,
       rbind = TRUE
     )
   )
+  setwd(wd)
   process(
     taskid = taskid,
     out = out
@@ -563,6 +564,7 @@ mvn_std_mctsem_pcci_task <- function(taskid,
       rbind = TRUE
     )
   )
+  setwd(wd)
   process(
     taskid = taskid,
     out = out
