@@ -602,8 +602,8 @@ mvn_nb_bcaci_task <- function(taskid,
     bcaci(
       thetahatstar = thetahatstar,
       thetahatstarjack = thetahatstarjack,
-      thetahat = attributes("thetahatstar")$thetahat,
-      theta = attributes("thetahatstar")$theta,
+      thetahat = attributes(thetahatstar)$thetahat,
+      theta = attributes(thetahatstar)$theta,
       data = data,
       std = FALSE,
       alpha = c(0.001, 0.01, 0.05),
@@ -671,11 +671,13 @@ mvn_nb_bcaci_task <- function(taskid,
     )
   }
   out <- invisible(
-    mapply(
-      FUN = foo,
-      thetahatstar = thetahatstar,
-      thetahatstarjack = thetahatstarjack,
-      data = data
+    t(
+      mapply(
+        FUN = foo,
+        thetahatstar = thetahatstar,
+        thetahatstarjack = thetahatstarjack,
+        data = data
+      )
     )
   )
   setwd(wd)

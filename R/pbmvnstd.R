@@ -453,23 +453,25 @@ mvn_std_pbmvn_bcci_simulation <- function(dir = getwd(),
 #' @inheritParams bcaci
 #' @export
 mvn_std_pbmvn_bcaci_task <- function(taskid,
-                                     dir = getwd(),
-                                     alpha = c(0.001, 0.01, 0.05)) {
+                                     dir = getwd()) {
   # for socks to load package in the namespace
   requireNamespace(
     "jeksterslabRmedsimple",
     quietly = TRUE
   )
-  foo <- function(X,
-                  std,
-                  alpha) {
+  foo <- function(thetahatstar,
+                  thetahatstarjack,
+                  data) {
     bcaci(
-      thetahatstar = X[["thetahatstar"]],
-      thetahat = attributes(X[["thetahatstar"]])$thetahat,
-      theta = attributes(X[["thetahatstar"]])$theta,
-      data = X[["data"]],
-      std = std,
-      alpha = alpha
+      thetahatstar = thetahatstar,
+      thetahatstarjack = thetahatstarjack,
+      thetahat = attributes(thetahatstar)$thetahat,
+      theta = attributes(thetahatstar)$theta,
+      data = data,
+      std = TRUE,
+      alpha = c(0.001, 0.01, 0.05),
+      par = FALSE, # should always be FALSE since this is wrapped around a parallel par_lapply
+      blas_threads = FALSE # should always be FALSE since this is wrapped around a parallel par_lapply
     )
   }
   wd <- getwd()
@@ -482,8 +484,16 @@ mvn_std_pbmvn_bcaci_task <- function(taskid,
     ),
     ".Rds"
   )
-  fnpbmvn <- paste0(
+  fnnb <- paste0(
     "medsimple_mvn_std_pbmvn_",
+    sprintf(
+      "%05.0f",
+      taskid
+    ),
+    ".Rds"
+  )
+  fnjack <- paste0(
+    "medsimple_mvn_std_jack_",
     sprintf(
       "%05.0f",
       taskid
@@ -501,35 +511,36 @@ mvn_std_pbmvn_bcaci_task <- function(taskid,
       )
     )
   }
-  if (file.exists(fnpbmvn)) {
-    thetahatstar <- readRDS(fnpbmvn)
+  if (file.exists(fnnb)) {
+    thetahatstar <- readRDS(fnnb)
   } else {
     stop(
       paste(
-        fnpbmvn,
+        fnnb,
         "does not exist in",
         dir
       )
     )
   }
-  X <- vector(
-    mode = "list",
-    length = length(data)
-  )
-  for (i in seq_along(X)) {
-    X[[i]] <- list(
-      data = data[[i]],
-      thetahatstar = thetahatstar[[i]]
+  if (file.exists(fnjack)) {
+    thetahatstarjack <- readRDS(fnjack)
+  } else {
+    stop(
+      paste(
+        fnjack,
+        "does not exist in",
+        dir
+      )
     )
   }
   out <- invisible(
-    par_lapply(
-      X = X,
-      FUN = foo,
-      std = TRUE,
-      alpha = alpha,
-      par = FALSE, # should always be FALSE since this is wrapped around a parallel par_lapply
-      blas_threads = FALSE # should always be FALSE since this is wrapped around a parallel par_lapply
+    t(
+      mapply(
+        FUN = foo,
+        thetahatstar = thetahatstar,
+        thetahatstarjack = thetahatstarjack,
+        data = data
+      )
     )
   )
   setwd(wd)
@@ -554,7 +565,6 @@ mvn_std_pbmvn_bcaci_task <- function(taskid,
 mvn_std_pbmvn_bcaci_simulation <- function(dir = getwd(),
                                            all = TRUE,
                                            taskid = NULL,
-                                           alpha = c(0.001, 0.01, 0.05),
                                            par = TRUE,
                                            ncores = NULL,
                                            blas_threads = TRUE,
@@ -579,7 +589,6 @@ mvn_std_pbmvn_bcaci_simulation <- function(dir = getwd(),
       X = taskid,
       FUN = mvn_std_pbmvn_bcaci_task,
       dir = dir,
-      alpha = alpha,
       par = par,
       ncores = ncores,
       blas_threads = blas_threads,
