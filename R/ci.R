@@ -149,8 +149,14 @@ bcci <- function(thetahatstar,
 #' @importFrom stats quantile
 #' @importFrom stats qnorm
 #' @importFrom stats pnorm
+#' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams pcci
 #' @inheritParams .fit
+#' @inheritParams jeksterslabRpar::par_lapply
+#' @param thetahatstarjack Numeric vector.
+#'   Jackknife vector of parameter estimates.
+#'   If `thetahatstarjack = NULL`,
+#'   `thetahatstarjack` is calculated using [`.jack()`].
 #' @examples
 #' B <- 5000
 #' data <- jeksterslabRdatarepo::thirst
@@ -160,7 +166,8 @@ bcci <- function(thetahatstar,
 #'   thetahatstar = thetahatstar,
 #'   thetahat = thetahat,
 #'   theta = 0.15, # assuming that the true indirect effect is 0.15
-#'   data = data
+#'   data = data,
+#'   par = FALSE
 #' )
 #' thetahat <- .fit(data, minimal = TRUE, std = TRUE)
 #' thetahatstar <- .pbmvn(data = data, std = TRUE, B = 5000, par = FALSE)
@@ -169,15 +176,22 @@ bcci <- function(thetahatstar,
 #'   thetahat = thetahat,
 #'   theta = 0.15, # assuming that the true indirect effect is 0.15
 #'   data = data,
-#'   std = TRUE
+#'   std = TRUE,
+#'   par = FALSE
 #' )
 #' @export
 bcaci <- function(thetahatstar,
+                  thetahatstarjack = NULL,
                   thetahat,
                   theta = NULL,
                   data,
                   std = FALSE,
-                  alpha = c(0.001, 0.01, 0.05)) {
+                  alpha = c(0.001, 0.01, 0.05),
+                  par = TRUE,
+                  ncores = NULL,
+                  blas_threads = TRUE,
+                  mc = TRUE,
+                  lb = FALSE) {
   alpha <- sort(alpha)
   prob_ll <- alpha / 2
   prob_ul <- rev(1 - prob_ll)
@@ -187,10 +201,17 @@ bcaci <- function(thetahatstar,
     sum(thetahatstar < thetahat) / length(thetahatstar)
   )
   # acceleration
-  thetahatstarjack <- jackknife(
-    data = data,
-    std = std
-  )
+  if (is.null(thetahatstarjack)) {
+    thetahatstarjack <- .jack(
+      data = data,
+      std = std,
+      par = par,
+      ncores = ncores,
+      blas_threads = blas_threads,
+      mc = mc,
+      lb = lb
+    )
+  }
   parenthesis <- mean(thetahatstarjack) - thetahatstarjack
   numerator <- sum(parenthesis^3)
   denominator <- 6 * ((sum(parenthesis^2))^(3 / 2))
