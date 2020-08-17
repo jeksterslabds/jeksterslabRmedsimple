@@ -7,7 +7,7 @@
 #' @inheritParams .fit
 #' @inheritParams .pbmvn
 #' @param std Logical.
-#'   Standardize the indirect effect \eqn{\alphahat \betahat \frac{\sigma_x}{\sigma_y}}.
+#'   Standardize the indirect effect \eqn{\hat{\alpha} \hat{\beta} \frac{\sigma_x}{\sigma_y}}.
 #' @examples
 #' data <- jeksterslabRdatarepo::thirst
 #' thetahatstar <- .nb(data = data, B = 5000, par = FALSE)
@@ -50,7 +50,7 @@
     lb = lb,
     rbind = TRUE
   )
-  nb <- as.vector(thetahatstar)
+  as.vector(thetahatstar)
 }
 
 #' @author Ivan Jacob Agaloos Pesigan
@@ -116,10 +116,16 @@ nb <- function(data,
   )
   bca <- bcaci(
     thetahatstar = thetahatstar,
+    thetahatstarjack = NULL,
     thetahat = thetahat,
     data = data,
     std = std,
-    alpha = alpha
+    alpha = alpha,
+    par = par,
+    ncores = ncores,
+    blas_threads = blas_threads,
+    mc = mc,
+    lb = lb
   )
   rbind(
     pc = pc,
@@ -366,6 +372,7 @@ mvn_nb_pcci_task <- function(taskid,
       rbind = TRUE
     )
   )
+  setwd(wd)
   process(
     taskid = taskid,
     out = out
@@ -497,6 +504,7 @@ mvn_nb_bcci_task <- function(taskid,
       rbind = TRUE
     )
   )
+  setwd(wd)
   process(
     taskid = taskid,
     out = out
@@ -588,16 +596,19 @@ mvn_nb_bcaci_task <- function(taskid,
     "jeksterslabRmedsimple",
     quietly = TRUE
   )
-  foo <- function(X,
-                  std,
-                  alpha) {
+  foo <- function(thetahatstar,
+                  thetahatstarjack,
+                  data) {
     bcaci(
-      thetahatstar = X[["thetahatstar"]],
-      thetahat = attributes(X[["thetahatstar"]])$thetahat,
-      theta = attributes(X[["thetahatstar"]])$theta,
-      data = X[["data"]],
-      std = std,
-      alpha = alpha
+      thetahatstar = thetahatstar,
+      thetahatstarjack = thetahatstarjack,
+      thetahat = attributes("thetahatstar")$thetahat,
+      theta = attributes("thetahatstar")$theta,
+      data = data,
+      std = FALSE,
+      alpha = c(0.001, 0.01, 0.05),
+      par = FALSE, # should always be FALSE since this is wrapped around a parallel par_lapply
+      blas_threads = FALSE # should always be FALSE since this is wrapped around a parallel par_lapply
     )
   }
   wd <- getwd()
@@ -612,6 +623,14 @@ mvn_nb_bcaci_task <- function(taskid,
   )
   fnnb <- paste0(
     "medsimple_mvn_nb_",
+    sprintf(
+      "%05.0f",
+      taskid
+    ),
+    ".Rds"
+  )
+  fnjack <- paste0(
+    "medsimple_mvn_jack_",
     sprintf(
       "%05.0f",
       taskid
@@ -640,26 +659,26 @@ mvn_nb_bcaci_task <- function(taskid,
       )
     )
   }
-  X <- vector(
-    mode = "list",
-    length = length(data)
-  )
-  for (i in seq_along(X)) {
-    X[[i]] <- list(
-      data = data[[i]],
-      thetahatstar = thetahatstar[[i]]
+  if (file.exists(fnjack)) {
+    thetahatstarjack <- readRDS(fnjack)
+  } else {
+    stop(
+      paste(
+        fnjack,
+        "does not exist in",
+        dir
+      )
     )
   }
   out <- invisible(
-    par_lapply(
-      X = X,
+    mapply(
       FUN = foo,
-      std = FALSE,
-      alpha = alpha,
-      par = FALSE, # should always be FALSE since this is wrapped around a parallel par_lapply
-      blas_threads = FALSE # should always be FALSE since this is wrapped around a parallel par_lapply
+      thetahatstar = thetahatstar,
+      thetahatstarjack = thetahatstarjack,
+      data = data
     )
   )
+  setwd(wd)
   process(
     taskid = taskid,
     out = out
@@ -681,7 +700,6 @@ mvn_nb_bcaci_task <- function(taskid,
 mvn_nb_bcaci_simulation <- function(dir = getwd(),
                                     all = TRUE,
                                     taskid = NULL,
-                                    alpha = c(0.001, 0.01, 0.05),
                                     par = TRUE,
                                     ncores = NULL,
                                     blas_threads = TRUE,
@@ -706,7 +724,6 @@ mvn_nb_bcaci_simulation <- function(dir = getwd(),
       X = taskid,
       FUN = mvn_nb_bcaci_task,
       dir = dir,
-      alpha = alpha,
       par = par,
       ncores = ncores,
       blas_threads = blas_threads,
