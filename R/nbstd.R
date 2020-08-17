@@ -236,6 +236,7 @@ mvn_std_nb_pcci_task <- function(taskid,
       rbind = TRUE
     )
   )
+  setwd(wd)
   process(
     taskid = taskid,
     out = out
@@ -367,6 +368,7 @@ mvn_std_nb_bcci_task <- function(taskid,
       rbind = TRUE
     )
   )
+  setwd(wd)
   process(
     taskid = taskid,
     out = out
@@ -530,6 +532,7 @@ mvn_std_nb_bcaci_task <- function(taskid,
       blas_threads = FALSE # should always be FALSE since this is wrapped around a parallel par_lapply
     )
   )
+  setwd(wd)
   process(
     taskid = taskid,
     out = out
