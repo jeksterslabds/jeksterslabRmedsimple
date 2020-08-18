@@ -142,7 +142,7 @@ pbmvn <- function(data,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Parametric Bootstrapping for Data Generated from a Multivariate Normal Distribution
+#' @title Parametric Bootstrapping Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution
 #'
 #' @family parametric functions
 #' @keywords pb
@@ -177,7 +177,7 @@ mvn_pbmvn <- function(data,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Parametric Bootstrapping for Data Generated from a Multivariate Normal Distribution (Single Task)
+#' @title Parametric Bootstrapping Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Single Task)
 #'
 #' @family parametric functions
 #' @keywords pb
@@ -265,7 +265,7 @@ mvn_pbmvn_task <- function(taskid,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Parametric Bootstrapping for Data Generated from a Multivariate Normal Distribution (Simulation)
+#' @title Parametric Bootstrapping Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Simulation)
 #'
 #' @family parametric functions
 #' @keywords pb

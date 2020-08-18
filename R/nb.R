@@ -136,7 +136,7 @@ nb <- function(data,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Nonparametric Bootstrapping for Data Generated from a Multivariate Normal Distribution
+#' @title Nonparametric Bootstrapping Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution
 #'
 #' @family nonparametric functions
 #' @keywords nb
@@ -171,7 +171,7 @@ mvn_nb <- function(data,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Nonparametric Bootstrapping for Data Generated from a Multivariate Normal Distribution (Single Task)
+#' @title Nonparametric Bootstrapping Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Single Task)
 #'
 #' @family nonparametric functions
 #' @keywords nb
@@ -259,7 +259,7 @@ mvn_nb_task <- function(taskid,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Nonparametric Bootstrapping for Data Generated from a Multivariate Normal Distribution (Simulation)
+#' @title Nonparametric Bootstrapping Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Simulation)
 #'
 #' @family nonparametric functions
 #' @keywords nb

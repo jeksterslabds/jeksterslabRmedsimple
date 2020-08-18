@@ -44,7 +44,7 @@
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Jackknife for Data Generated from a Multivariate Normal Distribution
+#' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution
 #'
 #' @family jackknife functions
 #' @keywords jack
@@ -77,7 +77,7 @@ mvn_jack <- function(data,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Jackknife for Data Generated from a Multivariate Normal Distribution (Single Task)
+#' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Single Task)
 #'
 #' @family jackknife functions
 #' @keywords jack
@@ -163,7 +163,7 @@ mvn_jack_task <- function(taskid,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Jackknife for Data Generated from a Multivariate Normal Distribution (Simulation)
+#' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Simulation)
 #'
 #' @family jackknife functions
 #' @keywords jack
