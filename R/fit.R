@@ -97,7 +97,7 @@
       )
     }
   }
-  # add standardized estimates and standard errors
+
   RSS1 <- RSS(
     X = X1,
     y = y1
@@ -132,10 +132,32 @@
       )
     )
   )
+  # standardized estimates and standard errors
+  slopesprime1 <- slopesprime(
+    X = X1,
+    y = y1
+  )
+  slopesprime2 <- slopesprime(
+    X = X2,
+    y = y2
+  )
+  seprime1 <- sehatslopesprimedelta(
+    X = X1,
+    y = y1
+  )
+  seprime2 <- sehatslopesprimedelta(
+    X = X2,
+    y = y2
+  )
+  # collate results
   est <- c(
     betahat1,
     betahat2,
-    indirect,
+    indirect
+  )
+  estprime <- c(
+    slopesprime1,
+    slopesprime2,
     indirect * (sd(x) / sd(y))
   )
   names(est) <- c(
@@ -144,7 +166,12 @@
     "betahat",
     "deltamhat",
     "alphahat",
-    "alphahatbetahat",
+    "alphahatbetahat"
+  )
+  names(estprime) <- c(
+    "taudothatprime",
+    "betahatprime",
+    "alphahatprime",
     "alphahatprimebetahatprime"
   )
   S <- c(
@@ -163,11 +190,22 @@
     "sehatdeltamhat",
     "sehatalphahat"
   )
+  seprime <- c(
+    seprime1,
+    seprime2
+  )
+  names(seprime) <- c(
+    "sehattaudothatprime",
+    "sehatbetahatprime",
+    "sehatalphahatprime"
+  )
   out <- c(
     est,
+    estprime,
     S,
     muxhat = mean(x),
-    se
+    se,
+    seprime
   )
   out
 }
@@ -585,6 +623,9 @@ mvn_fit_task_summary <- function(taskid,
     "deltamhat",
     "alphahat",
     "alphahatbetahat",
+    "taudothatprime",
+    "betahatprime",
+    "alphahatprime",
     "alphahatprimebetahatprime"
   )
   theta <- c(
@@ -594,6 +635,9 @@ mvn_fit_task_summary <- function(taskid,
     "deltam",
     "alpha",
     "alphabeta",
+    "taudot",
+    "beta",
+    "alpha",
     "alphabeta"
   )
   means <- colMeans(X)
