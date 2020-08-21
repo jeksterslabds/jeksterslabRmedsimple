@@ -13,11 +13,15 @@
 #' @export
 .jack <- function(data,
                   std = FALSE,
+                  complete = TRUE,
                   par = TRUE,
                   ncores = NULL,
                   blas_threads = TRUE,
                   mc = TRUE,
                   lb = FALSE) {
+  if (complete) {
+    data <- data[complete.cases(data), ]
+  }
   foo <- function(i,
                   data,
                   std) {

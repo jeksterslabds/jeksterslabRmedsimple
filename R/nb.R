@@ -17,12 +17,16 @@
 #' @export
 .nb <- function(data,
                 std = FALSE,
+                complete = TRUE,
                 B = 200,
                 par = TRUE,
                 ncores = NULL,
                 blas_threads = TRUE,
                 mc = TRUE,
                 lb = FALSE) {
+  if (complete) {
+    data <- data[complete.cases(data), ]
+  }
   foo <- function(iter,
                   data,
                   std) {
@@ -77,6 +81,7 @@
 #' @export
 nb <- function(data,
                std = FALSE,
+               complete = TRUE,
                B = 200,
                alphahatbetahat,
                alpha = c(0.001, 0.01, 0.05),
@@ -154,8 +159,9 @@ mvn_nb <- function(data,
   paramsmvn <- useparamsmvn(taskid = taskid)
   out <- .nb(
     data = data,
-    B = B,
     std = FALSE, # always FALSE for unstandardized coefficients
+    complete = TRUE,
+    B = B,
     par = FALSE, # should always be FALSE since this is wrapped around a parallel par_lapply
     blas_threads = FALSE # should always be FALSE since this is wrapped around a parallel par_lapply
   )

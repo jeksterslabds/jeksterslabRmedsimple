@@ -5,11 +5,13 @@
 #' @family parametric functions
 #' @keywords pb
 #' @importFrom mvnfast rmvn
-#' @importFrom stats cov
+#' @importFrom stats cov complete.cases
 #' @importFrom jeksterslabRplots .hist.plot
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams .fit
 #' @inheritParams jeksterslabRpar::par_lapply
+#' @param complete Logical.
+#'   Listwise deletion to generate data with complete cases.
 #' @param B Integer.
 #'   Number of bootstrap samples.
 #' @examples
@@ -19,12 +21,16 @@
 #' @export
 .pbmvn <- function(data,
                    std = FALSE,
+                   complete = TRUE,
                    B = 200,
                    par = TRUE,
                    ncores = NULL,
                    blas_threads = TRUE,
                    mc = TRUE,
                    lb = FALSE) {
+  if (complete) {
+    data <- data[complete.cases(data), ]
+  }
   n <- nrow(data)
   mu <- colMeans(data)
   Sigma <- cov(data)
@@ -161,6 +167,7 @@ mvn_pbmvn <- function(data,
   out <- .pbmvn(
     data = data,
     std = FALSE, # always FALSE for unstandardized coefficients
+    complete = TRUE,
     B = B,
     par = FALSE, # should always be FALSE since this is wrapped around a parallel par_lapply
     blas_threads = FALSE # should always be FALSE since this is wrapped around a parallel par_lapply
@@ -626,7 +633,7 @@ mvn_pbmvn_bcaci_task <- function(taskid,
     ),
     ".Rds"
   )
-  fnnb <- paste0(
+  fnpbmvn <- paste0(
     "medsimple_mvn_pbmvn_",
     sprintf(
       "%05.0f",
@@ -653,12 +660,12 @@ mvn_pbmvn_bcaci_task <- function(taskid,
       )
     )
   }
-  if (file.exists(fnnb)) {
-    thetahatstar <- readRDS(fnnb)
+  if (file.exists(fnpbmvn)) {
+    thetahatstar <- readRDS(fnpbmvn)
   } else {
     stop(
       paste(
-        fnnb,
+        fnpbmvn,
         "does not exist in",
         dir
       )
