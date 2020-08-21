@@ -18,8 +18,9 @@ mvn_std_nb <- function(data,
   paramsmvn <- useparamsmvn(taskid = taskid)
   out <- .nb(
     data = data,
-    B = B,
     std = TRUE, # always TRUE for standardized coefficients
+    complete = TRUE,
+    B = B,
     par = FALSE, # should always be FALSE since this is wrapped around a parallel par_lapply
     blas_threads = FALSE # should always be FALSE since this is wrapped around a parallel par_lapply
   )

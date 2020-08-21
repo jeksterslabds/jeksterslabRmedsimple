@@ -19,6 +19,7 @@ mvn_std_pbmvn <- function(data,
   out <- .pbmvn(
     data = data,
     std = TRUE, # always TRUE for standardized coefficients
+    complete = TRUE,
     B = B,
     par = FALSE, # should always be FALSE since this is wrapped around a parallel par_lapply
     blas_threads = FALSE # should always be FALSE since this is wrapped around a parallel par_lapply
@@ -302,7 +303,7 @@ mvn_std_pbmvn_pcci_simulation <- function(dir = getwd(),
     model = "Simple mediation model",
     std = TRUE
   )
-  fn <- "summary_medsimple_mvn_pbmvn_pcci.Rds"
+  fn <- "summary_medsimple_mvn_std_pbmvn_pcci.Rds"
   saveRDS(
     object = out,
     file = fn
@@ -434,7 +435,7 @@ mvn_std_pbmvn_bcci_simulation <- function(dir = getwd(),
     model = "Simple mediation model",
     std = TRUE
   )
-  fn <- "summary_medsimple_mvn_pbmvn_bcci.Rds"
+  fn <- "summary_medsimple_mvn_std_pbmvn_bcci.Rds"
   saveRDS(
     object = out,
     file = fn
@@ -484,7 +485,7 @@ mvn_std_pbmvn_bcaci_task <- function(taskid,
     ),
     ".Rds"
   )
-  fnnb <- paste0(
+  fnpbmvn <- paste0(
     "medsimple_mvn_std_pbmvn_",
     sprintf(
       "%05.0f",
@@ -511,12 +512,12 @@ mvn_std_pbmvn_bcaci_task <- function(taskid,
       )
     )
   }
-  if (file.exists(fnnb)) {
-    thetahatstar <- readRDS(fnnb)
+  if (file.exists(fnpbmvn)) {
+    thetahatstar <- readRDS(fnpbmvn)
   } else {
     stop(
       paste(
-        fnnb,
+        fnpbmvn,
         "does not exist in",
         dir
       )
