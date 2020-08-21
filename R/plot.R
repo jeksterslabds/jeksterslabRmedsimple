@@ -17,6 +17,18 @@ plot_type1 <- function(data,
   theta_label <- zero_hit_95 <- zero_hit_99 <- zero_hit_99.9 <- Method <- NULL
   # only zero effect sizes
   data <- data[which(data$theta == 0), ]
+  data$theta_label <- factor(
+    data$theta_label,
+    levels = c(
+      "0.00(0.00,0.00)",
+      "0.00(0.00,0.14)",
+      "0.00(0.14,0.00)",
+      "0.00(0.00,0.36)",
+      "0.00(0.36,0.00)",
+      "0.00(0.00,0.51)",
+      "0.00(0.51,0.00)"
+    )
+  )
   if (criteria == "liberal") {
     if (alpha_level == 0.001) {
       ll <- mean(data$liberal_ll_99.9)
