@@ -9,7 +9,6 @@
 #' @family monte carlo method functions
 #' @keywords mc
 #' @importFrom mvnfast rmvn
-#' @importFrom mvnfast rmvt
 #' @param R Integer.
 #'   Monte Carlo replications.
 #' @param alphahat Numeric.
@@ -50,6 +49,11 @@
     mu = mu,
     sigma = Sigma
   )
+  # mc <- mvrnorm(
+  #  n = R,
+  #  mu = mu,
+  #  Sigma = Sigma
+  # )
   as.vector(
     unname(mc[, 1] * mc[, 2])
   )
