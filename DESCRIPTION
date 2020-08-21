@@ -31,6 +31,7 @@ Imports:
     mvnfast,
     lavaan,
     ggplot2,
+    mice,
     jeksterslabRlinreg,
     jeksterslabRdatarepo,
     jeksterslabRpar,
