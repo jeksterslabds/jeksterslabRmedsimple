@@ -13,6 +13,7 @@
 #' )
 #' @export
 setparamsmvn <- function(taskid) {
+  paramsmvn <- jeksterslabRmedsimple::paramsmvn
   paramsmvn <- paramsmvn[which(paramsmvn$taskid == taskid), ]
   n <- paramsmvn$n
   reps <- paramsmvn$reps
