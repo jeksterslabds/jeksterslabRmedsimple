@@ -97,7 +97,6 @@
       )
     }
   }
-
   RSS1 <- RSS(
     X = X1,
     y = y1
@@ -133,19 +132,19 @@
     )
   )
   # standardized estimates and standard errors
-  slopesprime1 <- slopesprime(
+  slopeshatprime1 <- slopeshatprime(
     X = X1,
     y = y1
   )
-  slopesprime2 <- slopesprime(
+  slopeshatprime2 <- slopeshatprime(
     X = X2,
     y = y2
   )
-  seprime1 <- sehatslopesprimedelta(
+  seprime1 <- sehatslopeshatprimedelta(
     X = X1,
     y = y1
   )
-  seprime2 <- sehatslopesprimedelta(
+  seprime2 <- sehatslopeshatprimedelta(
     X = X2,
     y = y2
   )
@@ -156,8 +155,8 @@
     indirect
   )
   estprime <- c(
-    slopesprime1,
-    slopesprime2,
+    slopeshatprime1,
+    slopeshatprime2,
     indirect * (sd(x) / sd(y))
   )
   names(est) <- c(
@@ -266,6 +265,56 @@
     likelihood = "wishart"
   )
 }
+
+#' @author Ivan Jacob Agaloos Pesigan
+#'
+#' @title Fit Simple Mediation Model - Structural Equation Modeling with FIML
+#'
+#' @family model fit functions
+#' @keywords fit
+#' @inheritParams .fitsem
+#' @export
+.fitfiml <- function(data,
+                     std = FALSE) {
+  data <- as.data.frame(data)
+  colnames(data) <- c("x", "m", "y")
+  if (std) {
+    model <- "
+      # measurement model
+      xlatent =~ NA * x
+      mlatent =~ NA * m
+      ylatent =~ NA * y
+      # no measurement error
+      x ~~ 0 * x
+      m ~~ 0 * m
+      y ~~ 0 * y
+      # regression
+      ylatent ~ taudothatprime * xlatent + betahatprime * mlatent
+      mlatent ~ alphahatprime * xlatent
+      # constraints
+      xlatent ~~ sigma2xlatent * xlatent
+      ylatent ~~ sigma2hatepsilonyhat * ylatent
+      mlatent ~~ sigma2hatepsilonmhat * mlatent
+      sigma2xlatent == 1
+      sigma2hatepsilonyhat == 1 - taudothatprime^2 - betahatprime^2 -  2 * alphahatprime * taudothatprime * betahatprime
+      sigma2hatepsilonmhat == 1 - alphahatprime^2
+    "
+  } else {
+    model <- "
+      y ~ taudothat * x + betahat * m
+      m ~ alphahat * x
+    "
+  }
+  sem(
+    model = model,
+    data = data,
+    estimator = "ML",
+    likelihood = "wishart",
+    missing = "fiml",
+    fixed.x = FALSE
+  )
+}
+
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
