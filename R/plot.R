@@ -21,12 +21,12 @@ plot_type1 <- function(data,
     data$theta_label,
     levels = c(
       "0.00(0.00,0.00)",
-      "0.00(0.00,0.38)",
-      "0.00(0.38,0.00)",
-      "0.00(0.00,0.60)",
-      "0.00(0.60,0.00)",
-      "0.00(0.00,0.71)",
-      "0.00(0.71,0.00)"
+      "0.00(0.00,0.14)",
+      "0.00(0.14,0.00)",
+      "0.00(0.00,0.36)",
+      "0.00(0.36,0.00)",
+      "0.00(0.00,0.51)",
+      "0.00(0.51,0.00)"
     )
   )
   if (criteria == "serlin") {
@@ -420,16 +420,14 @@ plot_miss <- function(data,
 #' @export
 plot_kurt <- function(data,
                       std = FALSE) {
-  alphahatbetahat_kurt <- alphahatprimebetahatprime_kurt <- taudot_label <- missing <- NULL
+  alphahatbetahat_kurt <- alphahatprimebetahatprime_kurt <- taudot_label <- NULL
   if (std) {
     p <- ggplot(
       data = data,
       aes(
         x = taudot_label,
         y = alphahatprimebetahatprime_kurt,
-        color = missing,
-        group = missing,
-        linetype = missing
+        group = 1
       )
     )
   } else {
@@ -438,18 +436,16 @@ plot_kurt <- function(data,
       aes(
         x = taudot_label,
         y = alphahatbetahat_kurt,
-        color = missing,
-        group = missing,
-        linetype = missing
+        group = 1
       )
     )
   }
   p + geom_point(
-    # color = "red",
+    color = "red",
     size = 0.75
   ) +
     geom_path(
-      # color = "red",
+      color = "red",
       size = 0.75
     ) +
     facet_grid(
@@ -494,16 +490,14 @@ plot_kurt <- function(data,
 #' @export
 plot_bias <- function(data,
                       std = FALSE) {
-  alphahatbetahat_bias <- alphahatprimebetahatprime_bias <- taudot_label <- missing <- NULL
+  alphahatbetahat_bias <- alphahatprimebetahatprime_bias <- taudot_label <- NULL
   if (std) {
     p <- ggplot(
       data = data,
       aes(
         x = taudot_label,
         y = alphahatprimebetahatprime_bias,
-        color = missing,
-        group = missing,
-        linetype = missing
+        group = 1
       )
     )
   } else {
@@ -512,9 +506,7 @@ plot_bias <- function(data,
       aes(
         x = taudot_label,
         y = alphahatbetahat_bias,
-        color = missing,
-        group = missing,
-        linetype = missing
+        group = 1
       )
     )
   }
@@ -522,11 +514,11 @@ plot_bias <- function(data,
     yintercept = 0,
     alpha = 0.5
   ) + geom_point(
-    # color = "red",
+    color = "red",
     size = 0.75
   ) +
     geom_path(
-      # color = "red",
+      color = "red",
       size = 0.75
     ) +
     facet_grid(
@@ -568,16 +560,14 @@ plot_bias <- function(data,
 #' @export
 plot_rmse <- function(data,
                       std = FALSE) {
-  alphahatbetahat_rmse <- alphahatprimebetahatprime_rmse <- taudot_label <- missing <- NULL
+  alphahatbetahat_rmse <- alphahatprimebetahatprime_rmse <- taudot_label <- NULL
   if (std) {
     p <- ggplot(
       data = data,
       aes(
         x = taudot_label,
         y = alphahatprimebetahatprime_rmse,
-        color = missing,
-        group = missing,
-        linetype = missing
+        group = 1
       )
     )
   } else {
@@ -586,9 +576,7 @@ plot_rmse <- function(data,
       aes(
         x = taudot_label,
         y = alphahatbetahat_rmse,
-        color = missing,
-        group = missing,
-        linetype = missing
+        group = 1
       )
     )
   }
@@ -596,11 +584,11 @@ plot_rmse <- function(data,
     yintercept = 0,
     alpha = 0.5
   ) + geom_point(
-    # color = "red",
+    color = "red",
     size = 0.75
   ) +
     geom_path(
-      # color = "red",
+      color = "red",
       size = 0.75
     ) +
     facet_grid(

@@ -10,15 +10,49 @@
 #' @examples
 #' taskid <- 1
 #' data <- mvn_dat(taskid = taskid)
-#' fit.sem(data = data, minimal = TRUE)
+#' n <- nrow(data)
+#' fit.ols(data = data, minimal = TRUE)
 #'
-#' fit <- mvn_fit.sem(data = data, taskid = taskid)
-#' thetahatstar <- mvn_mc.t(
+#' # OLS -------------------------------------------------------------
+#' ## Unstandardized -------------------------------------------------
+#'
+#' fit <- mvn_fit.ols(data = data, taskid = taskid)
+#' unstd <- mvn_mc.t(
 #'   taskid = taskid, R = 20000L,
 #'   alphahat = fit["alphahat"], sehatalphahat = fit["sehatalphahat"],
-#'   betahat = fit["betahat"], sehatbetahat = fit["sehatbetahat"], n = nrow(data)
+#'   betahat = fit["betahat"], sehatbetahat = fit["sehatbetahat"], n = n
 #' )
-#' hist(thetahatstar)
+#' hist(unstd)
+#'
+#' ## Standardized Textbook ------------------------------------------
+#'
+#' tb <- mvn_mc.t(
+#'   taskid = taskid, R = 20000L,
+#'   alphahat = fit["alphahatprime"], sehatalphahat = fit["sehatalphahatprimetb"],
+#'   betahat = fit["betahatprime"], sehatbetahat = fit["sehatbetahatprimetb"], n = n
+#' )
+#' hist(tb)
+#'
+#' ## Standardized Delta ---------------------------------------------
+#'
+#' delta <- mvn_mc.t(
+#'   taskid = taskid, R = 20000L,
+#'   alphahat = fit["alphahatprime"], sehatalphahat = fit["sehatalphahatprimedelta"],
+#'   betahat = fit["betahatprime"], sehatbetahat = fit["sehatbetahatprimedelta"], n = n
+#' )
+#' hist(delta)
+#'
+#' # SEM -------------------------------------------------------------
+#'
+#' ## Standardized ---------------------------------------------------
+#'
+#' fit <- mvn_std_fit.sem(data = data, taskid = taskid)
+#' std <- mvn_mc.t(
+#'   taskid = taskid, R = 20000L,
+#'   alphahat = fit["alphahatprime"], sehatalphahat = fit["sehatalphahatprime"],
+#'   betahat = fit["betahatprime"], sehatbetahat = fit["sehatbetahatprime"], n = n
+#' )
+#' hist(std)
 #' @export
 mvn_mc.t <- function(taskid,
                      R = 20000L,
@@ -63,7 +97,7 @@ mvn_mc.t_task <- function(taskid,
   wd <- getwd()
   setwd(dir)
   fnest <- paste0(
-    "medsimple_mvn_fit.sem_",
+    "medsimple_mvn_fit.ols_",
     sprintf(
       "%05.0f",
       taskid

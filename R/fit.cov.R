@@ -44,7 +44,7 @@ fit.cov <- function(data) {
       m ~ mumhat * 1
       x ~ muxhat * 1
     "
-  sem(
+  out <- sem(
     model = model,
     data = data,
     estimator = "ML",

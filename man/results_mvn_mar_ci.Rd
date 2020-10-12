@@ -282,13 +282,11 @@ str(results_mvn_mar_ci)
 Other results functions: 
 \code{\link{results_mvn_ci}},
 \code{\link{results_mvn_fit.ols}},
-\code{\link{results_mvn_fit.sem}},
 \code{\link{results_mvn_mar_fit.sem}},
 \code{\link{results_mvn_mar_std_fit.sem}},
 \code{\link{results_mvn_mcar_ci}},
 \code{\link{results_mvn_mcar_fit.sem}},
 \code{\link{results_mvn_mcar_std_fit.sem}},
-\code{\link{results_mvn_missing_ci}},
 \code{\link{results_mvn_mnar_ci}},
 \code{\link{results_mvn_mnar_fit.sem}},
 \code{\link{results_mvn_std_ci}},

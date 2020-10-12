@@ -6,20 +6,18 @@ articles:
   paramsmvn: parameters/paramsmvn.html
   results_mvn_ci: results/results_mvn_ci.html
   results_mvn_fit.ols: results/results_mvn_fit.ols.html
-  results_mvn_fit.sem: results/results_mvn_fit.sem.html
   results_mvn_mar_ci: results/results_mvn_mar_ci.html
   results_mvn_mar_fit.sem: results/results_mvn_mar_fit.sem.html
   results_mvn_mar_std_fit.sem: results/results_mvn_mar_std_fit.sem.html
   results_mvn_mcar_ci: results/results_mvn_mcar_ci.html
   results_mvn_mcar_fit.sem: results/results_mvn_mcar_fit.sem.html
   results_mvn_mcar_std_fit.sem: results/results_mvn_mcar_std_fit.sem.html
-  results_mvn_missing_ci: results/results_mvn_missing_ci.html
   results_mvn_mnar_ci: results/results_mvn_mnar_ci.html
   results_mvn_mnar_fit.sem: results/results_mvn_mnar_fit.sem.html
   results_mvn_std_ci: results/results_mvn_std_ci.html
   results_mvn_std_fit.sem: results/results_mvn_std_fit.sem.html
   test_2_plus_2: tests/test_2_plus_2.html
-last_built: 2020-09-27T11:33Z
+last_built: 2020-09-06T06:54Z
 urls:
   reference: https://github.com/jeksterslabds/jeksterslabRmedsimple//reference
   article: https://github.com/jeksterslabds/jeksterslabRmedsimple//articles

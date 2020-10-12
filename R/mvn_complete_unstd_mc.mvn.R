@@ -10,9 +10,9 @@
 #' @examples
 #' taskid <- 1
 #' data <- mvn_dat(taskid = taskid)
-#' fit.sem(data = data, minimal = TRUE)
+#' fit.ols(data = data, minimal = TRUE)
 #'
-#' fit <- mvn_fit.sem(data = data, taskid = taskid)
+#' fit <- mvn_fit.ols(data = data, taskid = taskid)
 #' thetahatstar <- mvn_mc.mvn(
 #'   taskid = taskid, R = 20000L,
 #'   alphahat = fit["alphahat"], sehatalphahat = fit["sehatalphahat"],
@@ -61,7 +61,7 @@ mvn_mc.mvn_task <- function(taskid,
   wd <- getwd()
   setwd(dir)
   fnest <- paste0(
-    "medsimple_mvn_fit.sem_",
+    "medsimple_mvn_fit.ols_",
     sprintf(
       "%05.0f",
       taskid
@@ -301,7 +301,7 @@ mvn_mc.mvn_pcci_simulation <- function(dir = getwd(),
   )
   out <- label(
     out = out,
-    method = "MC",
+    method = "MCMVN",
     model = "Simple mediation model",
     std = FALSE
   )

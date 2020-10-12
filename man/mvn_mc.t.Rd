@@ -36,40 +36,54 @@ for Data Generated from a Multivariate Normal Distribution
 \examples{
 taskid <- 1
 data <- mvn_dat(taskid = taskid)
-fit.sem(data = data, minimal = TRUE)
+n <- nrow(data)
+fit.ols(data = data, minimal = TRUE)
 
-fit <- mvn_fit.sem(data = data, taskid = taskid)
-thetahatstar <- mvn_mc.t(
+# OLS -------------------------------------------------------------
+## Unstandardized -------------------------------------------------
+
+fit <- mvn_fit.ols(data = data, taskid = taskid)
+unstd <- mvn_mc.t(
   taskid = taskid, R = 20000L,
   alphahat = fit["alphahat"], sehatalphahat = fit["sehatalphahat"],
-  betahat = fit["betahat"], sehatbetahat = fit["sehatbetahat"], n = nrow(data)
+  betahat = fit["betahat"], sehatbetahat = fit["sehatbetahat"], n = n
 )
-hist(thetahatstar)
+hist(unstd)
+
+## Standardized Textbook ------------------------------------------
+
+tb <- mvn_mc.t(
+  taskid = taskid, R = 20000L,
+  alphahat = fit["alphahatprime"], sehatalphahat = fit["sehatalphahatprimetb"],
+  betahat = fit["betahatprime"], sehatbetahat = fit["sehatbetahatprimetb"], n = n
+)
+hist(tb)
+
+## Standardized Delta ---------------------------------------------
+
+delta <- mvn_mc.t(
+  taskid = taskid, R = 20000L,
+  alphahat = fit["alphahatprime"], sehatalphahat = fit["sehatalphahatprimedelta"],
+  betahat = fit["betahatprime"], sehatbetahat = fit["sehatbetahatprimedelta"], n = n
+)
+hist(delta)
+
+# SEM -------------------------------------------------------------
+
+## Standardized ---------------------------------------------------
+
+fit <- mvn_std_fit.sem(data = data, taskid = taskid)
+std <- mvn_mc.t(
+  taskid = taskid, R = 20000L,
+  alphahat = fit["alphahatprime"], sehatalphahat = fit["sehatalphahatprime"],
+  betahat = fit["betahatprime"], sehatbetahat = fit["sehatbetahatprime"], n = n
+)
+hist(std)
 }
 \seealso{
 Other monte carlo method functions: 
 \code{\link{mc.mvn}()},
 \code{\link{mc.t}()},
-\code{\link{mvn_mar_10_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_mar_10_mc.mvn_pcci_task}()},
-\code{\link{mvn_mar_10_mc.mvn_simulation}()},
-\code{\link{mvn_mar_10_mc.mvn_task}()},
-\code{\link{mvn_mar_10_mc.mvn}()},
-\code{\link{mvn_mar_20_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_mar_20_mc.mvn_pcci_task}()},
-\code{\link{mvn_mar_20_mc.mvn_simulation}()},
-\code{\link{mvn_mar_20_mc.mvn_task}()},
-\code{\link{mvn_mar_20_mc.mvn}()},
-\code{\link{mvn_mar_30_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_mar_30_mc.mvn_pcci_task}()},
-\code{\link{mvn_mar_30_mc.mvn_simulation}()},
-\code{\link{mvn_mar_30_mc.mvn_task}()},
-\code{\link{mvn_mar_30_mc.mvn}()},
-\code{\link{mvn_mar_50_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_mar_50_mc.mvn_pcci_task}()},
-\code{\link{mvn_mar_50_mc.mvn_simulation}()},
-\code{\link{mvn_mar_50_mc.mvn_task}()},
-\code{\link{mvn_mar_50_mc.mvn}()},
 \code{\link{mvn_mar_mc.mvn_pcci_simulation}()},
 \code{\link{mvn_mar_mc.mvn_pcci_task}()},
 \code{\link{mvn_mar_mc.mvn_simulation}()},
@@ -89,26 +103,6 @@ Other monte carlo method functions:
 \code{\link{mvn_mc.t_pcci_task}()},
 \code{\link{mvn_mc.t_simulation}()},
 \code{\link{mvn_mc.t_task}()},
-\code{\link{mvn_mcar_10_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_mcar_10_mc.mvn_pcci_task}()},
-\code{\link{mvn_mcar_10_mc.mvn_simulation}()},
-\code{\link{mvn_mcar_10_mc.mvn_task}()},
-\code{\link{mvn_mcar_10_mc.mvn}()},
-\code{\link{mvn_mcar_20_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_mcar_20_mc.mvn_pcci_task}()},
-\code{\link{mvn_mcar_20_mc.mvn_simulation}()},
-\code{\link{mvn_mcar_20_mc.mvn_task}()},
-\code{\link{mvn_mcar_20_mc.mvn}()},
-\code{\link{mvn_mcar_30_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_mcar_30_mc.mvn_pcci_task}()},
-\code{\link{mvn_mcar_30_mc.mvn_simulation}()},
-\code{\link{mvn_mcar_30_mc.mvn_task}()},
-\code{\link{mvn_mcar_30_mc.mvn}()},
-\code{\link{mvn_mcar_50_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_mcar_50_mc.mvn_pcci_task}()},
-\code{\link{mvn_mcar_50_mc.mvn_simulation}()},
-\code{\link{mvn_mcar_50_mc.mvn_task}()},
-\code{\link{mvn_mcar_50_mc.mvn}()},
 \code{\link{mvn_mcar_mc.mvn_pcci_simulation}()},
 \code{\link{mvn_mcar_mc.mvn_pcci_task}()},
 \code{\link{mvn_mcar_mc.mvn_simulation}()},
@@ -119,26 +113,6 @@ Other monte carlo method functions:
 \code{\link{mvn_mcar_std_mc.mvn.sem_simulation}()},
 \code{\link{mvn_mcar_std_mc.mvn.sem_task}()},
 \code{\link{mvn_mcar_std_mc.mvn.sem}()},
-\code{\link{mvn_mnar_10_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_mnar_10_mc.mvn_pcci_task}()},
-\code{\link{mvn_mnar_10_mc.mvn_simulation}()},
-\code{\link{mvn_mnar_10_mc.mvn_task}()},
-\code{\link{mvn_mnar_10_mc.mvn}()},
-\code{\link{mvn_mnar_20_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_mnar_20_mc.mvn_pcci_task}()},
-\code{\link{mvn_mnar_20_mc.mvn_simulation}()},
-\code{\link{mvn_mnar_20_mc.mvn_task}()},
-\code{\link{mvn_mnar_20_mc.mvn}()},
-\code{\link{mvn_mnar_30_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_mnar_30_mc.mvn_pcci_task}()},
-\code{\link{mvn_mnar_30_mc.mvn_simulation}()},
-\code{\link{mvn_mnar_30_mc.mvn_task}()},
-\code{\link{mvn_mnar_30_mc.mvn}()},
-\code{\link{mvn_mnar_50_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_mnar_50_mc.mvn_pcci_task}()},
-\code{\link{mvn_mnar_50_mc.mvn_simulation}()},
-\code{\link{mvn_mnar_50_mc.mvn_task}()},
-\code{\link{mvn_mnar_50_mc.mvn}()},
 \code{\link{mvn_mnar_mc.mvn_pcci_simulation}()},
 \code{\link{mvn_mnar_mc.mvn_pcci_task}()},
 \code{\link{mvn_mnar_mc.mvn_simulation}()},
@@ -149,11 +123,6 @@ Other monte carlo method functions:
 \code{\link{mvn_mnar_std_mc.mvn.sem_simulation}()},
 \code{\link{mvn_mnar_std_mc.mvn.sem_task}()},
 \code{\link{mvn_mnar_std_mc.mvn.sem}()},
-\code{\link{mvn_ols_mc.mvn_pcci_simulation}()},
-\code{\link{mvn_ols_mc.mvn_pcci_task}()},
-\code{\link{mvn_ols_mc.mvn_simulation}()},
-\code{\link{mvn_ols_mc.mvn_task}()},
-\code{\link{mvn_ols_mc.mvn}()},
 \code{\link{mvn_std_mc.mvn.delta_pcci_simulation}()},
 \code{\link{mvn_std_mc.mvn.delta_pcci_task}()},
 \code{\link{mvn_std_mc.mvn.delta_simulation}()},
