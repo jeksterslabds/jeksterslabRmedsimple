@@ -28,7 +28,8 @@ Standardize the indirect effect
     = \hat{\alpha} \hat{\beta} \frac{\hat{\sigma}_x}{\hat{\sigma}_y}}.}
 
 \item{complete}{Logical.
-Listwise deletion to generate data with complete cases.}
+If \code{TRUE}, create complete data set before bootstrapping.
+If 'FALSE`' bootstrap incomplete data set and fit the model with FIML.}
 
 \item{par}{Logical.
 If \code{TRUE}, use multiple cores.
@@ -71,7 +72,19 @@ Other jackknife functions:
 \code{\link{mvn_jack}()},
 \code{\link{mvn_std_jack_simulation}()},
 \code{\link{mvn_std_jack_task}()},
-\code{\link{mvn_std_jack}()}
+\code{\link{mvn_std_jack}()},
+\code{\link{vm_mod_jack_simulation}()},
+\code{\link{vm_mod_jack_task}()},
+\code{\link{vm_mod_jack}()},
+\code{\link{vm_mod_std_jack_simulation}()},
+\code{\link{vm_mod_std_jack_task}()},
+\code{\link{vm_mod_std_jack}()},
+\code{\link{vm_sev_jack_simulation}()},
+\code{\link{vm_sev_jack_task}()},
+\code{\link{vm_sev_jack}()},
+\code{\link{vm_sev_std_jack_simulation}()},
+\code{\link{vm_sev_std_jack_task}()},
+\code{\link{vm_sev_std_jack}()}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

@@ -393,18 +393,33 @@ head(results_mvn_fit.ols)
 str(results_mvn_fit.ols)
 }
 \seealso{
-Other results functions: 
-\code{\link{results_mvn_ci}},
-\code{\link{results_mvn_mar_ci}},
+Other results: 
+\code{\link{results_mvn_fit.sem}},
 \code{\link{results_mvn_mar_fit.sem}},
-\code{\link{results_mvn_mar_std_fit.sem}},
-\code{\link{results_mvn_mcar_ci}},
+\code{\link{results_mvn_mar_mc.mvn_ci}},
+\code{\link{results_mvn_mar_nb.fiml_ci}},
 \code{\link{results_mvn_mcar_fit.sem}},
-\code{\link{results_mvn_mcar_std_fit.sem}},
-\code{\link{results_mvn_mnar_ci}},
+\code{\link{results_mvn_mcar_mc.mvn_ci}},
+\code{\link{results_mvn_mcar_nb.fiml_ci}},
 \code{\link{results_mvn_mnar_fit.sem}},
-\code{\link{results_mvn_std_ci}},
-\code{\link{results_mvn_std_fit.sem}}
+\code{\link{results_mvn_mnar_mc.mvn_ci}},
+\code{\link{results_mvn_mnar_nb.fiml_ci}},
+\code{\link{results_mvn_nb_ci}},
+\code{\link{results_mvn_ols_mc.mvn_ci}},
+\code{\link{results_mvn_pb.mvn_ci}},
+\code{\link{results_mvn_sem_mc.mvn_ci}},
+\code{\link{results_vm_mod_fit.ols}},
+\code{\link{results_vm_mod_fit.sem.mlr}},
+\code{\link{results_vm_mod_nb_ci}},
+\code{\link{results_vm_mod_ols_mc.mvn_ci}},
+\code{\link{results_vm_mod_pb.mvn_ci}},
+\code{\link{results_vm_mod_sem_mc.mvn_ci}},
+\code{\link{results_vm_sev_fit.ols}},
+\code{\link{results_vm_sev_fit.sem.mlr}},
+\code{\link{results_vm_sev_nb_ci}},
+\code{\link{results_vm_sev_ols_mc.mvn_ci}},
+\code{\link{results_vm_sev_pb.mvn_ci}},
+\code{\link{results_vm_sev_sem_mc.mvn_ci}}
 }
-\concept{results functions}
+\concept{results}
 \keyword{results}

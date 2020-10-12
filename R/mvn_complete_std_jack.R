@@ -1,9 +1,9 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Jackknife Estimates of Indirect Effect in a Standardized Simple Mediation Model for Data Generated from a Multivariate Normal Distribution
+#' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution
 #'
 #' @family jackknife functions
-#' @keywords mvn_complete_std
+#' @keywords jack
 #' @inheritParams fit.ols
 #' @inheritParams jack
 #' @inheritParams useparamsmvn
@@ -17,7 +17,7 @@ mvn_std_jack <- function(data,
   paramsmvn <- useparamsmvn(taskid = taskid)
   out <- jack(
     data = data,
-    std = TRUE, # always TRUE for standardized coefficients
+    std = TRUE, # always FALSE for unstandardized coefficients
     complete = TRUE, # always TRUE for complete data set
     par = FALSE, # should always be FALSE since this is wrapped around a parallel par_lapply
     blas_threads = FALSE # should always be FALSE since this is wrapped around a parallel par_lapply
@@ -27,17 +27,17 @@ mvn_std_jack <- function(data,
   attributes(out)$thetahat <- fit.ols(
     data = data,
     minimal = TRUE,
-    std = TRUE # always TRUE for standardized coefficients
+    std = TRUE # always FALSE for unstandardized coefficients
   )
   out
 }
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Jackknife Estimates of Indirect Effect in a Standardized Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Single Task)
+#' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Single Task)
 #'
 #' @family jackknife functions
-#' @keywords mvn_complete_std
+#' @keywords jack
 #' @inheritParams mvn_std_jack
 #' @inheritParams mvn_fit.ols_task
 #' @export
@@ -120,10 +120,10 @@ mvn_std_jack_task <- function(taskid,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Jackknife Estimates of Indirect Effect in a Standardized Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Simulation)
+#' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Simulation)
 #'
 #' @family jackknife functions
-#' @keywords mvn_complete_std
+#' @keywords jack
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_std_jack_task
 #' @inheritParams jeksterslabRpar::par_lapply

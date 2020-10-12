@@ -1,6 +1,6 @@
-#' Results: Fit Simple Mediation Model for Data Generated from a Multivariate Normal Distribution - Ordinary Least Squares
+#' Results: Fit Simple Mediation Model for Data Generated from a Multivariate Normal Distribution with Data Missing at Random - Structural Equation Modeling
 #'
-#' @family results functions
+#' @family results
 #' @keywords results
 #' @inherit A details
 #' @format A data frame with the following variables

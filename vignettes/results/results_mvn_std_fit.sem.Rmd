@@ -1,10 +1,10 @@
 ---
-title: "Results: Model Fit - Standardized Simple Mediation Model with Latent Variables"
+title: "Results: Model Fit - Standardized Simple Mediation Model - Structural Equation Modeling"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Results: Model Fit - Standardized Simple Mediation Model with Latent Variables}
+  %\VignetteIndexEntry{Results: Model Fit - Standardized Simple Mediation Model - Structural Equation Modeling}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -25,7 +25,7 @@ data(results_mvn_std_fit.sem, package = "jeksterslabRmedsimple")
 
 ### Plots
 
-#### Standardized
+#### Unstandardized
 
 **Bias**
 

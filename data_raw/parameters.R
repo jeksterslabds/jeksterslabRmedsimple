@@ -9,12 +9,17 @@
 #'
 #+ common
 es <- c(
-  0.26,
-  0.13,
-  0.02,
+  0.26^(1 / 4),
+  0.13^(1 / 4),
+  0.02^(1 / 4),
   0.00
 )
-sqrtes <- sqrt(es)
+taudot <- c(
+  0.26^(1 / 2),
+  0.13^(1 / 2),
+  0.02^(1 / 2),
+  0.00
+)
 n <- c(
   1000,
   500,
@@ -36,14 +41,27 @@ paramsmvn <- expand.grid(
   mux = 100,
   mum = 100,
   muy = 100,
-  taudot = es,
-  beta = sqrtes,
-  alpha = sqrtes,
+  taudot = taudot,
+  beta = es,
+  alpha = es,
   sigma2x = 15^2,
   sigma2m = 15^2,
   sigma2y = 15^2,
   reps = reps
 )
+sigma2epsilonm <- paramsmvn$sigma2m - ((paramsmvn$alpha^2) * paramsmvn$sigma2x)
+sigma2epsilony <- paramsmvn$sigma2y - ((paramsmvn$taudot^2) * paramsmvn$sigma2x) - ((paramsmvn$beta^2) * (paramsmvn$alpha^2) * paramsmvn$sigma2x) - ((paramsmvn$beta^2) * sigma2epsilonm) - (2 * paramsmvn$taudot * paramsmvn$beta * paramsmvn$alpha * paramsmvn$sigma2x)
+
+paramsmvn <- data.frame(
+  paramsmvn,
+  sigma2epsilonm = sigma2epsilonm,
+  sigma2epsilony = sigma2epsilony
+)
+paramsmvn <- paramsmvn[paramsmvn$sigma2epsilony >= 0, ]
+paramsmvn <- paramsmvn[paramsmvn$sigma2epsilonm >= 0, ]
+paramsmvn$sigma2epsilony <- NULL
+paramsmvn$sigma2epsilonm <- NULL
+rownames(paramsmvn) <- NULL
 paramsmvn <- data.frame(
   taskid = 1:nrow(paramsmvn),
   paramsmvn

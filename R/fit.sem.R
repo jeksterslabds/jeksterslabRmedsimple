@@ -7,7 +7,7 @@
 #' @family model fit functions
 #' @keywords fit
 #' @inheritParams fit.ols
-#' @importFrom lavaan sem
+#' @import lavaan
 #' @param std Logical.
 #'   If `TRUE`, estimate standardized simple mediation model
 #'   using latent variables and nonlinear constraints.
@@ -16,22 +16,81 @@
 #'   Note that using `missing = "fiml"` sets `fixed.x = FALSE`.
 #' @examples
 #' library(lavaan)
-#' data <- jeksterslabRdatarepo::thirst
+#' summary(fit.sem(data = jeksterslabRdatarepo::thirst))
+#' summary(fit.sem(data = jeksterslabRdatarepo::thirst, std = TRUE))
+#' summary(fit.sem(data = jeksterslabRdatarepo::thirst, minimal = TRUE))
+#' summary(fit.sem(data = jeksterslabRdatarepo::thirst, minimal = TRUE, std = TRUE))
 #'
-#' # OLS --------------------------------------------------------
-#' fit.ols(data, minimal = FALSE)
+#' taskid <- 1
+#' data <- mvn_dat(taskid = taskid)
 #'
-#' # SEM Unstandardized -----------------------------------------
-#' unstd_sem <- fit.sem(data = data)
-#' coef(unstd_sem)
-#' sqrt(diag(vcov(unstd_sem)))
-#' fit.sem(data = data, minimal = TRUE)
+#' # Unstandaradized ##################################################
+#' # Complete Data ----------------------------------------------------
+#' summary(fit.sem(data = data))
 #'
-#' # SEM Standardized -------------------------------------------
-#' std_sem <- fit.sem(data = data, std = TRUE)
-#' coef(std_sem)
-#' sqrt(diag(vcov(std_sem)))
-#' fit.sem(data = data, minimal = TRUE, std = TRUE)
+#' # Missing completely at random -------------------------------------
+#' ## 10% missing
+#' summary(fit.sem(data = mvn_mcar_10_dat(data = data, taskid = taskid), fiml = TRUE))
+#'
+#' ## 20% missing
+#' summary(fit.sem(data = mvn_mcar_20_dat(data = data, taskid = taskid), fiml = TRUE))
+#'
+#' ## 30% missing
+#' summary(fit.sem(data = mvn_mcar_30_dat(data = data, taskid = taskid), fiml = TRUE))
+#'
+#' # Missing at random ------------------------------------------------
+#' ## 10% missing
+#' summary(fit.sem(data = mvn_mar_10_dat(data = data, taskid = taskid), fiml = TRUE))
+#'
+#' ## 20% missing
+#' summary(fit.sem(data = mvn_mar_20_dat(data = data, taskid = taskid), fiml = TRUE))
+#'
+#' ## 30% missing
+#' summary(fit.sem(data = mvn_mar_30_dat(data = data, taskid = taskid), fiml = TRUE))
+#'
+#' # Missing Not at random --------------------------------------------
+#' ## 10% missing
+#' summary(fit.sem(data = mvn_mnar_10_dat(data = data, taskid = taskid), fiml = TRUE))
+#'
+#' ## 20% missing
+#' summary(fit.sem(data = mvn_mnar_20_dat(data = data, taskid = taskid), fiml = TRUE))
+#'
+#' ## 30% missing
+#' summary(fit.sem(data = mvn_mnar_30_dat(data = data, taskid = taskid), fiml = TRUE))
+#'
+#' # Standaradized ####################################################
+#' # Complete Data ----------------------------------------------------
+#' summary(fit.sem(data = data, std = TRUE))
+#'
+#' # Missing completely at random -------------------------------------
+#' ## 10% missing
+#' summary(fit.sem(data = mvn_mcar_10_dat(data = data, taskid = taskid), std = TRUE, fiml = TRUE))
+#'
+#' ## 20% missing
+#' summary(fit.sem(data = mvn_mcar_20_dat(data = data, taskid = taskid), std = TRUE, fiml = TRUE))
+#'
+#' ## 30% missing
+#' summary(fit.sem(data = mvn_mcar_30_dat(data = data, taskid = taskid), std = TRUE, fiml = TRUE))
+#'
+#' # Missing at random ------------------------------------------------
+#' ## 10% missing
+#' summary(fit.sem(data = mvn_mar_10_dat(data = data, taskid = taskid), std = TRUE, fiml = TRUE))
+#'
+#' ## 20% missing
+#' summary(fit.sem(data = mvn_mar_20_dat(data = data, taskid = taskid), std = TRUE, fiml = TRUE))
+#'
+#' ## 30% missing
+#' summary(fit.sem(data = mvn_mar_30_dat(data = data, taskid = taskid), std = TRUE, fiml = TRUE))
+#'
+#' # Missing Not at random --------------------------------------------
+#' ## 10% missing
+#' summary(fit.sem(data = mvn_mnar_10_dat(data = data, taskid = taskid), std = TRUE, fiml = TRUE))
+#'
+#' ## 20% missing
+#' summary(fit.sem(data = mvn_mnar_20_dat(data = data, taskid = taskid), std = TRUE, fiml = TRUE))
+#'
+#' ## 30% missing
+#' summary(fit.sem(data = mvn_mnar_30_dat(data = data, taskid = taskid), std = TRUE, fiml = TRUE))
 #' @export
 fit.sem <- function(data,
                     minimal = FALSE,

@@ -30,10 +30,22 @@ Other jackknife functions:
 \code{\link{mvn_jack_task}()},
 \code{\link{mvn_std_jack_simulation}()},
 \code{\link{mvn_std_jack_task}()},
-\code{\link{mvn_std_jack}()}
+\code{\link{mvn_std_jack}()},
+\code{\link{vm_mod_jack_simulation}()},
+\code{\link{vm_mod_jack_task}()},
+\code{\link{vm_mod_jack}()},
+\code{\link{vm_mod_std_jack_simulation}()},
+\code{\link{vm_mod_std_jack_task}()},
+\code{\link{vm_mod_std_jack}()},
+\code{\link{vm_sev_jack_simulation}()},
+\code{\link{vm_sev_jack_task}()},
+\code{\link{vm_sev_jack}()},
+\code{\link{vm_sev_std_jack_simulation}()},
+\code{\link{vm_sev_std_jack_task}()},
+\code{\link{vm_sev_std_jack}()}
 }
 \author{
 Ivan Jacob Agaloos Pesigan
 }
 \concept{jackknife functions}
-\keyword{mvn_complete_unstd}
+\keyword{jack}

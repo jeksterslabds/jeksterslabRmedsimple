@@ -45,7 +45,8 @@ Optional argument.}
 Standardize the indirect effect \eqn{\hat{\alpha} \hat{\beta} \frac{\sigma_x}{\sigma_y}}.}
 
 \item{complete}{Logical.
-Listwise deletion to generate data with complete cases.}
+If \code{TRUE}, create complete data set before bootstrapping.
+If 'FALSE`' bootstrap incomplete data set and fit the model with FIML.}
 
 \item{alpha}{Numeric vector.
 Alpha level.

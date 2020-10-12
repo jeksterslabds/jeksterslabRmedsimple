@@ -50,7 +50,13 @@
 #'     \hat{\alpha}^{\prime} \hat{\beta}^{\prime}
 #'     = \hat{\alpha} \hat{\beta} \frac{\hat{\sigma}_x}{\hat{\sigma}_y}}.
 #' @examples
-#' data <- jeksterslabRdatarepo::thirst
+#' fit.ols(data = jeksterslabRdatarepo::thirst, minimal = TRUE)
+#' fit.ols(data = jeksterslabRdatarepo::thirst, minimal = TRUE, std = TRUE)
+#' fit.ols(data = jeksterslabRdatarepo::thirst, minimal = FALSE)
+#'
+#' taskid <- 1
+#' data <- mvn_dat(taskid = taskid)
+#'
 #' fit.ols(data = data, minimal = TRUE)
 #' fit.ols(data = data, minimal = TRUE, std = TRUE)
 #' fit.ols(data = data, minimal = FALSE)

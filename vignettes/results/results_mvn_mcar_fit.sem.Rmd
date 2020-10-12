@@ -1,10 +1,10 @@
 ---
-title: "Results: Model Fit MCAR - Simple Mediation Model"
+title: "Results: Model Fit - Simple Mediation Model - Data Missing Completely at Random"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Results: Model Fit MCAR - Simple Mediation Model}
+  %\VignetteIndexEntry{Results: Model Fit - Simple Mediation Model - Data Missing Completely at Random}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

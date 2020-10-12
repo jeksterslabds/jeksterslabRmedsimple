@@ -17,67 +17,143 @@ Fits covariances and means of \eqn{x}, \eqn{m}, and \eqn{y} using structural equ
 }
 \examples{
 library(lavaan)
+cov(jeksterslabRdatarepo::thirst)
+colMeans(jeksterslabRdatarepo::thirst)
+summary(fit.cov(data = jeksterslabRdatarepo::thirst))
+
 taskid <- 1
+data <- mvn_dat(taskid = taskid)
 
 # Complete Data ----------------------------------------------------
-original <- mvn_dat(taskid = taskid)
-cov(original)
-colMeans(original)
+cov(data)
+colMeans(data)
+summary(fit.cov(data = data))
 
 # Missing completely at random -------------------------------------
-data <- mvn_dat_mcar(data = original, taskid = taskid)
-out <- fit.cov(data = data)
-summary(out)
+## 10\% missing
+summary(fit.cov(data = mvn_mcar_10_dat(data = data, taskid = taskid)))
+
+## 20\% missing
+summary(fit.cov(data = mvn_mcar_20_dat(data = data, taskid = taskid)))
+
+## 30\% missing
+summary(fit.cov(data = mvn_mcar_30_dat(data = data, taskid = taskid)))
 
 # Missing at random ------------------------------------------------
-data <- mvn_dat_mar(data = original, taskid = taskid)
-out <- fit.cov(data = data)
-summary(out)
+## 10\% missing
+summary(fit.cov(data = mvn_mar_10_dat(data = data, taskid = taskid)))
+
+## 20\% missing
+summary(fit.cov(data = mvn_mar_20_dat(data = data, taskid = taskid)))
+
+## 30\% missing
+summary(fit.cov(data = mvn_mar_30_dat(data = data, taskid = taskid)))
+
+# Missing Not at random --------------------------------------------
+## 10\% missing
+summary(fit.cov(data = mvn_mnar_10_dat(data = data, taskid = taskid)))
+
+## 20\% missing
+summary(fit.cov(data = mvn_mnar_20_dat(data = data, taskid = taskid)))
+
+## 30\% missing
+summary(fit.cov(data = mvn_mnar_30_dat(data = data, taskid = taskid)))
 }
 \seealso{
 Other model fit functions: 
 \code{\link{fit.ols}()},
+\code{\link{fit.sem.mlr}()},
 \code{\link{fit.sem}()},
 \code{\link{mvn_fit.ols_simulation_summary}()},
 \code{\link{mvn_fit.ols_simulation}()},
 \code{\link{mvn_fit.ols_task_summary}()},
 \code{\link{mvn_fit.ols_task}()},
 \code{\link{mvn_fit.ols}()},
-\code{\link{mvn_mar_fit.sem_simulation_summary}()},
-\code{\link{mvn_mar_fit.sem_simulation}()},
-\code{\link{mvn_mar_fit.sem_task_summary}()},
-\code{\link{mvn_mar_fit.sem_task}()},
-\code{\link{mvn_mar_fit.sem}()},
-\code{\link{mvn_mar_std_fit.sem_simulation_summary}()},
-\code{\link{mvn_mar_std_fit.sem_simulation}()},
-\code{\link{mvn_mar_std_fit.sem_task_summary}()},
-\code{\link{mvn_mar_std_fit.sem_task}()},
-\code{\link{mvn_mar_std_fit.sem}()},
-\code{\link{mvn_mcar_fit.sem_simulation_summary}()},
-\code{\link{mvn_mcar_fit.sem_simulation}()},
-\code{\link{mvn_mcar_fit.sem_task_summary}()},
-\code{\link{mvn_mcar_fit.sem_task}()},
-\code{\link{mvn_mcar_fit.sem}()},
-\code{\link{mvn_mcar_std_fit.sem_simulation_summary}()},
-\code{\link{mvn_mcar_std_fit.sem_simulation}()},
-\code{\link{mvn_mcar_std_fit.sem_task_summary}()},
-\code{\link{mvn_mcar_std_fit.sem_task}()},
-\code{\link{mvn_mcar_std_fit.sem}()},
-\code{\link{mvn_mnar_fit.sem_simulation_summary}()},
-\code{\link{mvn_mnar_fit.sem_simulation}()},
-\code{\link{mvn_mnar_fit.sem_task_summary}()},
-\code{\link{mvn_mnar_fit.sem_task}()},
-\code{\link{mvn_mnar_fit.sem}()},
-\code{\link{mvn_mnar_std_fit.sem_simulation_summary}()},
-\code{\link{mvn_mnar_std_fit.sem_simulation}()},
-\code{\link{mvn_mnar_std_fit.sem_task_summary}()},
-\code{\link{mvn_mnar_std_fit.sem_task}()},
-\code{\link{mvn_mnar_std_fit.sem}()},
+\code{\link{mvn_fit.sem_simulation_summary}()},
+\code{\link{mvn_fit.sem_simulation}()},
+\code{\link{mvn_fit.sem_task_summary}()},
+\code{\link{mvn_fit.sem_task}()},
+\code{\link{mvn_fit.sem}()},
+\code{\link{mvn_mar_10_fit.sem_simulation_summary}()},
+\code{\link{mvn_mar_10_fit.sem_simulation}()},
+\code{\link{mvn_mar_10_fit.sem_task_summary}()},
+\code{\link{mvn_mar_10_fit.sem_task}()},
+\code{\link{mvn_mar_10_fit.sem}()},
+\code{\link{mvn_mar_20_fit.sem_simulation_summary}()},
+\code{\link{mvn_mar_20_fit.sem_simulation}()},
+\code{\link{mvn_mar_20_fit.sem_task_summary}()},
+\code{\link{mvn_mar_20_fit.sem_task}()},
+\code{\link{mvn_mar_20_fit.sem}()},
+\code{\link{mvn_mar_30_fit.sem_simulation_summary}()},
+\code{\link{mvn_mar_30_fit.sem_simulation}()},
+\code{\link{mvn_mar_30_fit.sem_task_summary}()},
+\code{\link{mvn_mar_30_fit.sem_task}()},
+\code{\link{mvn_mar_30_fit.sem}()},
+\code{\link{mvn_mcar_10_fit.sem_simulation_summary}()},
+\code{\link{mvn_mcar_10_fit.sem_simulation}()},
+\code{\link{mvn_mcar_10_fit.sem_task_summary}()},
+\code{\link{mvn_mcar_10_fit.sem_task}()},
+\code{\link{mvn_mcar_10_fit.sem}()},
+\code{\link{mvn_mcar_20_fit.sem_simulation_summary}()},
+\code{\link{mvn_mcar_20_fit.sem_simulation}()},
+\code{\link{mvn_mcar_20_fit.sem_task_summary}()},
+\code{\link{mvn_mcar_20_fit.sem_task}()},
+\code{\link{mvn_mcar_20_fit.sem}()},
+\code{\link{mvn_mcar_30_fit.sem_simulation_summary}()},
+\code{\link{mvn_mcar_30_fit.sem_simulation}()},
+\code{\link{mvn_mcar_30_fit.sem_task_summary}()},
+\code{\link{mvn_mcar_30_fit.sem_task}()},
+\code{\link{mvn_mcar_30_fit.sem}()},
+\code{\link{mvn_mnar_10_fit.sem_simulation_summary}()},
+\code{\link{mvn_mnar_10_fit.sem_simulation}()},
+\code{\link{mvn_mnar_10_fit.sem_task_summary}()},
+\code{\link{mvn_mnar_10_fit.sem_task}()},
+\code{\link{mvn_mnar_10_fit.sem}()},
+\code{\link{mvn_mnar_20_fit.sem_simulation_summary}()},
+\code{\link{mvn_mnar_20_fit.sem_simulation}()},
+\code{\link{mvn_mnar_20_fit.sem_task_summary}()},
+\code{\link{mvn_mnar_20_fit.sem_task}()},
+\code{\link{mvn_mnar_20_fit.sem}()},
+\code{\link{mvn_mnar_30_fit.sem_simulation_summary}()},
+\code{\link{mvn_mnar_30_fit.sem_simulation}()},
+\code{\link{mvn_mnar_30_fit.sem_task_summary}()},
+\code{\link{mvn_mnar_30_fit.sem_task}()},
+\code{\link{mvn_mnar_30_fit.sem}()},
 \code{\link{mvn_std_fit.sem_simulation_summary}()},
 \code{\link{mvn_std_fit.sem_simulation}()},
 \code{\link{mvn_std_fit.sem_task_summary}()},
 \code{\link{mvn_std_fit.sem_task}()},
-\code{\link{mvn_std_fit.sem}()}
+\code{\link{mvn_std_fit.sem}()},
+\code{\link{vm_mod_fit.ols_simulation_summary}()},
+\code{\link{vm_mod_fit.ols_simulation}()},
+\code{\link{vm_mod_fit.ols_task_summary}()},
+\code{\link{vm_mod_fit.ols_task}()},
+\code{\link{vm_mod_fit.ols}()},
+\code{\link{vm_mod_fit.sem.mlr_simulation_summary}()},
+\code{\link{vm_mod_fit.sem.mlr_simulation}()},
+\code{\link{vm_mod_fit.sem.mlr_task_summary}()},
+\code{\link{vm_mod_fit.sem.mlr_task}()},
+\code{\link{vm_mod_fit.sem.mlr}()},
+\code{\link{vm_mod_std_fit.sem.mlr_simulation_summary}()},
+\code{\link{vm_mod_std_fit.sem.mlr_simulation}()},
+\code{\link{vm_mod_std_fit.sem.mlr_task_summary}()},
+\code{\link{vm_mod_std_fit.sem.mlr_task}()},
+\code{\link{vm_mod_std_fit.sem.mlr}()},
+\code{\link{vm_sev_fit.ols_simulation_summary}()},
+\code{\link{vm_sev_fit.ols_simulation}()},
+\code{\link{vm_sev_fit.ols_task_summary}()},
+\code{\link{vm_sev_fit.ols_task}()},
+\code{\link{vm_sev_fit.ols}()},
+\code{\link{vm_sev_fit.sem.mlr_simulation_summary}()},
+\code{\link{vm_sev_fit.sem.mlr_simulation}()},
+\code{\link{vm_sev_fit.sem.mlr_task_summary}()},
+\code{\link{vm_sev_fit.sem.mlr_task}()},
+\code{\link{vm_sev_fit.sem.mlr}()},
+\code{\link{vm_sev_std_fit.sem.mlr_simulation_summary}()},
+\code{\link{vm_sev_std_fit.sem.mlr_simulation}()},
+\code{\link{vm_sev_std_fit.sem.mlr_task_summary}()},
+\code{\link{vm_sev_std_fit.sem.mlr_task}()},
+\code{\link{vm_sev_std_fit.sem.mlr}()}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

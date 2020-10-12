@@ -88,3 +88,65 @@ mc.t <- function(R = 20000L,
     unname(alphahatstar * betahatstar)
   )
 }
+
+#' @author Ivan Jacob Agaloos Pesigan
+#'
+#' @title Monte Carlo Method for Indirect Effect in a Standardized Simple Mediation Model
+#'   Using the Wishart Distribution (Sampling Distribution)
+#'
+#' @family monte carlo method functions
+#' @keywords mc
+#' @inheritParams mc.mvn
+#' @inheritParams fit.ols
+#' @importFrom stats rWishart cov2cor
+#' @param Sigmahat Numeric matrix.
+#'   Estimated covariance matrix.
+#' @param n Integer.
+#'   Sample size.
+#' @examples
+#' Sigmahat <- cov(jeksterslabRdatarepo::thirst)
+#' n <- dim(jeksterslabRdatarepo::thirst)[1]
+#' thetahatstar <- mc.wishart(
+#'   R = 20000L, Sigmahat = Sigmahat, n = n
+#' )
+#' hist(thetahatstar)
+#' @export
+mc.wishart <- function(R = 20000L, Sigmahat, n, std = TRUE) {
+  foo <- function(Sigmahat, std) {
+    if (std) {
+      R <- cov2cor(Sigmahat)
+      alphahatprime <- R[1, 2]
+      RX2 <- R[1:2, 1:2]
+      ryX2 <- R[1:2, 3]
+      betahatprime <- as.vector(solve(RX2) %*% ryX2)
+      return(alphahatprime * betahatprime[2])
+    } else {
+      alphahat <- Sigmahat[1, 2] / Sigmahat[1, 1]
+      SigmaXhat <- Sigmahat[1:2, 1:2]
+      sigmayXhat <- Sigmahat[1:2, 3]
+      betahat <- as.vector(solve(SigmaXhat) %*% sigmayXhat)
+      return(alphahat * betahat[2])
+    }
+  }
+  df <- n - 1
+  MyArray <- rWishart(
+    n = R,
+    df = df,
+    Sigma = Sigmahat
+  ) / df
+  out <- lapply(
+    X = seq(dim(MyArray)[3]),
+    FUN = function(x) MyArray[, , x]
+  )
+  out <- lapply(
+    X = out,
+    FUN = foo,
+    std = std
+  )
+  as.vector(
+    do.call(
+      what = "rbind",
+      args = out
+    )
+  )
+}

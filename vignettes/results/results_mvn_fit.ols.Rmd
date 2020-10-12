@@ -1,10 +1,10 @@
 ---
-title: "Results: Model Fit - Ordinary Least Squares"
+title: "Results: Model Fit - Simple Mediation Model - Ordinary Least Squares"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Results: Model Fit - Ordinary Least Squares}
+  %\VignetteIndexEntry{Results: Model Fit - Simple Mediation Model - Ordinary Least Squares}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

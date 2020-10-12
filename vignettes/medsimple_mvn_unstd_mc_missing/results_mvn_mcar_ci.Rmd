@@ -1,0 +1,106 @@
+---
+title: "Results: Confidence Intervals - Multivariate Normal - Data Missing Completely at Random"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Results: Confidence Intervals - Multivariate Normal - Data Missing Completely at Random}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r}
+library(jeksterslabRmedsimple)
+data(results_mvn_mcar_mc.mvn_ci, package = "jeksterslabRmedsimple")
+data(results_mvn_mcar_nb.fiml_ci, package = "jeksterslabRmedsimple")
+data(results_mvn_nb_ci, package = "jeksterslabRmedsimple")
+data(results_mvn_sem_mc.mvn_ci, package = "jeksterslabRmedsimple")
+results_mcar_ci <- rbind(
+  results_mvn_mcar_mc.mvn_ci,
+  results_mvn_mcar_nb.fiml_ci
+)
+results_mcar_10_ci <- results_mcar_ci[which(results_mcar_ci$missing == "MCAR.10"), ]
+results_mcar_20_ci <- results_mcar_ci[which(results_mcar_ci$missing == "MCAR.20"), ]
+results_mcar_30_ci <- results_mcar_ci[which(results_mcar_ci$missing == "MCAR.30"), ]
+results_mcar_10_ci <- results_mcar_10_ci[which(results_mcar_10_ci$n > 20), ]
+results_mcar_20_ci <- results_mcar_20_ci[which(results_mcar_20_ci$n > 20), ]
+results_mcar_30_ci <- results_mcar_30_ci[which(results_mcar_30_ci$n > 20), ]
+results_mcar_ci <- results_mcar_ci[which(results_mcar_ci$n > 20), ]
+# results_mcar_power_ci <- rbind(
+#  results_mcar_ci,
+#  results_mvn_sem_mc.mvn_ci,
+#  results_mvn_nb_ci
+# )
+results_mcar_power_ci <- results_mcar_ci[which(results_mcar_ci$n > 20 & results_mcar_ci$n < 150), ]
+```
+
+### Plots
+
+#### alpha 0.05
+
+##### mcar
+
+```{r}
+width <- 11.7
+height <- 8.3
+cairo_pdf("mcar-type1.pdf", width = width, height = height)
+plot_type1(results_mcar_ci)
+dev.off()
+cairo_pdf("mcar-power.pdf", width = width, height = height)
+plot_power(results_mcar_power_ci)
+dev.off()
+cairo_pdf("mcar-miss.pdf", width = width, height = height)
+plot_miss(results_mcar_ci)
+dev.off()
+```
+
+##### mcar_10
+
+```{r}
+cairo_pdf("mcar-10-type1.pdf", width = width, height = height)
+plot_type1(results_mcar_10_ci)
+dev.off()
+cairo_pdf("mcar-10-power.pdf", width = width, height = height)
+plot_power(results_mcar_10_ci)
+dev.off()
+cairo_pdf("mcar-10-miss.pdf", width = width, height = height)
+plot_miss(results_mcar_10_ci)
+dev.off()
+```
+
+##### mcar_20
+
+```{r}
+cairo_pdf("mcar-20-type1.pdf", width = width, height = height)
+plot_type1(results_mcar_20_ci)
+dev.off()
+cairo_pdf("mcar-20-power.pdf", width = width, height = height)
+plot_power(results_mcar_20_ci)
+dev.off()
+cairo_pdf("mcar-20-miss.pdf", width = width, height = height)
+plot_miss(results_mcar_20_ci)
+dev.off()
+```
+
+##### mcar_30
+
+```{r}
+cairo_pdf("mcar-30-type1.pdf", width = width, height = height)
+plot_type1(results_mcar_30_ci)
+dev.off()
+cairo_pdf("mcar-30-power.pdf", width = width, height = height)
+plot_power(results_mcar_30_ci)
+dev.off()
+cairo_pdf("mcar-30-miss.pdf", width = width, height = height)
+plot_miss(results_mcar_30_ci)
+dev.off()
+```

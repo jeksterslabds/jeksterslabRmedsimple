@@ -19,7 +19,7 @@
 #' @param B Integer.
 #'   Number of bootstrap samples.
 #' @examples
-#' mutheta <- mutheta(
+#' muthetahat <- mutheta(
 #'   mux = 70.18000,
 #'   deltam = 26.82246,
 #'   deltay = 29.91071,
@@ -27,7 +27,7 @@
 #'   beta = 0.451039,
 #'   alpha = 0.338593
 #' )
-#' Sigmatheta <- Sigmatheta(
+#' Sigmathetahat <- Sigmatheta(
 #'   taudot = 0.207648,
 #'   beta = 0.451039,
 #'   alpha = 0.338593,
@@ -38,13 +38,13 @@
 #'
 #' # Unstandardized -------------------------------------------------------------
 #' thetahatstar <- pb.mvn(
-#'   mutheta = mutheta, Sigmatheta = Sigmatheta, n = 50, B = 5000, par = FALSE
+#'   mutheta = muthetahat, Sigmatheta = Sigmathetahat, n = 50, B = 5000, par = FALSE
 #' )
 #' hist(thetahatstar)
 #'
 #' # Standardized ---------------------------------------------------------------
 #' thetahatstar <- pb.mvn(
-#'   mutheta = mutheta, Sigmatheta = Sigmatheta, n = 50, std = TRUE, B = 5000, par = FALSE
+#'   mutheta = muthetahat, Sigmatheta = Sigmathetahat, n = 50, std = TRUE, B = 5000, par = FALSE
 #' )
 #' hist(thetahatstar)
 #' @export

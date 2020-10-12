@@ -10,22 +10,47 @@
 #' @importFrom lavaan sem
 #' @examples
 #' library(lavaan)
+#' cov(jeksterslabRdatarepo::thirst)
+#' colMeans(jeksterslabRdatarepo::thirst)
+#' summary(fit.cov(data = jeksterslabRdatarepo::thirst))
+#'
 #' taskid <- 1
+#' data <- mvn_dat(taskid = taskid)
 #'
 #' # Complete Data ----------------------------------------------------
-#' original <- mvn_dat(taskid = taskid)
-#' cov(original)
-#' colMeans(original)
+#' cov(data)
+#' colMeans(data)
+#' summary(fit.cov(data = data))
 #'
 #' # Missing completely at random -------------------------------------
-#' data <- mvn_dat_mcar(data = original, taskid = taskid)
-#' out <- fit.cov(data = data)
-#' summary(out)
+#' ## 10% missing
+#' summary(fit.cov(data = mvn_mcar_10_dat(data = data, taskid = taskid)))
+#'
+#' ## 20% missing
+#' summary(fit.cov(data = mvn_mcar_20_dat(data = data, taskid = taskid)))
+#'
+#' ## 30% missing
+#' summary(fit.cov(data = mvn_mcar_30_dat(data = data, taskid = taskid)))
 #'
 #' # Missing at random ------------------------------------------------
-#' data <- mvn_dat_mar(data = original, taskid = taskid)
-#' out <- fit.cov(data = data)
-#' summary(out)
+#' ## 10% missing
+#' summary(fit.cov(data = mvn_mar_10_dat(data = data, taskid = taskid)))
+#'
+#' ## 20% missing
+#' summary(fit.cov(data = mvn_mar_20_dat(data = data, taskid = taskid)))
+#'
+#' ## 30% missing
+#' summary(fit.cov(data = mvn_mar_30_dat(data = data, taskid = taskid)))
+#'
+#' # Missing Not at random --------------------------------------------
+#' ## 10% missing
+#' summary(fit.cov(data = mvn_mnar_10_dat(data = data, taskid = taskid)))
+#'
+#' ## 20% missing
+#' summary(fit.cov(data = mvn_mnar_20_dat(data = data, taskid = taskid)))
+#'
+#' ## 30% missing
+#' summary(fit.cov(data = mvn_mnar_30_dat(data = data, taskid = taskid)))
 #' @export
 fit.cov <- function(data) {
   data <- as.data.frame(data)
@@ -44,7 +69,7 @@ fit.cov <- function(data) {
       m ~ mumhat * 1
       x ~ muxhat * 1
     "
-  out <- sem(
+  sem(
     model = model,
     data = data,
     estimator = "ML",

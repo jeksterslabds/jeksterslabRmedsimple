@@ -1,0 +1,106 @@
+---
+title: "Results: Confidence Intervals - Multivariate Normal - Data Missing at Random"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Results: Confidence Intervals - Multivariate Normal - Data Missing at Random}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r}
+library(jeksterslabRmedsimple)
+data(results_mvn_mar_mc.mvn_ci, package = "jeksterslabRmedsimple")
+data(results_mvn_mar_nb.fiml_ci, package = "jeksterslabRmedsimple")
+data(results_mvn_nb_ci, package = "jeksterslabRmedsimple")
+data(results_mvn_sem_mc.mvn_ci, package = "jeksterslabRmedsimple")
+results_mar_ci <- rbind(
+  results_mvn_mar_mc.mvn_ci,
+  results_mvn_mar_nb.fiml_ci
+)
+results_mar_10_ci <- results_mar_ci[which(results_mar_ci$missing == "MAR.10"), ]
+results_mar_20_ci <- results_mar_ci[which(results_mar_ci$missing == "MAR.20"), ]
+results_mar_30_ci <- results_mar_ci[which(results_mar_ci$missing == "MAR.30"), ]
+results_mar_10_ci <- results_mar_10_ci[which(results_mar_10_ci$n > 20), ]
+results_mar_20_ci <- results_mar_20_ci[which(results_mar_20_ci$n > 20), ]
+results_mar_30_ci <- results_mar_30_ci[which(results_mar_30_ci$n > 20), ]
+results_mar_ci <- results_mar_ci[which(results_mar_ci$n > 20), ]
+# results_mar_power_ci <- rbind(
+#  results_mar_ci,
+#  results_mvn_sem_mc.mvn_ci,
+#  results_mvn_nb_ci
+# )
+results_mar_power_ci <- results_mar_ci[which(results_mar_ci$n > 20 & results_mar_ci$n < 150), ]
+```
+
+### Plots
+
+#### alpha 0.05
+
+##### mar
+
+```{r}
+width <- 11.7
+height <- 8.3
+cairo_pdf("mar-type1.pdf", width = width, height = height)
+plot_type1(results_mar_ci)
+dev.off()
+cairo_pdf("mar-power.pdf", width = width, height = height)
+plot_power(results_mar_power_ci)
+dev.off()
+cairo_pdf("mar-miss.pdf", width = width, height = height)
+plot_miss(results_mar_ci)
+dev.off()
+```
+
+##### mar_10
+
+```{r}
+cairo_pdf("mar-10-type1.pdf", width = width, height = height)
+plot_type1(results_mar_10_ci)
+dev.off()
+cairo_pdf("mar-10-power.pdf", width = width, height = height)
+plot_power(results_mar_10_ci)
+dev.off()
+cairo_pdf("mar-10-miss.pdf", width = width, height = height)
+plot_miss(results_mar_10_ci)
+dev.off()
+```
+
+##### mar_20
+
+```{r}
+cairo_pdf("mar-20-type1.pdf", width = width, height = height)
+plot_type1(results_mar_20_ci)
+dev.off()
+cairo_pdf("mar-20-power.pdf", width = width, height = height)
+plot_power(results_mar_20_ci)
+dev.off()
+cairo_pdf("mar-20-miss.pdf", width = width, height = height)
+plot_miss(results_mar_20_ci)
+dev.off()
+```
+
+##### mar_30
+
+```{r}
+cairo_pdf("mar-30-type1.pdf", width = width, height = height)
+plot_type1(results_mar_30_ci)
+dev.off()
+cairo_pdf("mar-30-power.pdf", width = width, height = height)
+plot_power(results_mar_30_ci)
+dev.off()
+cairo_pdf("mar-30-miss.pdf", width = width, height = height)
+plot_miss(results_mar_30_ci)
+dev.off()
+```

@@ -1,0 +1,66 @@
+---
+title: "Results: Model Fit - Simple Mediation Model - Data Generated from a Nonnormal Distribution (Vale and Maurelli (1983) - Skewness = 2, Kurtosis = 7) - Complete Data - Ordinary Least Squares"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Results: Model Fit - Simple Mediation Model - Data Generated from a Nonnormal Distribution (Vale and Maurelli (1983) - Skewness = 2, Kurtosis = 7) - Complete Data - Ordinary Least Squares}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r}
+library(jeksterslabRmedsimple)
+data(results_vm_mod_fit.ols, package = "jeksterslabRmedsimple")
+```
+
+### Plots
+
+#### Unstandardized
+
+**Bias**
+
+```{r fig.height = 8.5, fig.width = 11}
+plot_bias(results_vm_mod_fit.ols)
+```
+
+**Root Mean Square Error**
+
+```{r fig.height = 8.5, fig.width = 11}
+plot_rmse(results_vm_mod_fit.ols)
+```
+
+**Kurtosis**
+
+```{r fig.height = 8.5, fig.width = 11}
+plot_kurt(results_vm_mod_fit.ols)
+```
+
+#### Standardized
+
+**Bias**
+
+```{r fig.height = 8.5, fig.width = 11}
+plot_bias(results_vm_mod_fit.ols, std = TRUE)
+```
+
+**Root Mean Square Error**
+
+```{r fig.height = 8.5, fig.width = 11}
+plot_rmse(results_vm_mod_fit.ols, std = TRUE)
+```
+
+**Kurtosis**
+
+```{r fig.height = 8.5, fig.width = 11}
+plot_kurt(results_vm_mod_fit.ols, std = TRUE)
+```

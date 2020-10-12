@@ -1,0 +1,46 @@
+---
+title: "Results: Nonparametric Bootstrap Confidence Intervals - Data Generated from a Nonnormal Distribution (Vale and Maurelli (1983) - Skewness = 2, Kurtosis = 7) - Complete Data"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Results: Nonparametric Bootstrap Confidence Intervals - Data Generated from a Nonnormal Distribution (Vale and Maurelli (1983) - Skewness = 2, Kurtosis = 7) - Complete Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r}
+library(jeksterslabRmedsimple)
+data(results_vm_mod_nb_ci, package = "jeksterslabRmedsimple")
+```
+
+### Plots
+
+#### alpha 0.05
+
+```{r fig.height = 8, fig.width = 11}
+plot_type1(results_vm_mod_nb_ci)
+plot_power(results_vm_mod_nb_ci)
+plot_miss(results_vm_mod_nb_ci)
+```
+
+```{r fig.height = 8, fig.width = 11}
+plot_type1(results_vm_mod_nb_ci, criteria = "strict")
+plot_miss(results_vm_mod_nb_ci, criteria = "strict")
+```
+
+#### alpha 0.01
+
+```{r fig.height = 8, fig.width = 11}
+plot_type1(results_vm_mod_nb_ci, criteria = "liberal", alpha = 0.01)
+plot_miss(results_vm_mod_nb_ci, criteria = "liberal", alpha = 0.01)
+```

@@ -27,20 +27,21 @@ mvn(n = n, mu = mu, Sigma = Sigma)
 }
 \seealso{
 Other multivariate normal data functions: 
-\code{\link{mvn_dat_mar_simulation}()},
-\code{\link{mvn_dat_mar_task}()},
-\code{\link{mvn_dat_mar}()},
-\code{\link{mvn_dat_mcar_simulation}()},
-\code{\link{mvn_dat_mcar_task}()},
-\code{\link{mvn_dat_mcar}()},
-\code{\link{mvn_dat_mnar_simulation}()},
-\code{\link{mvn_dat_mnar_task}()},
-\code{\link{mvn_dat_mnar}()},
 \code{\link{mvn_dat_simulation}()},
 \code{\link{mvn_dat_task}()},
 \code{\link{mvn_dat}()},
 \code{\link{setparamsmvn}()},
-\code{\link{useparamsmvn}()}
+\code{\link{useparamsmvn}()},
+\code{\link{vm_mod_dat_simulation_simulation_summary}()},
+\code{\link{vm_mod_dat_simulation_task_summary}()},
+\code{\link{vm_mod_dat_simulation}()},
+\code{\link{vm_mod_dat_task}()},
+\code{\link{vm_mod_dat}()},
+\code{\link{vm_sev_dat_simulation_simulation_summary}()},
+\code{\link{vm_sev_dat_simulation_task_summary}()},
+\code{\link{vm_sev_dat_simulation}()},
+\code{\link{vm_sev_dat_task}()},
+\code{\link{vm_sev_dat}()}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

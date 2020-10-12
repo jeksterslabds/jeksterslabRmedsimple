@@ -9,7 +9,8 @@
 #' @param std Logical.
 #'   Standardize the indirect effect \eqn{\hat{\alpha} \hat{\beta} \frac{\sigma_x}{\sigma_y}}.
 #' @param complete Logical.
-#'   Listwise deletion to generate data with complete cases.
+#'   If `TRUE`, create complete data set before bootstrapping.
+#'   If 'FALSE`' bootstrap incomplete data set and fit the model with FIML.
 #' @examples
 #' data <- jeksterslabRdatarepo::thirst
 #'

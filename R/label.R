@@ -23,7 +23,7 @@ label <- function(out,
                   method,
                   model,
                   std,
-                  missing = "NON") {
+                  missing = "Complete") {
   out <- as.data.frame(out)
   out$missing <- missing
   if (std) {

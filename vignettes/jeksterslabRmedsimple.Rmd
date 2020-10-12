@@ -1,14 +1,14 @@
 ---
-title: "Introduction to jeksterslabRmedsimple"
+title: "Introduction to jeksterslabRmedsimple2"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 description: >
-  Learn how to get started with the basics of jeksterslabRmedsimple.
+  Learn how to get started with the basics of jeksterslabRmedsimple2.
 output:
   rmarkdown::html_vignette:
     toc: true
 vignette: >
-  %\VignetteIndexEntry{Introduction to jeksterslabRmedsimple}
+  %\VignetteIndexEntry{Introduction to jeksterslabRmedsimple2}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mvn_complete_std_jack.R
 \name{mvn_std_jack_simulation}
 \alias{mvn_std_jack_simulation}
-\title{Jackknife Estimates of Indirect Effect in a Standardized Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Simulation)}
+\title{Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Simulation)}
 \usage{
 mvn_std_jack_simulation(
   dir = getwd(),
@@ -76,7 +76,7 @@ Names of objects to pass to \code{\link[parallel:clusterApply]{parallel::cluster
 Ignored if \code{mc = TRUE}.}
 }
 \description{
-Jackknife Estimates of Indirect Effect in a Standardized Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Simulation)
+Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Simulation)
 }
 \seealso{
 Other jackknife functions: 
@@ -85,10 +85,22 @@ Other jackknife functions:
 \code{\link{mvn_jack_task}()},
 \code{\link{mvn_jack}()},
 \code{\link{mvn_std_jack_task}()},
-\code{\link{mvn_std_jack}()}
+\code{\link{mvn_std_jack}()},
+\code{\link{vm_mod_jack_simulation}()},
+\code{\link{vm_mod_jack_task}()},
+\code{\link{vm_mod_jack}()},
+\code{\link{vm_mod_std_jack_simulation}()},
+\code{\link{vm_mod_std_jack_task}()},
+\code{\link{vm_mod_std_jack}()},
+\code{\link{vm_sev_jack_simulation}()},
+\code{\link{vm_sev_jack_task}()},
+\code{\link{vm_sev_jack}()},
+\code{\link{vm_sev_std_jack_simulation}()},
+\code{\link{vm_sev_std_jack_task}()},
+\code{\link{vm_sev_std_jack}()}
 }
 \author{
 Ivan Jacob Agaloos Pesigan
 }
 \concept{jackknife functions}
-\keyword{mvn_complete_std}
+\keyword{jack}

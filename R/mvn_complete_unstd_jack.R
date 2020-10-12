@@ -3,7 +3,7 @@
 #' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution
 #'
 #' @family jackknife functions
-#' @keywords mvn_complete_unstd
+#' @keywords jack
 #' @inheritParams fit.ols
 #' @inheritParams jack
 #' @inheritParams useparamsmvn
@@ -37,7 +37,7 @@ mvn_jack <- function(data,
 #' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Single Task)
 #'
 #' @family jackknife functions
-#' @keywords mvn_complete_unstd
+#' @keywords jack
 #' @inheritParams mvn_jack
 #' @inheritParams mvn_fit.ols_task
 #' @export
@@ -123,7 +123,7 @@ mvn_jack_task <- function(taskid,
 #' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data Generated from a Multivariate Normal Distribution (Simulation)
 #'
 #' @family jackknife functions
-#' @keywords mvn_complete_unstd
+#' @keywords jack
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_jack_task
 #' @inheritParams jeksterslabRpar::par_lapply

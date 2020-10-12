@@ -1,10 +1,10 @@
 ---
-title: "Results: Confidence Intervals - Multivariate Normal - Missing at Random"
+title: "Results: Confidence Intervals - Multivariate Normal - Data Missing at Random"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Results: Confidence Intervals - Multivariate Normal - Missing at Random}
+  %\VignetteIndexEntry{Results: Confidence Intervals - Multivariate Normal - Data Missing at Random}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -20,15 +20,41 @@ knitr::opts_chunk$set(
 
 ```{r}
 library(jeksterslabRmedsimple)
-data(results_mvn_mar_ci, package = "jeksterslabRmedsimple")
+data(results_mvn_mar_mc.mvn_ci, package = "jeksterslabRmedsimple")
+data(results_mvn_mar_nb.fiml_ci, package = "jeksterslabRmedsimple")
+results_mar_ci <- rbind(
+  results_mvn_mar_mc.mvn_ci,
+  results_mvn_mar_nb.fiml_ci
+)
+results_mar_10_ci <- results_mar_ci[which(results_mar_ci$missing == "MAR.10"), ]
+results_mar_20_ci <- results_mar_ci[which(results_mar_ci$missing == "MAR.20"), ]
+results_mar_30_ci <- results_mar_ci[which(results_mar_ci$missing == "MAR.30"), ]
 ```
 
 ### Plots
 
 #### alpha 0.05
 
+##### mar_10
+
 ```{r fig.height = 8, fig.width = 11}
-plot_type1(results_mvn_mar_ci)
-plot_power(results_mvn_mar_ci)
-plot_miss(results_mvn_mar_ci)
+plot_type1(results_mar_10_ci)
+plot_power(results_mar_10_ci)
+plot_miss(results_mar_10_ci)
+```
+
+##### mar_20
+
+```{r fig.height = 8, fig.width = 11}
+plot_type1(results_mar_20_ci)
+plot_power(results_mar_20_ci)
+plot_miss(results_mar_20_ci)
+```
+
+##### mar_30
+
+```{r fig.height = 8, fig.width = 11}
+plot_type1(results_mar_30_ci)
+plot_power(results_mar_30_ci)
+plot_miss(results_mar_30_ci)
 ```

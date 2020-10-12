@@ -3,7 +3,7 @@
 #' @title Parametric Bootstrap Estimates of Indirect Effect in a Standardized Simple Mediation Model for Data Generated from a Multivariate Normal Distribution
 #'
 #' @family parametric functions
-#' @keywords mvn_complete_std
+#' @keywords pb
 #' @inheritParams fit.ols
 #' @inheritParams pb.mvn
 #' @inheritParams useparamsmvn
@@ -39,7 +39,7 @@ mvn_std_pb.mvn <- function(data,
 #'   (Single Task)
 #'
 #' @family parametric functions
-#' @keywords mvn_complete_std
+#' @keywords pb
 #' @inheritParams mvn_std_pb.mvn
 #' @inheritParams mvn_fit.ols_task
 #' @export
@@ -126,7 +126,7 @@ mvn_std_pb.mvn_task <- function(taskid,
 #'   (Simulation)
 #'
 #' @family parametric functions
-#' @keywords mvn_complete_std
+#' @keywords pb
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_std_pb.mvn_task
 #' @inheritParams jeksterslabRpar::par_lapply
@@ -182,7 +182,7 @@ mvn_std_pb.mvn_simulation <- function(dir = getwd(),
 #'   (Single Task)
 #'
 #' @family parametric functions
-#' @keywords mvn_complete_std
+#' @keywords pb
 #' @inheritParams mvn_dat_task
 #' @export
 mvn_std_pb.mvn_pcci_task <- function(taskid,
@@ -244,7 +244,7 @@ mvn_std_pb.mvn_pcci_task <- function(taskid,
 #'   (Simulation)
 #'
 #' @family parametric functions
-#' @keywords mvn_complete_std
+#' @keywords pb
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_std_pb.mvn_pcci_task
 #' @inheritParams jeksterslabRpar::par_lapply
@@ -309,7 +309,7 @@ mvn_std_pb.mvn_pcci_simulation <- function(dir = getwd(),
 #'   (Single Task)
 #'
 #' @family parametric functions
-#' @keywords mvn_complete_std
+#' @keywords pb
 #' @inheritParams mvn_dat_task
 #' @export
 mvn_std_pb.mvn_bcci_task <- function(taskid,
@@ -371,7 +371,7 @@ mvn_std_pb.mvn_bcci_task <- function(taskid,
 #'   (Simulation)
 #'
 #' @family parametric functions
-#' @keywords mvn_complete_std
+#' @keywords pb
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_std_pb.mvn_bcci_task
 #' @inheritParams jeksterslabRpar::par_lapply
@@ -436,7 +436,7 @@ mvn_std_pb.mvn_bcci_simulation <- function(dir = getwd(),
 #'   (Single Task)
 #'
 #' @family parametric functions
-#' @keywords mvn_complete_std
+#' @keywords pb
 #' @inheritParams mvn_dat_task
 #' @export
 mvn_std_pb.mvn_bcaci_task <- function(taskid,
@@ -544,7 +544,7 @@ mvn_std_pb.mvn_bcaci_task <- function(taskid,
 #'   (Simulation)
 #'
 #' @family parametric functions
-#' @keywords mvn_complete_std
+#' @keywords pb
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_std_pb.mvn_bcaci_task
 #' @inheritParams jeksterslabRpar::par_lapply

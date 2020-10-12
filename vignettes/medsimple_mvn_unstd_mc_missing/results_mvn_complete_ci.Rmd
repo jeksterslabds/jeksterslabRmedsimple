@@ -1,0 +1,49 @@
+---
+title: "Results: Confidence Intervals - Multivariate Normal - Complete Data"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Results: Confidence Intervals - Multivariate Normal - Complete Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r}
+library(jeksterslabRmedsimple)
+data(results_mvn_nb_ci, package = "jeksterslabRmedsimple")
+data(results_mvn_sem_mc.mvn_ci, package = "jeksterslabRmedsimple")
+results_mvn_complete_ci <- rbind(
+  results_mvn_sem_mc.mvn_ci,
+  results_mvn_nb_ci
+)
+results_mvn_complete_ci <- results_mvn_complete_ci[which(results_mvn_complete_ci$n > 20), ]
+results_mvn_complete_power_ci <- results_mvn_complete_ci[which(results_mvn_complete_ci$n > 20 & results_mvn_complete_ci$n < 150), ]
+```
+
+### Plots
+
+#### alpha 0.05
+
+```{r}
+width <- 11.7
+height <- 8.3
+cairo_pdf("complete-type1.pdf", width = width, height = height)
+plot_type1(results_mvn_complete_ci)
+dev.off()
+cairo_pdf("complete-power.pdf", width = width, height = height)
+plot_power(results_mvn_complete_power_ci)
+dev.off()
+cairo_pdf("complete-miss.pdf", width = width, height = height)
+plot_miss(results_mvn_complete_ci)
+dev.off()
+```

@@ -3,7 +3,7 @@
 #' @title Nonparametric Bootstrap Estimates of Indirect Effect in a Standardized Simple Mediation Model for Data Generated from a Multivariate Normal Distribution
 #'
 #' @family nonparametric functions
-#' @keywords mvn_complete_std
+#' @keywords nb
 #' @inheritParams fit.ols
 #' @inheritParams nb
 #' @inheritParams useparamsmvn
@@ -38,7 +38,7 @@ mvn_std_nb <- function(data,
 #'   (Single Task)
 #'
 #' @family nonparametric functions
-#' @keywords mvn_complete_std
+#' @keywords nb
 #' @inheritParams mvn_std_nb
 #' @inheritParams mvn_fit.ols_task
 #' @export
@@ -125,7 +125,7 @@ mvn_std_nb_task <- function(taskid,
 #'   (Simulation)
 #'
 #' @family nonparametric functions
-#' @keywords mvn_complete_std
+#' @keywords nb
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_std_nb_task
 #' @inheritParams jeksterslabRpar::par_lapply
@@ -181,7 +181,7 @@ mvn_std_nb_simulation <- function(dir = getwd(),
 #'   (Single Task)
 #'
 #' @family nonparametric functions
-#' @keywords mvn_complete_std
+#' @keywords nb
 #' @inheritParams mvn_dat_task
 #' @export
 mvn_std_nb_pcci_task <- function(taskid,
@@ -243,7 +243,7 @@ mvn_std_nb_pcci_task <- function(taskid,
 #'   (Simulation)
 #'
 #' @family nonparametric functions
-#' @keywords mvn_complete_std
+#' @keywords nb
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_std_nb_pcci_task
 #' @inheritParams jeksterslabRpar::par_lapply
@@ -308,7 +308,7 @@ mvn_std_nb_pcci_simulation <- function(dir = getwd(),
 #'   (Single Task)
 #'
 #' @family nonparametric functions
-#' @keywords mvn_complete_std
+#' @keywords nb
 #' @inheritParams mvn_dat_task
 #' @export
 mvn_std_nb_bcci_task <- function(taskid,
@@ -370,7 +370,7 @@ mvn_std_nb_bcci_task <- function(taskid,
 #'   (Simulation)
 #'
 #' @family nonparametric functions
-#' @keywords mvn_complete_std
+#' @keywords nb
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_std_nb_bcci_task
 #' @inheritParams jeksterslabRpar::par_lapply
@@ -435,7 +435,7 @@ mvn_std_nb_bcci_simulation <- function(dir = getwd(),
 #'   (Single Task)
 #'
 #' @family nonparametric functions
-#' @keywords mvn_complete_std
+#' @keywords nb
 #' @inheritParams mvn_dat_task
 #' @export
 mvn_std_nb_bcaci_task <- function(taskid,
@@ -543,7 +543,7 @@ mvn_std_nb_bcaci_task <- function(taskid,
 #'   (Simulation)
 #'
 #' @family nonparametric functions
-#' @keywords mvn_complete_std
+#' @keywords nb
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_std_nb_bcaci_task
 #' @inheritParams jeksterslabRpar::par_lapply

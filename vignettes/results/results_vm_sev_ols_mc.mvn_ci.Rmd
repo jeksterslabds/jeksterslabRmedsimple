@@ -1,0 +1,46 @@
+---
+title: "Results: Monte Carlo Method Confidence Intervals - Data Generated from a Nonnormal Distribution (Vale and Maurelli (1983) - Skewness = 3, Kurtosis = 21) - Complete Data - Ordinary Least Squares Estimates and Standard Errors"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Results: Monte Carlo Method Confidence Intervals - Data Generated from a Nonnormal Distribution (Vale and Maurelli (1983) - Skewness = 3, Kurtosis = 21) - Complete Data - Ordinary Least Squares Estimates and Standard Errors}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r}
+library(jeksterslabRmedsimple)
+data(results_vm_sev_ols_mc.mvn_ci, package = "jeksterslabRmedsimple")
+```
+
+### Plots
+
+#### alpha 0.05
+
+```{r fig.height = 8, fig.width = 11}
+plot_type1(results_vm_sev_ols_mc.mvn_ci)
+plot_power(results_vm_sev_ols_mc.mvn_ci)
+plot_miss(results_vm_sev_ols_mc.mvn_ci)
+```
+
+```{r fig.height = 8, fig.width = 11}
+plot_type1(results_vm_sev_ols_mc.mvn_ci, criteria = "strict")
+plot_miss(results_vm_sev_ols_mc.mvn_ci, criteria = "strict")
+```
+
+#### alpha 0.01
+
+```{r fig.height = 8, fig.width = 11}
+plot_type1(results_vm_sev_ols_mc.mvn_ci, criteria = "liberal", alpha = 0.01)
+plot_miss(results_vm_sev_ols_mc.mvn_ci, criteria = "liberal", alpha = 0.01)
+```

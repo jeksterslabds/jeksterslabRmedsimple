@@ -11,9 +11,21 @@ reference:
 - contents:
   - has_keyword("ram")
 - title: Multivariate normal distribution
-  desc:  Data generation using the multivariate normal distribution.
+  desc:  Multivariate normal distribution.
 - contents:
   - has_keyword("mvn")
+- title: Multivariate normal data
+  desc:  Data generation using the multivariate normal distribution.
+- contents:
+  - has_keyword("mvn_dat")
+- title: Vale and Maurelli (1983)
+  desc:  Vale and Maurelli (1983).
+- contents:
+  - has_keyword("vm")
+- title: Vale and Maurelli (1983) Multivariate Nonnormal Data
+  desc:  Data generation using the Vale and Maurelli (1983) approach.
+- contents:
+  - has_keyword("vm_dat")
 - title: Simple mediation model
   desc:  Fitting the simple mediation model.
 - contents:
@@ -46,38 +58,6 @@ reference:
   desc:  Plot results.
 - contents:
   - has_keyword("plot")
-- title: Multivariate Normal with Complete Data from a Simple Mediation Model
-  desc:  Multivariate normal with complete data from a simple mediation model.
-- contents:
-  - has_keyword("mvn_complete_unstd")
-- title: Multivariate Normal with Complete Data from a Standardized Simple Mediation Model
-  desc:  Multivariate normal with complete data from a standardized simple mediation model.
-- contents:
-  - has_keyword("mvn_complete_std")
-- title: Multivariate Normal with Data Missing Completely at Random from a Simple Mediation Model
-  desc:  Multivariate normal with data missing completely at random from a simple mediation model.
-- contents:
-  - has_keyword("mvn_mcar_unstd")
-- title: Multivariate Normal with Data Missing Completely at Random from a Standardized Simple Mediation Model
-  desc:  Multivariate normal with data missing completely at random from a standardized simple mediation model.
-- contents:
-  - has_keyword("mvn_mcar_std")
-- title: Multivariate Normal with Data Missing at Random from a Simple Mediation Model
-  desc:  Multivariate normal with data missing at random from a simple mediation model.
-- contents:
-  - has_keyword("mvn_mar_unstd")
-- title: Multivariate Normal with Data Missing at Random from a Standardized Simple Mediation Model
-  desc:  Multivariate normal with data missing at random from a standardized simple mediation model.
-- contents:
-  - has_keyword("mvn_mar_std")
-- title: Multivariate Normal with Data Missing Not at Random from a Simple Mediation Model
-  desc:  Multivariate normal with data missing not at random from a simple mediation model.
-- contents:
-  - has_keyword("mvn_mnar_unstd")
-- title: Multivariate Normal with Data Missing Not at Random from a Standardized Simple Mediation Model
-  desc:  Multivariate normal with data missing not at random from a standardized simple mediation model.
-- contents:
-  - has_keyword("mvn_mnar_std")
 - title: Results  
   desc:  Results data.
 - contents:

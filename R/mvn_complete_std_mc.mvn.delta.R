@@ -4,7 +4,7 @@
 #'   for Data Generated from a Multivariate Normal Distribution
 #'
 #' @family monte carlo method functions
-#' @keywords mvn_complete_std
+#' @keywords mc
 #' @inheritParams mc.mvn
 #' @inheritParams useparamsmvn
 #' @param alphahatprime Numeric.
@@ -55,7 +55,7 @@ mvn_std_mc.mvn.delta <- function(taskid,
 #'   (Single Task)
 #'
 #' @family monte carlo method functions
-#' @keywords mvn_complete_std
+#' @keywords mc
 #' @inheritParams mvn_dat_task
 #' @export
 mvn_std_mc.mvn.delta_task <- function(taskid,
@@ -144,7 +144,7 @@ mvn_std_mc.mvn.delta_task <- function(taskid,
 #'   (Simulation)
 #'
 #' @family monte carlo method functions
-#' @keywords mvn_complete_std
+#' @keywords mc
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_std_mc.mvn.delta_task
 #' @inheritParams jeksterslabRpar::par_lapply
@@ -200,7 +200,7 @@ mvn_std_mc.mvn.delta_simulation <- function(dir = getwd(),
 #'   (Single Task)
 #'
 #' @family monte carlo method functions
-#' @keywords mvn_complete_std
+#' @keywords mc
 #' @inheritParams mvn_dat_task
 #' @export
 mvn_std_mc.mvn.delta_pcci_task <- function(taskid,
@@ -262,7 +262,7 @@ mvn_std_mc.mvn.delta_pcci_task <- function(taskid,
 #'   (Simulation)
 #'
 #' @family monte carlo method functions
-#' @keywords mvn_complete_std
+#' @keywords mc
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_std_mc.mvn.delta_task
 #' @inheritParams jeksterslabRpar::par_lapply
@@ -309,7 +309,7 @@ mvn_std_mc.mvn.delta_pcci_simulation <- function(dir = getwd(),
   )
   out <- label(
     out = out,
-    method = "MCMVNDelta",
+    method = "MC.DELTA",
     model = "Simple mediation model",
     std = TRUE
   )

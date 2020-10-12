@@ -4,7 +4,7 @@
 #'   for Data Generated from a Multivariate Normal Distribution - Structural Equation Modeling
 #'
 #' @family model fit functions
-#' @keywords mvn_complete_std
+#' @keywords fit
 #' @importFrom lavaan coef lavInspect vcov
 #' @inheritParams fit.sem
 #' @inheritParams useparamsmvn
@@ -74,7 +74,7 @@ mvn_std_fit.sem <- function(data,
 #'   (Single Task)
 #'
 #' @family model fit functions
-#' @keywords mvn_complete_std
+#' @keywords fit
 #' @inheritParams mvn_std_fit.sem
 #' @inheritParams mvn_dat_task
 #' @export
@@ -163,7 +163,7 @@ mvn_std_fit.sem_task <- function(taskid,
 #'   (Simulation)
 #'
 #' @family model fit functions
-#' @keywords mvn_complete_std
+#' @keywords fit
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_std_fit.sem_task
 #' @inheritParams jeksterslabRpar::par_lapply
@@ -219,7 +219,7 @@ mvn_std_fit.sem_simulation <- function(dir = getwd(),
 #'   (Single Task Summary)
 #'
 #' @family model fit functions
-#' @keywords mvn_complete_std
+#' @keywords fit
 #' @inheritParams mvn_std_fit.sem_task
 #' @importFrom jeksterslabRdist skew
 #' @importFrom jeksterslabRdist kurt
@@ -293,7 +293,7 @@ mvn_std_fit.sem_task_summary <- function(taskid,
 #'   (Simulation Summary)
 #'
 #' @family model fit functions
-#' @keywords mvn_complete_std
+#' @keywords fit
 #' @inheritParams mvn_std_fit.sem_simulation
 #' @inheritParams mvn_dat_simulation
 #' @export
@@ -338,7 +338,7 @@ mvn_std_fit.sem_simulation_summary <- function(dir = getwd(),
   )
   out <- label(
     out = out,
-    method = "fit",
+    method = "fit.sem",
     model = "Simple mediation model",
     std = TRUE
   )

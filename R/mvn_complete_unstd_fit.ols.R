@@ -4,7 +4,7 @@
 #'   for Data Generated from a Multivariate Normal Distribution - Ordinary Least Squares
 #'
 #' @family model fit functions
-#' @keywords mvn_complete_unstd
+#' @keywords fit
 #' @inheritParams fit.ols
 #' @inheritParams useparamsmvn
 #' @examples
@@ -44,7 +44,7 @@ mvn_fit.ols <- function(data,
 #'   (Single Task)
 #'
 #' @family model fit functions
-#' @keywords mvn_complete_unstd
+#' @keywords fit
 #' @inheritParams mvn_fit.ols
 #' @inheritParams mvn_dat_task
 #' @export
@@ -133,7 +133,7 @@ mvn_fit.ols_task <- function(taskid,
 #'   (Simulation)
 #'
 #' @family model fit functions
-#' @keywords mvn_complete_unstd
+#' @keywords fit
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams mvn_fit.ols_task
 #' @inheritParams jeksterslabRpar::par_lapply
@@ -189,7 +189,7 @@ mvn_fit.ols_simulation <- function(dir = getwd(),
 #'   (Single Task Summary)
 #'
 #' @family model fit functions
-#' @keywords mvn_complete_unstd
+#' @keywords fit
 #' @inheritParams mvn_fit.ols_task
 #' @importFrom jeksterslabRdist skew
 #' @importFrom jeksterslabRdist kurt
@@ -275,7 +275,7 @@ mvn_fit.ols_task_summary <- function(taskid,
 #'   (Simulation Summary)
 #'
 #' @family model fit functions
-#' @keywords mvn_complete_unstd
+#' @keywords fit
 #' @inheritParams mvn_fit.ols_simulation
 #' @inheritParams mvn_dat_simulation
 #' @export

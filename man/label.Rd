@@ -4,7 +4,7 @@
 \alias{label}
 \title{Generate Labels}
 \usage{
-label(out, method, model, std, missing = "NON")
+label(out, method, model, std, missing = "Complete")
 }
 \arguments{
 \item{out}{Object.
