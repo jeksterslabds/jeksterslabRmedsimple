@@ -13,12 +13,19 @@
 #' @param std Logical.
 #'   If `TRUE`, standardized indirect effect.
 #'   If `FALSE`, unstandardized indirect effect.
+#' @param missing Character string.
+#'   Type of missingness.
+#'   `missing = "NON"` for complete data.
+#'   `missing = "MCAR"` for missing completely at random.
+#'   `missingess = "MAR"` for missing at random.
 #' @export
 label <- function(out,
                   method,
                   model,
-                  std) {
+                  std,
+                  missing = "Complete") {
   out <- as.data.frame(out)
+  out$missing <- missing
   if (std) {
     out$std <- "Standardized"
   } else {

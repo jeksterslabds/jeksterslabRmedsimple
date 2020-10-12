@@ -3,7 +3,7 @@
 \docType{data}
 \name{results_mvn_ci}
 \alias{results_mvn_ci}
-\title{Monte Carlo Simulation Results - Confidence Intervals (Multivariate Normal)}
+\title{Monte Carlo Simulation Results - Confidence Intervals (Multivariate Normal with Complete Data)}
 \format{
 A data frame with the following variables
 \describe{
@@ -134,55 +134,61 @@ Mean power for the 95\% confidence interval.
 Lower limit of the liberal criteria for the 99.9\% confidence interval.
 }
 \item{liberal_ul_99.9}{
-Lower limit of the liberal criteria for the 99.9\% confidence interval.
+Upper limit of the liberal criteria for the 99.9\% confidence interval.
 }
 \item{moderate_ll_99.9}{
 Lower limit of the moderate criteria for the 99.9\% confidence interval.
 }
 \item{moderate_ul_99.9}{
-Lower limit of the moderate criteria for the 99.9\% confidence interval.
+Upper limit of the moderate criteria for the 99.9\% confidence interval.
 }
 \item{strict_ll_99.9}{
 Lower limit of the strict criteria for the 99.9\% confidence interval.
 }
 \item{strict_ul_99.9}{
-Lower limit of the strict criteria for the 99.9\% confidence interval.
+Upper limit of the strict criteria for the 99.9\% confidence interval.
 }
 \item{liberal_ll_99}{
 Lower limit of the liberal criteria for the 99\% confidence interval.
 }
 \item{liberal_ul_99}{
-Lower limit of the liberal criteria for the 99\% confidence interval.
+Upper limit of the liberal criteria for the 99\% confidence interval.
 }
 \item{moderate_ll_99}{
 Lower limit of the moderate criteria for the 99\% confidence interval.
 }
 \item{moderate_ul_99}{
-Lower limit of the moderate criteria for the 99\% confidence interval.
+Upper limit of the moderate criteria for the 99\% confidence interval.
 }
 \item{strict_ll_99}{
 Lower limit of the strict criteria for the 99\% confidence interval.
 }
 \item{strict_ul_99}{
-Lower limit of the strict criteria for the 99\% confidence interval.
+Upper limit of the strict criteria for the 99\% confidence interval.
 }
 \item{liberal_ll_95}{
 Lower limit of the liberal criteria for the 95\% confidence interval.
 }
 \item{liberal_ul_95}{
-Lower limit of the liberal criteria for the 95\% confidence interval.
+Upper limit of the liberal criteria for the 95\% confidence interval.
 }
 \item{moderate_ll_95}{
 Lower limit of the moderate criteria for the 95\% confidence interval.
 }
 \item{moderate_ul_95}{
-Lower limit of the moderate criteria for the 95\% confidence interval.
+Upper limit of the moderate criteria for the 95\% confidence interval.
 }
 \item{strict_ll_95}{
 Lower limit of the strict criteria for the 95\% confidence interval.
 }
 \item{strict_ul_95}{
-Lower limit of the strict criteria for the 95\% confidence interval.
+Upper limit of the strict criteria for the 95\% confidence interval.
+}
+\item{serlin_ll_95}{
+Lower limit of the Serlin criteria for the 95\% confidence interval.
+}
+\item{serlin_ul_95}{
+Upper limit of the Serlin criteria for the 95\% confidence interval.
 }
 \item{liberal_99.9}{
 Logical. 1 if miss rate is inside the liberal robustness criteria for 99.9\% confidence interval.
@@ -211,6 +217,12 @@ Logical. 1 if miss rate is inside the strict robustness criteria for 99\% confid
 \item{strict_95}{
 Logical. 1 if miss rate is inside the strict robustness criteria for 95\% confidence interval.
 }
+\item{serlin_95}{
+Logical. 1 if miss rate is inside the Serlin robustness criteria for 95\% confidence interval.
+}
+\item{missing}{
+Type of missingness.
+}
 \item{std}{
 Standardized vs. unstandardize indirect effect.
 }
@@ -238,7 +250,7 @@ Sample size labels.
 results_mvn_ci
 }
 \description{
-Monte Carlo Simulation Results - Confidence Intervals (Multivariate Normal)
+Monte Carlo Simulation Results - Confidence Intervals (Multivariate Normal with Complete Data)
 }
 \details{
 The simple mediation model is given by
@@ -268,8 +280,19 @@ str(results_mvn_ci)
 }
 \seealso{
 Other results functions: 
-\code{\link{results_mvn_fit}},
-\code{\link{results_mvn_std_ci}}
+\code{\link{results_mvn_fit.ols}},
+\code{\link{results_mvn_fit.sem}},
+\code{\link{results_mvn_mar_ci}},
+\code{\link{results_mvn_mar_fit.sem}},
+\code{\link{results_mvn_mar_std_fit.sem}},
+\code{\link{results_mvn_mcar_ci}},
+\code{\link{results_mvn_mcar_fit.sem}},
+\code{\link{results_mvn_mcar_std_fit.sem}},
+\code{\link{results_mvn_missing_ci}},
+\code{\link{results_mvn_mnar_ci}},
+\code{\link{results_mvn_mnar_fit.sem}},
+\code{\link{results_mvn_std_ci}},
+\code{\link{results_mvn_std_fit.sem}}
 }
 \concept{results functions}
 \keyword{results}

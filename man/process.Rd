@@ -7,6 +7,9 @@
 process(taskid, out)
 }
 \arguments{
+\item{taskid}{Numeric.
+Task ID.}
+
 \item{out}{Object.
 Output of \verb{*_task}.}
 }

@@ -77,10 +77,5 @@ data(paramsmvn, package = "jeksterslabRmedsimple")
 head(paramsmvn)
 str(paramsmvn)
 }
-\seealso{
-Other parameters functions: 
-\code{\link{paramsexp}},
-\code{\link{paramspois}}
-}
 \concept{parameters functions}
 \keyword{parameters}

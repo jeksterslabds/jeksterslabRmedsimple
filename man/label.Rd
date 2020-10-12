@@ -4,7 +4,7 @@
 \alias{label}
 \title{Generate Labels}
 \usage{
-label(out, method, model, std)
+label(out, method, model, std, missing = "Complete")
 }
 \arguments{
 \item{out}{Object.
@@ -19,6 +19,12 @@ Model used.}
 \item{std}{Logical.
 If \code{TRUE}, standardized indirect effect.
 If \code{FALSE}, unstandardized indirect effect.}
+
+\item{missing}{Character string.
+Type of missingness.
+\code{missing = "NON"} for complete data.
+\code{missing = "MCAR"} for missing completely at random.
+\code{missingess = "MAR"} for missing at random.}
 }
 \description{
 Generate Labels

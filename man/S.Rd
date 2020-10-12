@@ -11,13 +11,13 @@ S(sigma2x, sigma2epsilonm, sigma2epsilony)
 Variance of \code{x} \eqn{\left( \sigma_{x}^{2} \right)}.}
 
 \item{sigma2epsilonm}{Numeric.
-Residual variance of \eqn{\varepsilon_{m_{i}}} \eqn{\left( \sigma_{\varepsilon_m}^{2} \right)}.}
+Error variance of \eqn{\varepsilon_{m_{i}}} \eqn{\left( \sigma_{\varepsilon_m}^{2} \right)}.}
 
 \item{sigma2epsilony}{Numeric.
-Residual variance of \eqn{\varepsilon_{y_{i}}} \eqn{\left( \sigma_{\varepsilon_y}^{2} \right)}.}
+Error variance of \eqn{\varepsilon_{y_{i}}} \eqn{\left( \sigma_{\varepsilon_y}^{2} \right)}.}
 }
 \description{
-Matrix of variance of \code{x} and residual variances from the simple mediation model.
+Matrix of variance of \code{x} and error variances from the simple mediation model.
 }
 \details{
 The simple mediation model is given by
@@ -49,10 +49,13 @@ S(
 }
 \seealso{
 Other reticular action model functions: 
+\code{\link{A.std}()},
 \code{\link{A}()},
 \code{\link{Mfrommu}()},
 \code{\link{M}()},
+\code{\link{S.std}()},
 \code{\link{Sfromsigma2}()},
+\code{\link{Sigmatheta.std}()},
 \code{\link{Sigmathetafromsigma2}()},
 \code{\link{Sigmatheta}()},
 \code{\link{mutheta}()}

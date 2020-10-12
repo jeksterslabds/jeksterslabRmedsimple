@@ -27,8 +27,14 @@ Percentile Confidence Intervals
 \examples{
 B <- 5000
 data <- jeksterslabRdatarepo::thirst
-thetahat <- .fit(data, minimal = TRUE)
-thetahatstar <- .pbmvn(data = data, B = 5000, par = FALSE)
+thetahat <- fit.ols(data, minimal = TRUE)
+n <- nrow(data)
+muthetahat <- colMeans(data)
+Sigmathetahat <- cov(data)
+thetahatstar <- pb.mvn(
+  muthetahat = muthetahat, Sigmathetahat = Sigmathetahat,
+  n = n, B = 5000, par = FALSE
+)
 pcci(
   thetahatstar = thetahatstar,
   thetahat = thetahat,

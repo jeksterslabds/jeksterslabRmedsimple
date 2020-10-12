@@ -1,8 +1,8 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Fit Simple Mediation Model - Minimal
+#' @title Fit Simple Mediation Model - Ordinary Least Squares
 #'
-#' @description Fits the simple mediation model and returns the indirect effect.
+#' @description Fits the simple mediation model using Ordinary Least Squares and returns the indirect effect.
 #'
 #' @details The fitted simple mediation model is given by
 #'   \deqn{
@@ -35,7 +35,7 @@
 #' @family model fit functions
 #' @keywords fit
 #' @import jeksterslabRlinreg
-#' @importFrom stats var
+#' @importFrom stats var sd
 #' @param data `n` by 3 matrix or data frame.
 #'   `data[, 1]` correspond to values for `x`.
 #'   `data[, 2]` correspond to values for `m`.
@@ -51,13 +51,15 @@
 #'     = \hat{\alpha} \hat{\beta} \frac{\hat{\sigma}_x}{\hat{\sigma}_y}}.
 #' @examples
 #' data <- jeksterslabRdatarepo::thirst
-#' .fit(data, minimal = TRUE)
-#' .fit(data, minimal = TRUE, std = TRUE)
-#' .fit(data, minimal = FALSE)
+#' fit.ols(data = data, minimal = TRUE)
+#' fit.ols(data = data, minimal = TRUE, std = TRUE)
+#' fit.ols(data = data, minimal = FALSE)
 #' @export
-.fit <- function(data,
-                 minimal = TRUE,
-                 std = FALSE) {
+fit.ols <- function(data,
+                    minimal = TRUE,
+                    std = FALSE) {
+  # listwise deletion by default
+  data <- data[complete.cases(data), ]
   x <- data[, 1]
   m <- data[, 2]
   y <- data[, 3]
@@ -140,13 +142,21 @@
     X = X2,
     y = y2
   )
-  seprime1 <- sehatslopeshatprimedelta(
+  seprimetb2 <- sehatslopeshatprimetb(
+    X = X2,
+    y = y2
+  )
+  seprimedelta1 <- sehatslopeshatprimedelta(
     X = X1,
     y = y1
   )
-  seprime2 <- sehatslopeshatprimedelta(
+  seprimedelta2 <- sehatslopeshatprimedelta(
     X = X2,
     y = y2
+  )
+  seprimetb1 <- sehatslopeshatprimetb(
+    X = X1,
+    y = y1
   )
   # collate results
   est <- c(
@@ -175,8 +185,10 @@
   )
   S <- c(
     sigma2xhat = var(x),
-    sigma2epsilonmhat = sigma2hatepsilonhat2,
-    sigma2epsilonyhat = sigma2hatepsilonhat1
+    sigma2hatepsilonmhat = sigma2hatepsilonhat2,
+    sigma2hatepsilonyhat = sigma2hatepsilonhat1
+    # sigma2epsilonmhat = sigma2hatepsilonhat2,
+    # sigma2epsilonyhat = sigma2hatepsilonhat1
   )
   se <- c(
     se1,
@@ -189,14 +201,23 @@
     "sehatdeltamhat",
     "sehatalphahat"
   )
-  seprime <- c(
-    seprime1,
-    seprime2
+  seprimetb <- c(
+    seprimetb1,
+    seprimetb2
   )
-  names(seprime) <- c(
-    "sehattaudothatprime",
-    "sehatbetahatprime",
-    "sehatalphahatprime"
+  names(seprimetb) <- c(
+    "sehattaudothatprimetb",
+    "sehatbetahatprimetb",
+    "sehatalphahatprimetb"
+  )
+  seprimedelta <- c(
+    seprimedelta1,
+    seprimedelta2
+  )
+  names(seprimedelta) <- c(
+    "sehattaudothatprimedelta",
+    "sehatbetahatprimedelta",
+    "sehatalphahatprimedelta"
   )
   out <- c(
     est,
@@ -204,7 +225,8 @@
     S,
     muxhat = mean(x),
     se,
-    seprime
+    seprimetb,
+    seprimedelta
   )
   out
 }

@@ -102,6 +102,7 @@ Mfrommu <- function(mux,
 #'   beta = 0.451039,
 #'   alpha = 0.338593
 #' )
+#' colMeans(jeksterslabRdatarepo::thirst)
 #' @export
 mutheta <- function(mux,
                     deltam,
@@ -186,9 +187,65 @@ A <- function(taudot,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
+#' @title Standardized A Matrix
+#'
+#' @description Matrix of regression slopes from the standardized simple mediation model.
+#'
+#' @family reticular action model functions
+#' @keywords ram
+#' @param taudotprime Numeric.
+#'   Standardized slope of path from `x` to `y` \eqn{\left( \dot{\tau}^{\prime} \right)}.
+#' @param betaprime Numeric.
+#'   Standardized slope of path from `m` to `y` \eqn{\left( \beta^{\prime} \right)} .
+#' @param alphaprime Numeric.
+#'   Standardized slope of path from `x` to `m` \eqn{\left( \alpha^{\prime} \right)} .
+#' @param lambdax Numeric.
+#'   Factor loading `xlatent ~ x` \eqn{ \left( \lambda_x \right)} .
+#'   Numerically equivalent to the standard deviation of `x`.
+#' @param lambdam Numeric.
+#'   Factor loading `mlatent ~ m` \eqn{ \left( \lambda_m \right)} .
+#'   Numerically equivalent to the standard deviation of `m`.
+#' @param lambday Numeric.
+#'   Factor loading `ylatent ~ y` \eqn{ \left( \lambda_y \right)} .
+#'   Numerically equivalent to the standard deviation of `y`.
+#' @examples
+#' A.std(
+#'   taudotprime = 0.2080748,
+#'   betaprime = 0.4126006,
+#'   alphaprime = 0.3708979,
+#'   lambdax = 1.137308,
+#'   lambdam = 1.038248,
+#'   lambday = 1.134973
+#' )
+#' @export
+A.std <- function(taudotprime,
+                  betaprime,
+                  alphaprime,
+                  lambdax,
+                  lambdam,
+                  lambday) {
+  A <- matrix(
+    data = 0,
+    ncol = 6,
+    nrow = 6
+  )
+  A[1, 4] <- lambdax
+  A[2, 5] <- lambdam
+  A[3, 6] <- lambday
+  A[5, 4] <- alphaprime
+  A[6, 4] <- taudotprime
+  A[6, 5] <- betaprime
+  varnames <- c("x", "m", "y", "xlatent", "mlatent", "ylatent")
+  colnames(A) <- varnames
+  rownames(A) <- varnames
+  A
+}
+
+#' @author Ivan Jacob Agaloos Pesigan
+#'
 #' @title S Matrix
 #'
-#' @description Matrix of variance of `x` and residual variances from the simple mediation model.
+#' @description Matrix of variance of `x` and error variances from the simple mediation model.
 #'
 #' @family reticular action model functions
 #' @keywords ram
@@ -196,9 +253,9 @@ A <- function(taudot,
 #' @param sigma2x Numeric.
 #'   Variance of `x` \eqn{\left( \sigma_{x}^{2} \right)}.
 #' @param sigma2epsilonm Numeric.
-#'   Residual variance of \eqn{\varepsilon_{m_{i}}} \eqn{\left( \sigma_{\varepsilon_m}^{2} \right)}.
+#'   Error variance of \eqn{\varepsilon_{m_{i}}} \eqn{\left( \sigma_{\varepsilon_m}^{2} \right)}.
 #' @param sigma2epsilony Numeric.
-#'   Residual variance of \eqn{\varepsilon_{y_{i}}} \eqn{\left( \sigma_{\varepsilon_y}^{2} \right)}.
+#'   Error variance of \eqn{\varepsilon_{y_{i}}} \eqn{\left( \sigma_{\varepsilon_y}^{2} \right)}.
 #' @examples
 #' S(
 #'   sigma2x = 1.293469,
@@ -218,9 +275,40 @@ S <- function(sigma2x,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
+#' @title Standardized S Matrix
+#'
+#' @description Matrix of error variances from the standardized simple mediation model.
+#'
+#' @family reticular action model functions
+#' @keywords ram
+#' @param sigma2epsilonm Numeric.
+#'   Error variance of \eqn{\varepsilon_{m_{latent_{i}}}} \eqn{\left( \sigma_{\varepsilon_{m_{latent}}}^{2} \right)}.
+#' @param sigma2epsilony Numeric.
+#'   Error variance of \eqn{\varepsilon_{y_{latent_{i}}}} \eqn{\left( \sigma_{\varepsilon_{y_{latent}}}^{2} \right)}.
+#' @examples
+#' S.std(sigma2epsilonm = 0.8624347, sigma2epsilony = 0.7227811)
+#' @export
+S.std <- function(sigma2epsilonm,
+                  sigma2epsilony) {
+  S <- matrix(
+    data = 0,
+    ncol = 6,
+    nrow = 6
+  )
+  S[4, 4] <- 1
+  S[5, 5] <- sigma2epsilonm
+  S[6, 6] <- sigma2epsilony
+  varnames <- c("x", "m", "y", "xlatent", "mlatent", "ylatent")
+  colnames(S) <- varnames
+  rownames(S) <- varnames
+  S
+}
+
+#' @author Ivan Jacob Agaloos Pesigan
+#'
 #' @title S Matrix from Variances of `x`, `m`, and `y` and the `A` matrix
 #'
-#' @description Matrix of variance of `x` and residual variances from the simple mediation model
+#' @description Matrix of variance of `x` and error variances from the simple mediation model
 #'   from variances of `x`, `m`, and `y` and the `A` matrix.
 #'
 #' @family reticular action model functions
@@ -306,6 +394,7 @@ Sfromsigma2 <- function(taudot,
 #'   sigma2epsilonm = 0.9296691,
 #'   sigma2epsilony = 0.9310597
 #' )
+#' cov(jeksterslabRdatarepo::thirst)
 #' @export
 Sigmatheta <- function(taudot,
                        beta,
@@ -351,6 +440,7 @@ Sigmatheta <- function(taudot,
 #'   sigma2m = 1.0779592,
 #'   sigma2y = 1.2881633
 #' )
+#' cov(jeksterslabRdatarepo::thirst)
 #' @export
 Sigmathetafromsigma2 <- function(taudot,
                                  beta,
@@ -375,6 +465,66 @@ Sigmathetafromsigma2 <- function(taudot,
     diag(nrow(A)) - A
   )
   Sigmatheta <- invIminusA %*% S %*% t(invIminusA)
+  colnames(Sigmatheta) <- c("x", "m", "y")
+  rownames(Sigmatheta) <- c("x", "m", "y")
+  Sigmatheta
+}
+
+#' @author Ivan Jacob Agaloos Pesigan
+#'
+#' @title Standardized Model-Implied Variance-Covariance Matrix
+#'
+#' @description Model-implied variance-covariance matrix from the standardized simple mediation model.
+#'
+#' @family reticular action model functions
+#' @keywords ram
+#' @inheritParams A.std
+#' @inheritParams S.std
+#' @examples
+#' Sigmatheta.std(
+#'   taudotprime = 0.2080748,
+#'   betaprime = 0.4126006,
+#'   alphaprime = 0.3708979,
+#'   lambdax = 1.137308,
+#'   lambdam = 1.038248,
+#'   lambday = 1.134973,
+#'   sigma2epsilonm = 0.8624347,
+#'   sigma2epsilony = 0.7227811
+#' )
+#' cov(jeksterslabRdatarepo::thirst)
+#' @export
+Sigmatheta.std <- function(taudotprime,
+                           betaprime,
+                           alphaprime,
+                           lambdax,
+                           lambdam,
+                           lambday,
+                           sigma2epsilonm,
+                           sigma2epsilony) {
+  A <- A.std(
+    taudotprime = taudotprime,
+    betaprime = betaprime,
+    alphaprime = alphaprime,
+    lambdax = lambdax,
+    lambdam = lambdam,
+    lambday = lambday
+  )
+  S <- S.std(
+    sigma2epsilonm = sigma2epsilonm,
+    sigma2epsilony = sigma2epsilony
+  )
+  F <- matrix(
+    data = 0,
+    ncol = 6,
+    nrow = 3
+  )
+  F[1, 1] <- 1
+  F[2, 2] <- 1
+  F[3, 3] <- 1
+  invIminusA <- solve(
+    diag(nrow(A)) - A
+  )
+  Sigmatheta <- F %*% invIminusA %*% S %*% t(invIminusA) %*% t(F)
   colnames(Sigmatheta) <- c("x", "m", "y")
   rownames(Sigmatheta) <- c("x", "m", "y")
   Sigmatheta

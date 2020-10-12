@@ -20,7 +20,7 @@ Roxygen: list(markdown = TRUE)
 URL: https://github.com/jeksterslabds/jeksterslabRmedsimple
 BugReports: https://github.com/jeksterslabds/jeksterslabRmedsimple/issues
 SystemRequirements:
-	git
+	Mplus
 Depends:
 	R (>= 3.5.0)
 Imports:
@@ -32,6 +32,7 @@ Imports:
     lavaan,
     ggplot2,
     mice,
+    MplusAutomation,
     jeksterslabRlinreg,
     jeksterslabRdatarepo,
     jeksterslabRpar,

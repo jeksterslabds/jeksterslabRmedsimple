@@ -19,8 +19,14 @@
 #' @examples
 #' B <- 5000
 #' data <- jeksterslabRdatarepo::thirst
-#' thetahat <- .fit(data, minimal = TRUE)
-#' thetahatstar <- .pbmvn(data = data, B = 5000, par = FALSE)
+#' thetahat <- fit.ols(data, minimal = TRUE)
+#' n <- nrow(data)
+#' muthetahat <- colMeans(data)
+#' Sigmathetahat <- cov(data)
+#' thetahatstar <- pb.mvn(
+#'   muthetahat = muthetahat, Sigmathetahat = Sigmathetahat,
+#'   n = n, B = 5000, par = FALSE
+#' )
 #' pcci(
 #'   thetahatstar = thetahatstar,
 #'   thetahat = thetahat,
@@ -81,8 +87,14 @@ pcci <- function(thetahatstar,
 #' @examples
 #' B <- 5000
 #' data <- jeksterslabRdatarepo::thirst
-#' thetahat <- .fit(data, minimal = TRUE)
-#' thetahatstar <- .pbmvn(data = data, B = 5000, par = FALSE)
+#' thetahat <- fit.ols(data, minimal = TRUE)
+#' n <- nrow(data)
+#' muthetahat <- colMeans(data)
+#' Sigmathetahat <- cov(data)
+#' thetahatstar <- pb.mvn(
+#'   muthetahat = muthetahat, Sigmathetahat = Sigmathetahat,
+#'   n = n, B = 5000, par = FALSE
+#' )
 #' bcci(
 #'   thetahatstar = thetahatstar,
 #'   thetahat = thetahat,
@@ -151,17 +163,24 @@ bcci <- function(thetahatstar,
 #' @importFrom stats pnorm
 #' @importFrom jeksterslabRpar par_lapply
 #' @inheritParams pcci
-#' @inheritParams .fit
+#' @inheritParams nb
+#' @inheritParams fit.ols
 #' @inheritParams jeksterslabRpar::par_lapply
 #' @param thetahatstarjack Numeric vector.
 #'   Jackknife vector of parameter estimates.
 #'   If `thetahatstarjack = NULL`,
-#'   `thetahatstarjack` is calculated using [`.jack()`].
+#'   `thetahatstarjack` is calculated using [`jack()`].
 #' @examples
 #' B <- 5000
 #' data <- jeksterslabRdatarepo::thirst
-#' thetahat <- .fit(data, minimal = TRUE)
-#' thetahatstar <- .pbmvn(data = data, B = 5000, par = FALSE)
+#' n <- nrow(data)
+#' muthetahat <- colMeans(data)
+#' Sigmathetahat <- cov(data)
+#' thetahat <- fit.ols(data, minimal = TRUE)
+#' thetahatstar <- pb.mvn(
+#'   muthetahat = muthetahat, Sigmathetahat = Sigmathetahat,
+#'   n = n, B = 5000, par = FALSE
+#' )
 #' bcaci(
 #'   thetahatstar = thetahatstar,
 #'   thetahat = thetahat,
@@ -169,8 +188,11 @@ bcci <- function(thetahatstar,
 #'   data = data,
 #'   par = FALSE
 #' )
-#' thetahat <- .fit(data, minimal = TRUE, std = TRUE)
-#' thetahatstar <- .pbmvn(data = data, std = TRUE, B = 5000, par = FALSE)
+#' thetahat <- fit.ols(data, minimal = TRUE, std = TRUE)
+#' thetahatstar <- pb.mvn(
+#'   muthetahat = muthetahat, Sigmathetahat = Sigmathetahat,
+#'   n = n, std = TRUE, B = 5000, par = FALSE
+#' )
 #' bcaci(
 #'   thetahatstar = thetahatstar,
 #'   thetahat = thetahat,
@@ -186,6 +208,7 @@ bcaci <- function(thetahatstar,
                   theta = NULL,
                   data,
                   std = FALSE,
+                  complete = TRUE,
                   alpha = c(0.001, 0.01, 0.05),
                   par = TRUE,
                   ncores = NULL,
@@ -202,9 +225,10 @@ bcaci <- function(thetahatstar,
   )
   # acceleration
   if (is.null(thetahatstarjack)) {
-    thetahatstarjack <- .jack(
+    thetahatstarjack <- jack(
       data = data,
       std = std,
+      complete = complete,
       par = par,
       ncores = ncores,
       blas_threads = blas_threads,

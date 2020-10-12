@@ -4,7 +4,7 @@
 \alias{plot_type1}
 \title{Plot Type I Error Rates}
 \usage{
-plot_type1(data, alpha_level = 0.05, criteria = "liberal")
+plot_type1(data, alpha_level = 0.05, criteria = "serlin")
 }
 \arguments{
 \item{data}{Dataframe of results.}
@@ -13,7 +13,7 @@ plot_type1(data, alpha_level = 0.05, criteria = "liberal")
 Available values are \code{0.05}, \code{0.01}, \code{0.001}.}
 
 \item{criteria}{Character string.
-Available values are \code{"liberal"}, \code{"moderate"}, \code{"strict"}.}
+Available values are \code{"serlin"}, \code{"liberal"}, \code{"moderate"}, \code{"strict"}.}
 }
 \description{
 Plot Type I Error Rates

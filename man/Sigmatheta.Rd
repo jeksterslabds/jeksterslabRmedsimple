@@ -20,10 +20,10 @@ Slope of path from \code{x} to \code{m} \eqn{\left( \alpha \right)} .}
 Variance of \code{x} \eqn{\left( \sigma_{x}^{2} \right)}.}
 
 \item{sigma2epsilonm}{Numeric.
-Residual variance of \eqn{\varepsilon_{m_{i}}} \eqn{\left( \sigma_{\varepsilon_m}^{2} \right)}.}
+Error variance of \eqn{\varepsilon_{m_{i}}} \eqn{\left( \sigma_{\varepsilon_m}^{2} \right)}.}
 
 \item{sigma2epsilony}{Numeric.
-Residual variance of \eqn{\varepsilon_{y_{i}}} \eqn{\left( \sigma_{\varepsilon_y}^{2} \right)}.}
+Error variance of \eqn{\varepsilon_{y_{i}}} \eqn{\left( \sigma_{\varepsilon_y}^{2} \right)}.}
 }
 \description{
 Model-implied variance-covariance matrix from the simple mediation model.
@@ -58,13 +58,17 @@ Sigmatheta(
   sigma2epsilonm = 0.9296691,
   sigma2epsilony = 0.9310597
 )
+cov(jeksterslabRdatarepo::thirst)
 }
 \seealso{
 Other reticular action model functions: 
+\code{\link{A.std}()},
 \code{\link{A}()},
 \code{\link{Mfrommu}()},
 \code{\link{M}()},
+\code{\link{S.std}()},
 \code{\link{Sfromsigma2}()},
+\code{\link{Sigmatheta.std}()},
 \code{\link{Sigmathetafromsigma2}()},
 \code{\link{S}()},
 \code{\link{mutheta}()}

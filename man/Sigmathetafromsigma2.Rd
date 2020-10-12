@@ -58,13 +58,17 @@ Sigmathetafromsigma2(
   sigma2m = 1.0779592,
   sigma2y = 1.2881633
 )
+cov(jeksterslabRdatarepo::thirst)
 }
 \seealso{
 Other reticular action model functions: 
+\code{\link{A.std}()},
 \code{\link{A}()},
 \code{\link{Mfrommu}()},
 \code{\link{M}()},
+\code{\link{S.std}()},
 \code{\link{Sfromsigma2}()},
+\code{\link{Sigmatheta.std}()},
 \code{\link{Sigmatheta}()},
 \code{\link{S}()},
 \code{\link{mutheta}()}

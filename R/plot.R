@@ -9,11 +9,11 @@
 #' @param alpha_level Numeric.
 #'   Available values are `0.05`, `0.01`, `0.001`.
 #' @param criteria Character string.
-#'   Available values are `"liberal"`, `"moderate"`, `"strict"`.
+#'   Available values are `"serlin"`, `"liberal"`, `"moderate"`, `"strict"`.
 #' @export
 plot_type1 <- function(data,
                        alpha_level = 0.05,
-                       criteria = "liberal") {
+                       criteria = "serlin") {
   theta_label <- zero_hit_95 <- zero_hit_99 <- zero_hit_99.9 <- Method <- NULL
   # only zero effect sizes
   data <- data[which(data$theta == 0), ]
@@ -21,14 +21,19 @@ plot_type1 <- function(data,
     data$theta_label,
     levels = c(
       "0.00(0.00,0.00)",
-      "0.00(0.00,0.14)",
-      "0.00(0.14,0.00)",
-      "0.00(0.00,0.36)",
-      "0.00(0.36,0.00)",
-      "0.00(0.00,0.51)",
-      "0.00(0.51,0.00)"
+      "0.00(0.00,0.38)",
+      "0.00(0.38,0.00)",
+      "0.00(0.00,0.60)",
+      "0.00(0.60,0.00)",
+      "0.00(0.00,0.71)",
+      "0.00(0.71,0.00)"
     )
   )
+  if (criteria == "serlin") {
+    ll <- mean(data$serlin_ll_95)
+    ul <- mean(data$serlin_ul_95)
+    alpha_level <- 0.05
+  }
   if (criteria == "liberal") {
     if (alpha_level == 0.001) {
       ll <- mean(data$liberal_ll_99.9)
@@ -261,10 +266,15 @@ plot_power <- function(data,
 #' @export
 plot_miss <- function(data,
                       alpha_level = 0.05,
-                      criteria = "liberal") {
+                      criteria = "serlin") {
   theta_label <- theta_miss_95 <- theta_miss_99 <- theta_miss_99.9 <- Method <- NULL
   # only non-zero effect sizes
   data <- data[which(data$theta > 0), ]
+  if (criteria == "serlin") {
+    ll <- mean(data$serlin_ll_95)
+    ul <- mean(data$serlin_ul_95)
+    alpha_level <- 0.05
+  }
   if (criteria == "liberal") {
     if (alpha_level == 0.001) {
       ll <- mean(data$liberal_ll_99.9)
@@ -410,14 +420,16 @@ plot_miss <- function(data,
 #' @export
 plot_kurt <- function(data,
                       std = FALSE) {
-  alphahatbetahat_kurt <- alphahatprimebetahatprime_kurt <- taudot_label <- NULL
+  alphahatbetahat_kurt <- alphahatprimebetahatprime_kurt <- taudot_label <- missing <- NULL
   if (std) {
     p <- ggplot(
       data = data,
       aes(
         x = taudot_label,
         y = alphahatprimebetahatprime_kurt,
-        group = 1
+        color = missing,
+        group = missing,
+        linetype = missing
       )
     )
   } else {
@@ -426,16 +438,18 @@ plot_kurt <- function(data,
       aes(
         x = taudot_label,
         y = alphahatbetahat_kurt,
-        group = 1
+        color = missing,
+        group = missing,
+        linetype = missing
       )
     )
   }
   p + geom_point(
-    color = "red",
+    # color = "red",
     size = 0.75
   ) +
     geom_path(
-      color = "red",
+      # color = "red",
       size = 0.75
     ) +
     facet_grid(
@@ -480,14 +494,16 @@ plot_kurt <- function(data,
 #' @export
 plot_bias <- function(data,
                       std = FALSE) {
-  alphahatbetahat_bias <- alphahatprimebetahatprime_bias <- taudot_label <- NULL
+  alphahatbetahat_bias <- alphahatprimebetahatprime_bias <- taudot_label <- missing <- NULL
   if (std) {
     p <- ggplot(
       data = data,
       aes(
         x = taudot_label,
         y = alphahatprimebetahatprime_bias,
-        group = 1
+        color = missing,
+        group = missing,
+        linetype = missing
       )
     )
   } else {
@@ -496,7 +512,9 @@ plot_bias <- function(data,
       aes(
         x = taudot_label,
         y = alphahatbetahat_bias,
-        group = 1
+        color = missing,
+        group = missing,
+        linetype = missing
       )
     )
   }
@@ -504,11 +522,11 @@ plot_bias <- function(data,
     yintercept = 0,
     alpha = 0.5
   ) + geom_point(
-    color = "red",
+    # color = "red",
     size = 0.75
   ) +
     geom_path(
-      color = "red",
+      # color = "red",
       size = 0.75
     ) +
     facet_grid(
@@ -550,14 +568,16 @@ plot_bias <- function(data,
 #' @export
 plot_rmse <- function(data,
                       std = FALSE) {
-  alphahatbetahat_rmse <- alphahatprimebetahatprime_rmse <- taudot_label <- NULL
+  alphahatbetahat_rmse <- alphahatprimebetahatprime_rmse <- taudot_label <- missing <- NULL
   if (std) {
     p <- ggplot(
       data = data,
       aes(
         x = taudot_label,
         y = alphahatprimebetahatprime_rmse,
-        group = 1
+        color = missing,
+        group = missing,
+        linetype = missing
       )
     )
   } else {
@@ -566,7 +586,9 @@ plot_rmse <- function(data,
       aes(
         x = taudot_label,
         y = alphahatbetahat_rmse,
-        group = 1
+        color = missing,
+        group = missing,
+        linetype = missing
       )
     )
   }
@@ -574,11 +596,11 @@ plot_rmse <- function(data,
     yintercept = 0,
     alpha = 0.5
   ) + geom_point(
-    color = "red",
+    # color = "red",
     size = 0.75
   ) +
     geom_path(
-      color = "red",
+      # color = "red",
       size = 0.75
     ) +
     facet_grid(

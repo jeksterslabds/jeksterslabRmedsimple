@@ -4,7 +4,7 @@
 #'
 #' @family process results functions
 #' @keywords process
-#' @inheritParams mvn_fit_task
+#' @inheritParams mvn_dat
 #' @param out Object.
 #'   Output of `*_task`.
 #' @export
@@ -29,6 +29,8 @@ process <- function(taskid,
   moderate_ul_95 <- 0.05 + (0.05 / 5)
   strict_ll_95 <- 0.05 - (0.05 / 10)
   strict_ul_95 <- 0.05 + (0.05 / 10)
+  serlin_ll_95 <- 0.035
+  serlin_ul_95 <- 0.065
   paramsmvn <- useparamsmvn(taskid = taskid)
   c(
     taskid = paramsmvn$taskid,
@@ -66,6 +68,8 @@ process <- function(taskid,
     moderate_ul_95 = moderate_ul_95,
     strict_ll_95 = strict_ll_95,
     strict_ul_95 = strict_ul_95,
+    serlin_ll_95 = serlin_ll_95,
+    serlin_ul_95 = serlin_ul_95,
     liberal_99.9 = unname(meansout["theta_miss_99.9"] > liberal_ll_99.9 & meansout["theta_miss_99.9"] < liberal_ul_99.9),
     liberal_99 = unname(meansout["theta_miss_99"] > liberal_ll_99 & meansout["theta_miss_99"] < liberal_ul_99),
     liberal_95 = unname(meansout["theta_miss_95"] > liberal_ll_95 & meansout["theta_miss_95"] < liberal_ul_95),
@@ -74,6 +78,7 @@ process <- function(taskid,
     moderate_95 = unname(meansout["theta_miss_95"] > moderate_ll_95 & meansout["theta_miss_95"] < moderate_ul_95),
     strict_99.9 = unname(meansout["theta_miss_99.9"] > strict_ll_99.9 & meansout["theta_miss_99.9"] < strict_ul_99.9),
     strict_99 = unname(meansout["theta_miss_99"] > strict_ll_99 & meansout["theta_miss_99"] < strict_ul_99),
-    strict_95 = unname(meansout["theta_miss_95"] > strict_ll_95 & meansout["theta_miss_95"] < strict_ul_95)
+    strict_95 = unname(meansout["theta_miss_95"] > strict_ll_95 & meansout["theta_miss_95"] < strict_ul_95),
+    serlin_95 = unname(meansout["theta_miss_95"] > serlin_ll_95 & meansout["theta_miss_95"] < serlin_ul_95)
   )
 }

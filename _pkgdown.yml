@@ -46,6 +46,39 @@ reference:
   desc:  Plot results.
 - contents:
   - has_keyword("plot")
+- title: Multivariate Normal with Complete Data from a Simple Mediation Model
+  desc:  Multivariate normal with complete data from a simple mediation model.
+- contents:
+  - has_keyword("mvn_complete_unstd")
+- title: Multivariate Normal with Complete Data from a Standardized Simple Mediation Model
+  desc:  Multivariate normal with complete data from a standardized simple mediation model.
+- contents:
+  - has_keyword("mvn_complete_std")
+- title: Multivariate Normal with Data Missing Completely at Random from a Simple Mediation Model
+  desc:  Multivariate normal with data missing completely at random from a simple mediation model.
+- contents:
+  - has_keyword("mvn_mcar_unstd")
+- title: Multivariate Normal with Data Missing Completely at Random from a Standardized Simple Mediation Model
+  desc:  Multivariate normal with data missing completely at random from a standardized simple mediation model.
+- contents:
+  - has_keyword("mvn_mcar_std")
+- title: Multivariate Normal with Data Missing at Random from a Simple Mediation Model
+  desc:  Multivariate normal with data missing at random from a simple mediation model.
+- contents:
+  - has_keyword("mvn_mar_unstd")
+- title: Multivariate Normal with Data Missing at Random from a Standardized Simple Mediation Model
+  desc:  Multivariate normal with data missing at random from a standardized simple mediation model.
+- contents:
+  - has_keyword("mvn_mar_std")
+- title: Multivariate Normal with Data Missing Not at Random from a Simple Mediation Model
+  desc:  Multivariate normal with data missing not at random from a simple mediation model.
+- contents:
+  - has_keyword("mvn_mnar_unstd")
+- title: Multivariate Normal with Data Missing Not at Random from a Standardized Simple Mediation Model
+  desc:  Multivariate normal with data missing not at random from a standardized simple mediation model.
+- contents:
+  - has_keyword("mvn_mnar_std")
+- title: Results  
   desc:  Results data.
 - contents:
   - has_keyword("results")

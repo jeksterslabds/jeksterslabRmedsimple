@@ -11,6 +11,7 @@ bcaci(
   theta = NULL,
   data,
   std = FALSE,
+  complete = TRUE,
   alpha = c(0.001, 0.01, 0.05),
   par = TRUE,
   ncores = NULL,
@@ -26,7 +27,7 @@ Sampling distribution of thetahat.}
 \item{thetahatstarjack}{Numeric vector.
 Jackknife vector of parameter estimates.
 If \code{thetahatstarjack = NULL},
-\code{thetahatstarjack} is calculated using \code{\link[=.jack]{.jack()}}.}
+\code{thetahatstarjack} is calculated using \code{\link[=jack]{jack()}}.}
 
 \item{thetahat}{Numeric.
 Parameter estimate.}
@@ -41,10 +42,10 @@ Optional argument.}
 \code{data[, 3]} correspond to values for \code{y}.}
 
 \item{std}{Logical.
-Standardize the indirect effect
-\eqn{
-    \hat{\alpha}^{\prime} \hat{\beta}^{\prime}
-    = \hat{\alpha} \hat{\beta} \frac{\hat{\sigma}_x}{\hat{\sigma}_y}}.}
+Standardize the indirect effect \eqn{\hat{\alpha} \hat{\beta} \frac{\sigma_x}{\sigma_y}}.}
+
+\item{complete}{Logical.
+Listwise deletion to generate data with complete cases.}
 
 \item{alpha}{Numeric vector.
 Alpha level.
@@ -82,8 +83,14 @@ Bias-Corrected and Accelerated Confidence Intervals
 \examples{
 B <- 5000
 data <- jeksterslabRdatarepo::thirst
-thetahat <- .fit(data, minimal = TRUE)
-thetahatstar <- .pbmvn(data = data, B = 5000, par = FALSE)
+n <- nrow(data)
+muthetahat <- colMeans(data)
+Sigmathetahat <- cov(data)
+thetahat <- fit.ols(data, minimal = TRUE)
+thetahatstar <- pb.mvn(
+  muthetahat = muthetahat, Sigmathetahat = Sigmathetahat,
+  n = n, B = 5000, par = FALSE
+)
 bcaci(
   thetahatstar = thetahatstar,
   thetahat = thetahat,
@@ -91,8 +98,11 @@ bcaci(
   data = data,
   par = FALSE
 )
-thetahat <- .fit(data, minimal = TRUE, std = TRUE)
-thetahatstar <- .pbmvn(data = data, std = TRUE, B = 5000, par = FALSE)
+thetahat <- fit.ols(data, minimal = TRUE, std = TRUE)
+thetahatstar <- pb.mvn(
+  muthetahat = muthetahat, Sigmathetahat = Sigmathetahat,
+  n = n, std = TRUE, B = 5000, par = FALSE
+)
 bcaci(
   thetahatstar = thetahatstar,
   thetahat = thetahat,

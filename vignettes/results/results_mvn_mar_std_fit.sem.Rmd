@@ -1,0 +1,46 @@
+---
+title: "Results: Model Fit MAR - Standardized Simple Mediation Model with Latent Variables"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Results: Model Fit MAR - Standardized Simple Mediation Model with Latent Variables}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r}
+library(jeksterslabRmedsimple)
+data(results_mvn_mar_std_fit.sem, package = "jeksterslabRmedsimple")
+```
+
+### Plots
+
+#### Standardized
+
+**Bias**
+
+```{r fig.height = 8.5, fig.width = 11}
+plot_bias(results_mvn_mar_std_fit.sem, std = TRUE)
+```
+
+**Root Mean Square Error**
+
+```{r fig.height = 8.5, fig.width = 11}
+plot_rmse(results_mvn_mar_std_fit.sem, std = TRUE)
+```
+
+**Kurtosis**
+
+```{r fig.height = 8.5, fig.width = 11}
+plot_kurt(results_mvn_mar_std_fit.sem, std = TRUE)
+```

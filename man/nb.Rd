@@ -8,10 +8,7 @@ nb(
   data,
   std = FALSE,
   complete = TRUE,
-  B = 200,
-  alphahatbetahat,
-  alpha = c(0.001, 0.01, 0.05),
-  plot = TRUE,
+  B = 5000,
   par = TRUE,
   ncores = NULL,
   blas_threads = TRUE,
@@ -33,16 +30,6 @@ Listwise deletion to generate data with complete cases.}
 
 \item{B}{Integer.
 Number of bootstrap samples.}
-
-\item{alphahatbetahat}{Numeric.
-Estimate of the indirect effect \eqn{\left( \hat{\alpha} \hat{\beta} \right)}.}
-
-\item{alpha}{Numeric vector.
-Alpha level.
-By default \code{alpha = c(0.001, 0.01, 0.05)}.}
-
-\item{plot}{Logical.
-Plot the sampling distribution of the indirect effect.}
 
 \item{par}{Logical.
 If \code{TRUE}, use multiple cores.
@@ -75,53 +62,107 @@ Nonparametric Bootstrapping
 }
 \examples{
 data <- jeksterslabRdatarepo::thirst
-alphahatbetahat <- .fit(data, minimal = TRUE)
-nb(data = data, B = 5000, alphahatbetahat = alphahatbetahat, par = FALSE)
-alphahatbetahat <- .fit(data, minimal = TRUE, std = TRUE)
-nb(data = data, std = TRUE, B = 5000, alphahatbetahat = alphahatbetahat, par = FALSE)
+
+# Unstandardized -------------------------------------------------------------
+thetahatstar <- nb(data = data, B = 5000, par = FALSE)
+hist(thetahatstar)
+
+# Standardized ---------------------------------------------------------------
+thetahatstar <- nb(data = data, std = TRUE, B = 5000, par = FALSE)
+hist(thetahatstar)
 }
 \seealso{
 Other nonparametric functions: 
-\code{\link{.nb}()},
+\code{\link{mvn_mar_10_nb.fiml_pcci_simulation}()},
+\code{\link{mvn_mar_10_nbbc.fiml_simulation}()},
+\code{\link{mvn_mar_10_nbbc.fiml_task}()},
+\code{\link{mvn_mar_10_nbpc.fiml_simulation}()},
+\code{\link{mvn_mar_10_nbpc.fiml_task}()},
+\code{\link{mvn_mar_20_nb.fiml_pcci_simulation}()},
+\code{\link{mvn_mar_20_nbbc.fiml_simulation}()},
+\code{\link{mvn_mar_20_nbbc.fiml_task}()},
+\code{\link{mvn_mar_20_nbpc.fiml_simulation}()},
+\code{\link{mvn_mar_20_nbpc.fiml_task}()},
+\code{\link{mvn_mar_30_nb.fiml_pcci_simulation}()},
+\code{\link{mvn_mar_30_nbbc.fiml_simulation}()},
+\code{\link{mvn_mar_30_nbbc.fiml_task}()},
+\code{\link{mvn_mar_30_nbpc.fiml_simulation}()},
+\code{\link{mvn_mar_30_nbpc.fiml_task}()},
+\code{\link{mvn_mar_nb_bcaci_simulation}()},
+\code{\link{mvn_mar_nb_bcaci_task}()},
+\code{\link{mvn_mar_nb_bcci_simulation}()},
+\code{\link{mvn_mar_nb_bcci_task}()},
+\code{\link{mvn_mar_nb_pcci_simulation}()},
+\code{\link{mvn_mar_nb_pcci_task}()},
+\code{\link{mvn_mar_nb_simulation}()},
+\code{\link{mvn_mar_nb_task}()},
+\code{\link{mvn_mar_nb}()},
+\code{\link{mvn_mcar_10_nb.fiml_pcci_simulation}()},
+\code{\link{mvn_mcar_10_nbbc.fiml_simulation}()},
+\code{\link{mvn_mcar_10_nbbc.fiml_task}()},
+\code{\link{mvn_mcar_10_nbpc.fiml_simulation}()},
+\code{\link{mvn_mcar_10_nbpc.fiml_task}()},
+\code{\link{mvn_mcar_20_nb.fiml_pcci_simulation}()},
+\code{\link{mvn_mcar_20_nbbc.fiml_simulation}()},
+\code{\link{mvn_mcar_20_nbbc.fiml_task}()},
+\code{\link{mvn_mcar_20_nbpc.fiml_simulation}()},
+\code{\link{mvn_mcar_20_nbpc.fiml_task}()},
+\code{\link{mvn_mcar_30_nb.fiml_pcci_simulation}()},
+\code{\link{mvn_mcar_30_nbbc.fiml_simulation}()},
+\code{\link{mvn_mcar_30_nbbc.fiml_task}()},
+\code{\link{mvn_mcar_30_nbpc.fiml_simulation}()},
+\code{\link{mvn_mcar_30_nbpc.fiml_task}()},
+\code{\link{mvn_mcar_nb_bcaci_simulation}()},
+\code{\link{mvn_mcar_nb_bcaci_task}()},
+\code{\link{mvn_mcar_nb_bcci_simulation}()},
+\code{\link{mvn_mcar_nb_bcci_task}()},
+\code{\link{mvn_mcar_nb_fiml_bcaci_simulation}()},
+\code{\link{mvn_mcar_nb_fiml_bcaci_task}()},
+\code{\link{mvn_mcar_nb_fiml_bcci_simulation}()},
+\code{\link{mvn_mcar_nb_fiml_bcci_task}()},
+\code{\link{mvn_mcar_nb_fiml_pcci_simulation}()},
+\code{\link{mvn_mcar_nb_fiml_pcci_task}()},
+\code{\link{mvn_mcar_nb_fiml_simulation}()},
+\code{\link{mvn_mcar_nb_fiml_task}()},
+\code{\link{mvn_mcar_nb_fiml}()},
+\code{\link{mvn_mcar_nb_pcci_simulation}()},
+\code{\link{mvn_mcar_nb_pcci_task}()},
+\code{\link{mvn_mcar_nb_simulation}()},
+\code{\link{mvn_mcar_nb_task}()},
+\code{\link{mvn_mcar_nb}()},
+\code{\link{mvn_mnar_10_nb.fiml_pcci_simulation}()},
+\code{\link{mvn_mnar_10_nbbc.fiml_simulation}()},
+\code{\link{mvn_mnar_10_nbbc.fiml_task}()},
+\code{\link{mvn_mnar_10_nbpc.fiml_simulation}()},
+\code{\link{mvn_mnar_10_nbpc.fiml_task}()},
+\code{\link{mvn_mnar_20_nb.fiml_pcci_simulation}()},
+\code{\link{mvn_mnar_20_nbbc.fiml_simulation}()},
+\code{\link{mvn_mnar_20_nbbc.fiml_task}()},
+\code{\link{mvn_mnar_20_nbpc.fiml_simulation}()},
+\code{\link{mvn_mnar_20_nbpc.fiml_task}()},
+\code{\link{mvn_mnar_30_nb.fiml_pcci_simulation}()},
+\code{\link{mvn_mnar_30_nbbc.fiml_simulation}()},
+\code{\link{mvn_mnar_30_nbbc.fiml_task}()},
+\code{\link{mvn_mnar_30_nbpc.fiml_simulation}()},
+\code{\link{mvn_mnar_30_nbpc.fiml_task}()},
+\code{\link{mvn_mnar_nb_bcaci_simulation}()},
+\code{\link{mvn_mnar_nb_bcaci_task}()},
+\code{\link{mvn_mnar_nb_bcci_simulation}()},
+\code{\link{mvn_mnar_nb_bcci_task}()},
+\code{\link{mvn_mnar_nb_pcci_simulation}()},
+\code{\link{mvn_mnar_nb_pcci_task}()},
+\code{\link{mvn_mnar_nb_simulation}()},
+\code{\link{mvn_mnar_nb_task}()},
+\code{\link{mvn_mnar_nb}()},
 \code{\link{mvn_nb_bcaci_simulation}()},
 \code{\link{mvn_nb_bcaci_task}()},
 \code{\link{mvn_nb_bcci_simulation}()},
 \code{\link{mvn_nb_bcci_task}()},
-\code{\link{mvn_nb_mar_bcaci_simulation}()},
-\code{\link{mvn_nb_mar_bcaci_task}()},
-\code{\link{mvn_nb_mar_bcci_simulation}()},
-\code{\link{mvn_nb_mar_bcci_task}()},
-\code{\link{mvn_nb_mar_pcci_simulation}()},
-\code{\link{mvn_nb_mar_pcci_task}()},
-\code{\link{mvn_nb_mar_simulation}()},
-\code{\link{mvn_nb_mar_task}()},
-\code{\link{mvn_nb_mar}()},
-\code{\link{mvn_nb_mcar_bcaci_simulation}()},
-\code{\link{mvn_nb_mcar_bcaci_task}()},
-\code{\link{mvn_nb_mcar_bcci_simulation}()},
-\code{\link{mvn_nb_mcar_bcci_task}()},
-\code{\link{mvn_nb_mcar_pcci_simulation}()},
-\code{\link{mvn_nb_mcar_pcci_task}()},
-\code{\link{mvn_nb_mcar_simulation}()},
-\code{\link{mvn_nb_mcar_task}()},
-\code{\link{mvn_nb_mcar}()},
 \code{\link{mvn_nb_pcci_simulation}()},
 \code{\link{mvn_nb_pcci_task}()},
 \code{\link{mvn_nb_simulation}()},
 \code{\link{mvn_nb_task}()},
 \code{\link{mvn_nb}()},
-\code{\link{mvn_pbmvn_bcaci_simulation}()},
-\code{\link{mvn_pbmvn_bcaci_task}()},
-\code{\link{mvn_pbmvn_bcci_simulation}()},
-\code{\link{mvn_pbmvn_bcci_task}()},
-\code{\link{mvn_pbmvn_mar_bcaci_simulation}()},
-\code{\link{mvn_pbmvn_mar_bcaci_task}()},
-\code{\link{mvn_pbmvn_mar_bcci_simulation}()},
-\code{\link{mvn_pbmvn_mar_bcci_task}()},
-\code{\link{mvn_pbmvn_mcar_bcaci_simulation}()},
-\code{\link{mvn_pbmvn_mcar_bcaci_task}()},
-\code{\link{mvn_pbmvn_mcar_bcci_simulation}()},
-\code{\link{mvn_pbmvn_mcar_bcci_task}()},
 \code{\link{mvn_std_nb_bcaci_simulation}()},
 \code{\link{mvn_std_nb_bcaci_task}()},
 \code{\link{mvn_std_nb_bcci_simulation}()},
@@ -131,10 +172,8 @@ Other nonparametric functions:
 \code{\link{mvn_std_nb_simulation}()},
 \code{\link{mvn_std_nb_task}()},
 \code{\link{mvn_std_nb}()},
-\code{\link{mvn_std_pbmvn_bcaci_simulation}()},
-\code{\link{mvn_std_pbmvn_bcaci_task}()},
-\code{\link{mvn_std_pbmvn_bcci_simulation}()},
-\code{\link{mvn_std_pbmvn_bcci_task}()}
+\code{\link{nbbc.fiml}()},
+\code{\link{nbpc.fiml}()}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

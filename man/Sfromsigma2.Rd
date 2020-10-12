@@ -26,7 +26,7 @@ Variance of \code{m} \eqn{\left( \sigma_{m}^{2} \right)} .}
 Variance of \code{y} \eqn{\left( \sigma_{y}^{2} \right)} .}
 }
 \description{
-Matrix of variance of \code{x} and residual variances from the simple mediation model
+Matrix of variance of \code{x} and error variances from the simple mediation model
 from variances of \code{x}, \code{m}, and \code{y} and the \code{A} matrix.
 }
 \details{
@@ -62,9 +62,12 @@ Sfromsigma2(
 }
 \seealso{
 Other reticular action model functions: 
+\code{\link{A.std}()},
 \code{\link{A}()},
 \code{\link{Mfrommu}()},
 \code{\link{M}()},
+\code{\link{S.std}()},
+\code{\link{Sigmatheta.std}()},
 \code{\link{Sigmathetafromsigma2}()},
 \code{\link{Sigmatheta}()},
 \code{\link{S}()},
