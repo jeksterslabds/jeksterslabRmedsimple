@@ -1,11 +1,13 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Generate Data with MAR from Data generated from a Multivariate Normal Distribution - Simple Mediation Model
+#' @title Generate Data from a Multivariate Normal Distribution
+#'   following a Simple Mediation Model
+#'   with Data Missing at Random
 #'
 #' @family multivariate normal data functions
 #' @keywords mvn
 #' @importFrom mice ampute
-#' @inheritParams .fit
+#' @inheritParams fit.ols
 #' @inheritParams useparamsmvn
 #' @export
 mvn_dat_mar <- function(data,
@@ -28,7 +30,9 @@ mvn_dat_mar <- function(data,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Generate Data with MAR from Data generated from a Multivariate Normal Distribution - Simple Mediation Model
+#' @title Generate Data from a Multivariate Normal Distribution
+#'   following a Simple Mediation Model
+#'   with Data Missing at Random
 #'   (Single Task)
 #'
 #' @family multivariate normal data functions
@@ -115,7 +119,9 @@ mvn_dat_mar_task <- function(taskid,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Generate Data with MAR from Data generated from a Multivariate Normal Distribution - Simple Mediation Model
+#' @title Generate Data from a Multivariate Normal Distribution
+#'   following a Simple Mediation Model
+#'   with Data Missing at Random
 #'   (Simulation)
 #'
 #' @family multivariate normal data functions

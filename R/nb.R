@@ -586,7 +586,8 @@ mvn_nb_bcci_simulation <- function(dir = getwd(),
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Nonparametric Bootstrap Bias-Corrected and Accelerated Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data Generated from a Multivariate Normal Distribution (Single Task)
+#'   for Data Generated from a Multivariate Normal Distribution
+#'   (Single Task)
 #'
 #' @family nonparametric functions
 #' @keywords nb
@@ -696,7 +697,8 @@ mvn_nb_bcaci_task <- function(taskid,
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Nonparametric Bootstrap Bias-Corrected and Accelerated Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data Generated from a Multivariate Normal Distribution (Simulation)
+#'   for Data Generated from a Multivariate Normal Distribution
+#'   (Simulation)
 #'
 #' @family nonparametric functions
 #' @keywords nb
