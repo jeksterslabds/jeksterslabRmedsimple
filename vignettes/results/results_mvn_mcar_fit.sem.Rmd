@@ -1,10 +1,10 @@
 ---
-title: "Results: Model Fit - Simple Mediation Model - Data Missing Completely at Random"
+title: "Results: Simple Mediation Model - Multivariate Normal Distribution - Data Missing Completely at Random - Fit Structural Equation Modeling with Full Information Maximum Likelihood"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Results: Model Fit - Simple Mediation Model - Data Missing Completely at Random}
+  %\VignetteIndexEntry{Results: Simple Mediation Model - Multivariate Normal Distribution - Data Missing Completely at Random - Fit Structural Equation Modeling with Full Information Maximum Likelihood}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

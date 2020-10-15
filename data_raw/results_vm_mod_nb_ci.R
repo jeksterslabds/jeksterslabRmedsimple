@@ -1,10 +1,14 @@
 #' ---
-#' title: "Data: Nonparametric Bootstrap Confidence Intervals - Data Generated from a Nonnormal Distribution (Vale and Maurelli (1983) - Skewness = 2, Kurtosis = 7) - Complete Data"
+#' title: "Data: Simple Mediation Model - Vale and Maurelli (1983) - Skewness = 2, Kurtosis = 7 - Complete Data - Nonparametric Bootstrap Confidence Intervals"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
 #'   rmarkdown::html_vignette:
 #'     toc: true
+#' vignette: >
+#'   %\VignetteIndexEntry{Data: Simple Mediation Model - Vale and Maurelli (1983) - Skewness = 2, Kurtosis = 7 - Complete Data - Nonparametric Bootstrap Confidence Intervals}
+#'   %\VignetteEngine{knitr::rmarkdown}
+#'   %\VignetteEncoding{UTF-8}
 #' ---
 #'
 #+ data

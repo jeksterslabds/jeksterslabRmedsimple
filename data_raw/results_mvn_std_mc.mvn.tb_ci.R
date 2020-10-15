@@ -1,10 +1,14 @@
 #' ---
-#' title: "Data: Monte Carlo Method Confidence Intervals with Text Book Standard Errors for Standardized Indirect Effect - Multivariate Normal - Complete Data"
+#' title: "Data: Simple Mediation Model - Multivariate Normal Distribution - Standardized - Complete Data - Monte Carlo Method Confidence Intervals with Ordinary Least Squares Parameter Estimates and Text Book Standard Errors"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
 #'   rmarkdown::html_vignette:
 #'     toc: true
+#' vignette: >
+#'   %\VignetteIndexEntry{Data: Simple Mediation Model - Multivariate Normal Distribution - Standardized - Complete Data - Monte Carlo Method Confidence Intervals with Ordinary Least Squares Parameter Estimates and Text Book Standard Errors}
+#'   %\VignetteEngine{knitr::rmarkdown}
+#'   %\VignetteEncoding{UTF-8}
 #' ---
 #'
 #+ data

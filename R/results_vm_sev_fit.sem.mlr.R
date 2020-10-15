@@ -1,4 +1,5 @@
-#' Results: Fit Simple Mediation Model for Data Generated from a Nonnormal Distribution (Vale and Maurelli (1983) - Skewness = 3, Kurtosis = 21) - Structural Equation Modeling
+#' Results: Simple Mediation Model - Vale and Maurelli (1983) - Skewness = 3, Kurtosis = 21 - Complete Data - Fit Structural Equation Modeling with Robust Standard Errors
+#'
 #' @family results
 #' @keywords results
 #' @inherit A details

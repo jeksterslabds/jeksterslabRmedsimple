@@ -1,10 +1,10 @@
 ---
-title: "Results: Parametric Bootstrap Confidence Intervals - Multivariate Normal - Complete Data"
+title: "Results: Simple Mediation Model - Multivariate Normal Distribution - Complete Data - Parametric Bootstrap Confidence Intervals Assuming Multivariate Normal Distribution"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Results: Parametric Bootstrap Confidence Intervals - Multivariate Normal - Complete Data}
+  %\VignetteIndexEntry{Results: Simple Mediation Model - Multivariate Normal Distribution - Complete Data - Parametric Bootstrap Confidence Intervals Assuming Multivariate Normal Distribution}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

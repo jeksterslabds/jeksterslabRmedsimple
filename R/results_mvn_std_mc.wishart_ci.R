@@ -1,4 +1,4 @@
-#' Monte Carlo Simulation Results - Monte Carlo Method Confidence Intervals with Sigma (Wishart) (Multivariate Normal with Complete Data)
+#' Results: Simple Mediation Model - Multivariate Normal Distribution - Standardized - Complete Data - Monte Carlo Method Confidence Intervals from Estimates Derived from Simulated Covariances Using the Wishart Distribution
 #'
 #' @family results functions
 #' @keywords results

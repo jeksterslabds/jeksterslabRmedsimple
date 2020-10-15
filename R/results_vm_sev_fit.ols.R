@@ -1,4 +1,4 @@
-#' Results: Fit Simple Mediation Model for Data Generated from a Nonnormal Distribution (Vale and Maurelli (1983) - Skewness = 3, Kurtosis = 21) - Ordinary Least Squares
+#' Results: Simple Mediation Model - Vale and Maurelli (1983) - Skewness = 3, Kurtosis = 21 - Complete Data - Fit Ordinary Least Squares
 #'
 #' @family results
 #' @keywords results

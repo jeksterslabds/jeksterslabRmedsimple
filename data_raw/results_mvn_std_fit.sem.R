@@ -1,10 +1,14 @@
 #' ---
-#' title: "Data: Fit Standardized Simple Mediation Model for Data Generated from a Multivariate Normal Distribution - Structural Equation Modeling"
+#' title: "Data: Simple Mediation Model - Multivariate Normal Distribution - Standardized - Complete Data - Fit Structural Equation Modeling"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
 #'   rmarkdown::html_vignette:
 #'     toc: true
+#' vignette: >
+#'   %\VignetteIndexEntry{Data: Simple Mediation Model - Multivariate Normal Distribution - Standardized - Complete Data - Fit Structural Equation Modeling}
+#'   %\VignetteEngine{knitr::rmarkdown}
+#'   %\VignetteEncoding{UTF-8}
 #' ---
 #'
 #+ data

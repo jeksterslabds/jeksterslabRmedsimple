@@ -1,0 +1,94 @@
+---
+title: "Parameters: Exponential X"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Parameters: Exponential X}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r, echo = FALSE}
+lambda <- 1
+exponential_mean <- 1 / lambda
+exponential_variance <- 1 / lambda^2
+exponential_skewness <- 2
+exponential_kurtosis <- 6
+
+Moments <- c(
+  "Mean",
+  "Variance",
+  "Skewness",
+  "Excess Kurtosis"
+)
+Formula <- c(
+  "$\\frac{1}{\\lambda}$",
+  "$\\frac{1}{\\lambda^2}$",
+  "2",
+  "6"
+)
+Value <- c(
+  exponential_mean,
+  exponential_variance,
+  exponential_skewness,
+  exponential_kurtosis
+)
+x <- data.frame(
+  Moments,
+  Formula,
+  Value
+)
+```
+
+\begin{equation}
+  X
+  \sim
+  \exp
+  \left(
+    \lambda = `r lambda`
+  \right)
+\end{equation}
+
+```{r, echo = FALSE}
+knitr::kable(
+  x = x
+)
+```
+
+```{r, echo = FALSE}
+x <- seq(from = 0, to = 5, length = 1000)
+y <- dexp(
+  x = x,
+  rate = lambda
+)
+plot(
+  x = x,
+  y = y,
+  type = "l"
+)
+```
+
+See https://en.wikipedia.org/wiki/Exponential_distribution.
+
+
+```{r}
+data(
+  paramsexp,
+  package = "jeksterslabRmedsimple"
+)
+DT::datatable(
+  paramsexp
+)
+```
+
+For more details see `jeksterslabRmedsimple::paramsexp`.

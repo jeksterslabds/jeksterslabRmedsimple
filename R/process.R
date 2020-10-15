@@ -7,9 +7,12 @@
 #' @inheritParams mvn_dat
 #' @param out Object.
 #'   Output of `*_task`.
+#' @param dist Character string.
+#'  Distribution.
 #' @export
 process <- function(taskid,
-                    out) {
+                    out,
+                    dist = "mvn") {
   meansout <- colMeans(out)
   liberal_ll_99.9 <- 0.001 - (0.001 / 2)
   liberal_ul_99.9 <- 0.001 + (0.001 / 2)
@@ -31,21 +34,68 @@ process <- function(taskid,
   strict_ul_95 <- 0.05 + (0.05 / 10)
   serlin_ll_95 <- 0.035
   serlin_ul_95 <- 0.065
-  paramsmvn <- useparamsmvn(taskid = taskid)
+  if (dist == "mvn") {
+    paramsmvn <- useparamsmvn(taskid = taskid)
+    taskid <- paramsmvn$taskid
+    n <- paramsmvn$n
+    simreps <- paramsmvn$reps
+    taudot <- paramsmvn$taudot
+    beta <- paramsmvn$beta
+    alpha <- paramsmvn$alpha
+    alphabeta <- paramsmvn$alphabeta
+    sigma2x <- paramsmvn$sigma2x
+    sigma2epsilonm <- paramsmvn$sigma2epsilonm
+    sigma2epsilony <- paramsmvn$sigma2epsilony
+    mux <- paramsmvn$mux
+    deltam <- paramsmvn$deltam
+    deltay <- paramsmvn$deltay
+  }
+  if (dist == "exp") {
+    paramsexp <- useparamsexp(taskid = taskid)
+    taskid <- paramsexp$taskid
+    n <- paramsexp$n
+    simreps <- paramsexp$reps
+    taudot <- paramsexp$taudot
+    beta <- paramsexp$beta
+    alpha <- paramsexp$alpha
+    alphabeta <- paramsexp$alphabeta
+    sigma2x <- paramsexp$sigma2x
+    sigma2epsilonm <- paramsexp$sigma2epsilonm
+    sigma2epsilony <- paramsexp$sigma2epsilony
+    mux <- paramsexp$mux
+    deltam <- paramsexp$deltam
+    deltay <- paramsexp$deltay
+  }
+  if (dist == "beta") {
+    paramsbeta <- useparamsbeta(taskid = taskid)
+    taskid <- paramsbeta$taskid
+    n <- paramsbeta$n
+    simreps <- paramsbeta$reps
+    taudot <- paramsbeta$taudot
+    beta <- paramsbeta$beta
+    alpha <- paramsbeta$alpha
+    alphabeta <- paramsbeta$alphabeta
+    sigma2x <- paramsbeta$sigma2x
+    sigma2epsilonm <- paramsbeta$sigma2epsilonm
+    sigma2epsilony <- paramsbeta$sigma2epsilony
+    mux <- paramsbeta$mux
+    deltam <- paramsbeta$deltam
+    deltay <- paramsbeta$deltay
+  }
   c(
-    taskid = paramsmvn$taskid,
-    n = paramsmvn$n,
-    simreps = paramsmvn$reps,
-    taudot = paramsmvn$taudot,
-    beta = paramsmvn$beta,
-    alpha = paramsmvn$alpha,
-    alphabeta = paramsmvn$alphabeta,
-    sigma2x = paramsmvn$sigma2x,
-    sigma2epsilonm = paramsmvn$sigma2epsilonm,
-    sigma2epsilony = paramsmvn$sigma2epsilony,
-    mux = paramsmvn$mux,
-    deltam = paramsmvn$deltam,
-    deltay = paramsmvn$deltay,
+    taskid = taskid,
+    n = n,
+    simreps = simreps,
+    taudot = taudot,
+    beta = beta,
+    alpha = alpha,
+    alphabeta = alphabeta,
+    sigma2x = sigma2x,
+    sigma2epsilonm = sigma2epsilonm,
+    sigma2epsilony = sigma2epsilony,
+    mux = mux,
+    deltam = deltam,
+    deltay = deltay,
     meansout,
     power_99.9 = unname(mean((1 - out[, "zero_hit_99.9"]))),
     power_99 = unname(mean((1 - out[, "zero_hit_99"]))),

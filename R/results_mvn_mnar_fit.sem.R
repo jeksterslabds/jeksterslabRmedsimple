@@ -1,4 +1,5 @@
-#' Results: Fit Simple Mediation Model for Data Generated from a Multivariate Normal Distribution with Data Missing Not at Random - Structural Equation Modeling
+#' Results: Simple Mediation Model - Multivariate Normal Distribution - Data Missing Not at Random - Fit Structural Equation Modeling with Full Information Maximum Likelihood
+#'
 #' @family results
 #' @keywords results
 #' @inherit A details

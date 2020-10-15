@@ -1,10 +1,10 @@
 ---
-title: "Results: Model Fit - Simple Mediation Model - Data Generated from a Nonnormal Distribution (Vale and Maurelli (1983) - Skewness = 3, Kurtosis = 21) - Complete Data - Structural Equation Modeling"
+title: "Results: Simple Mediation Model - Vale and Maurelli (1983) - Skewness = 3, Kurtosis = 21 - Complete Data - Fit Structural Equation Modeling with Robust Standard Errors"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Results: Model Fit - Simple Mediation Model - Data Generated from a Nonnormal Distribution (Vale and Maurelli (1983) - Skewness = 3, Kurtosis = 21) - Complete Data - Structural Equation Modeling}
+  %\VignetteIndexEntry{Results: Simple Mediation Model - Vale and Maurelli (1983) - Skewness = 3, Kurtosis = 21 - Complete Data - Fit Structural Equation Modeling with Robust Standard Errors}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

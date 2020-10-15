@@ -147,7 +147,7 @@ mutheta <- function(mux,
 #'     \boldsymbol{\theta}_{\text{mean structure}} = \left\{ \mu_x, \delta_m, \delta_y \right\} .
 #'   }
 #'
-#'   The parameters for the covariance strcuture are
+#'   The parameters for the covariance structure are
 #'   \deqn{
 #'     \boldsymbol{\theta}_{\text{covariance structure}} = \left\{ \dot{\tau}, \beta, \alpha, \sigma_{x}^{2},
 #'     \sigma_{\varepsilon_{m}}^{2}, \sigma_{\varepsilon_{y}}^{2} \right\} .

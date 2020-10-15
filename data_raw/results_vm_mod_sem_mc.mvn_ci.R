@@ -1,10 +1,14 @@
 #' ---
-#' title: "Data: Monte Carlo Method Confidence Intervals - Data Generated from a Nonnormal Distribution (Vale and Maurelli (1983) - Skewness = 2, Kurtosis = 7) - Complete Data - Structural Equation Modeling Estimates and Standard Errors"
+#' title: "Data: Simple Mediation Model - Vale and Maurelli (1983) - Skewness = 2, Kurtosis = 7 - Complete Data - Monte Carlo Method Confidence Intervals with Structural Equation Modeling Parameter Estimates and Robust Standard Errors"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
 #'   rmarkdown::html_vignette:
 #'     toc: true
+#' vignette: >
+#'   %\VignetteIndexEntry{Data: Simple Mediation Model - Vale and Maurelli (1983) - Skewness = 2, Kurtosis = 7 - Complete Data - Monte Carlo Method Confidence Intervals with Structural Equation Modeling Parameter Estimates and Robust Standard Errors}
+#'   %\VignetteEngine{knitr::rmarkdown}
+#'   %\VignetteEncoding{UTF-8}
 #' ---
 #'
 #+ data

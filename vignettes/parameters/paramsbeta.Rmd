@@ -1,0 +1,95 @@
+---
+title: "Parameters: Beta X"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Parameters: Beta X}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r, echo = FALSE}
+alpha <- beta <- 1.5
+beta_mean <- alpha / (alpha + beta)
+beta_variance <- (alpha * beta) / ((alpha + beta)^2 * (alpha + beta + 1))
+beta_skewness <- (2 * (beta - alpha) * sqrt(alpha + beta + 1)) / ((alpha + beta + 2) * sqrt(alpha * beta))
+beta_kurtosis <- (6 * ((alpha - beta)^2 * (alpha + beta + 1) - alpha * beta * (alpha + beta + 2))) / (alpha * beta * (alpha + beta + 2) * (alpha + beta + 3))
+
+Moments <- c(
+  "Mean",
+  "Variance",
+  "Skewness",
+  "Excess Kurtosis"
+)
+Formula <- c(
+  "$\\frac{\\alpha}{\\alpha + \\beta}$",
+  "$\\frac{\\alpha \\beta}{\\left( \\alpha + \\beta \\right)^2 \\left( \\alpha + \\beta + 1 \\right)}$",
+  "$\\frac{2 \\left( \\beta - \\alpha \\right) \\sqrt{\\alpha + \\beta + 1}}{\\left( \\alpha + \\beta + 2 \\right) \\sqrt{\\alpha \\beta}}$",
+  "$\\frac{6 \\left[ \\left( \\alpha - \\beta \\right)^2 \\left( \\alpha + \\beta + 1 \\right) - \\alpha \\beta \\left( \\alpha + \\beta + 2 \\right) \\right]}{\\alpha \\beta \\left( \\alpha + \\beta + 2 \\right) \\left( \\alpha + \\beta + 3 \\right)}$"
+)
+Value <- c(
+  beta_mean,
+  beta_variance,
+  beta_skewness,
+  beta_kurtosis
+)
+x <- data.frame(
+  Moments,
+  Formula,
+  Value
+)
+```
+
+\begin{equation}
+  X
+  \sim
+  Beta
+  \left(
+    \alpha = `r alpha`,
+    \beta = `r beta`
+  \right)
+\end{equation}
+
+```{r, echo = FALSE}
+knitr::kable(
+  x = x
+)
+```
+
+```{r, echo = FALSE}
+x <- seq(from = 0, to = 1, length = 1000)
+y <- dbeta(
+  x = x,
+  shape1 = alpha,
+  shape2 = beta
+)
+plot(
+  x = x,
+  y = y,
+  type = "l"
+)
+```
+
+See https://en.wikipedia.org/wiki/Beta_distribution.
+
+```{r}
+data(
+  paramsbeta,
+  package = "jeksterslabRmedsimple"
+)
+DT::datatable(
+  paramsbeta
+)
+```
+
+For more details see `jeksterslabRmedsimple::paramsbeta`.

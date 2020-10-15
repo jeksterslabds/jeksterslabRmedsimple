@@ -1,10 +1,14 @@
 #' ---
-#' title: "Data: Nonparametric Bootstrap with FIML Confidence Intervals - Multivariate Normal - Data Missing Not at Random"
+#' title: "Data: Simple Mediation Model - Multivariate Normal Distribution - Data Missing Not at Random - Nonparametric Bootstrap Confidence Intervals using Full Information Maximum Likelihood"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
 #'   rmarkdown::html_vignette:
 #'     toc: true
+#' vignette: >
+#'   %\VignetteIndexEntry{Data: Simple Mediation Model - Multivariate Normal Distribution - Data Missing Not at Random - Nonparametric Bootstrap Confidence Intervals using Full Information Maximum Likelihood}
+#'   %\VignetteEngine{knitr::rmarkdown}
+#'   %\VignetteEncoding{UTF-8}
 #' ---
 #'
 #+ data

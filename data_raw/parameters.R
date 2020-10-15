@@ -5,6 +5,10 @@
 #' output:
 #'   rmarkdown::html_vignette:
 #'     toc: true
+#' vignette: >
+#'   %\VignetteIndexEntry{Data: Parameters}
+#'   %\VignetteEngine{knitr::rmarkdown}
+#'   %\VignetteEncoding{UTF-8}
 #' ---
 #'
 #+ common
@@ -108,5 +112,46 @@ paramsexp <- data.frame(
 )
 usethis::use_data(
   paramsexp,
+  overwrite = TRUE
+)
+#'
+#' ## Beta X
+#'
+#+
+shape1 <- shape2 <- 1.5
+paramsbeta <- expand.grid(
+  shape1 = shape1,
+  shape2 = shape2,
+  n = n,
+  mux = shape1 / (shape1 + shape2),
+  mum = shape1 / (shape1 + shape2),
+  muy = shape1 / (shape1 + shape2),
+  taudot = taudot,
+  beta = es,
+  alpha = es,
+  sigma2x = (shape1 * shape2) / (((shape1 + shape2)^2) * (shape1 + shape2 + 1)),
+  sigma2m = (shape1 * shape2) / (((shape1 + shape2)^2) * (shape1 + shape2 + 1)),
+  sigma2y = (shape1 * shape2) / (((shape1 + shape2)^2) * (shape1 + shape2 + 1)),
+  reps = reps
+)
+sigma2epsilonm <- paramsbeta$sigma2m - ((paramsbeta$alpha^2) * paramsbeta$sigma2x)
+sigma2epsilony <- paramsbeta$sigma2y - ((paramsbeta$taudot^2) * paramsbeta$sigma2x) - ((paramsbeta$beta^2) * (paramsbeta$alpha^2) * paramsbeta$sigma2x) - ((paramsbeta$beta^2) * sigma2epsilonm) - (2 * paramsbeta$taudot * paramsbeta$beta * paramsbeta$alpha * paramsbeta$sigma2x)
+
+paramsbeta <- data.frame(
+  paramsbeta,
+  sigma2epsilonm = sigma2epsilonm,
+  sigma2epsilony = sigma2epsilony
+)
+paramsbeta <- paramsbeta[paramsbeta$sigma2epsilony >= 0, ]
+paramsbeta <- paramsbeta[paramsbeta$sigma2epsilonm >= 0, ]
+paramsbeta$sigma2epsilony <- NULL
+paramsbeta$sigma2epsilonm <- NULL
+rownames(paramsbeta) <- NULL
+paramsbeta <- data.frame(
+  taskid = 1:nrow(paramsbeta),
+  paramsbeta
+)
+usethis::use_data(
+  paramsbeta,
   overwrite = TRUE
 )

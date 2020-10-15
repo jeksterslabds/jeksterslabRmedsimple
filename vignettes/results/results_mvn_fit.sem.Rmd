@@ -1,10 +1,10 @@
 ---
-title: "Results: Model Fit - Simple Mediation Model - Structural Equation Modeling"
+title: "Results: Simple Mediation Model - Multivariate Normal Distribution - Complete Data - Fit Structural Equation Modeling"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Results: Model Fit - Simple Mediation Model - Structural Equation Modeling}
+  %\VignetteIndexEntry{Results: Simple Mediation Model - Multivariate Normal Distribution - Complete Data - Fit Structural Equation Modeling}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -1,4 +1,4 @@
-#' Results: Fit Simple Mediation Model for Data Generated from a Multivariate Normal Distribution - Ordinary Least Squares
+#' Results: Simple Mediation Model - Multivariate Normal Distribution - Complete Data - Fit Ordinary Least Squares
 #'
 #' @family results
 #' @keywords results

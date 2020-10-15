@@ -1,6 +1,6 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Parametric Bootstrapping Assuming Multivariate Normal Distribution (Sampling Distribution)
+#' @title Parametric Bootstrapping Assuming Multivariate Normal Distribution
 #'
 #' @family parametric functions
 #' @keywords pb

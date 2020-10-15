@@ -1,10 +1,14 @@
 #' ---
-#' title: "Data: Monte Carlo Method Confidence Intervals - Multivariate Normal - Data Missing Not at Random"
+#' title: "Data: Simple Mediation Model - Multivariate Normal Distribution - Data Missing Not at Random - Monte Carlo Method Confidence Intervals Structural Equation Modeling with Full Information Maximum Likelihood Parameter Estimates and Standard Errors"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
 #'   rmarkdown::html_vignette:
 #'     toc: true
+#' vignette: >
+#'   %\VignetteIndexEntry{Data: Simple Mediation Model - Multivariate Normal Distribution - Data Missing Not at Random - Monte Carlo Method Confidence Intervals Structural Equation Modeling with Full Information Maximum Likelihood Parameter Estimates and Standard Errors}
+#'   %\VignetteEngine{knitr::rmarkdown}
+#'   %\VignetteEncoding{UTF-8}
 #' ---
 #'
 #+ data

@@ -1,0 +1,34 @@
+---
+title: "Results: Simple Mediation Model - Multivariate Normal Distribution - Data Missing Completely at Random - Parametric Bootstrap Confidence Intervals using Full Information Maximum Likelihood"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Results: Simple Mediation Model - Multivariate Normal Distribution - Data Missing Completely at Random - Parametric Bootstrap Confidence Intervals using Full Information Maximum Likelihood}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  error = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r}
+library(jeksterslabRmedsimple)
+data(results_mvn_mcar_pb.mvn_ci, package = "jeksterslabRmedsimple")
+```
+
+### Plots
+
+#### alpha 0.05
+
+```{r fig.height = 8, fig.width = 11}
+plot_type1(results_mvn_mcar_pb.mvn_ci)
+plot_power(results_mvn_mcar_pb.mvn_ci)
+plot_miss(results_mvn_mcar_pb.mvn_ci)
+```

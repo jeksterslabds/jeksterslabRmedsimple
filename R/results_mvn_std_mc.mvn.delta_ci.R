@@ -1,4 +1,4 @@
-#' Monte Carlo Simulation Results - Monte Carlo Method Confidence Intervals with Delta Method Standard Errors for Standardized Indirect Effect (Multivariate Normal with Complete Data)
+#' Results: Simple Mediation Model - Multivariate Normal Distribution - Standardized - Complete Data - Monte Carlo Method Confidence Intervals with Ordinary Least Squares Parameter Estimates and Delta Method Standard Errors
 #'
 #' @family results functions
 #' @keywords results

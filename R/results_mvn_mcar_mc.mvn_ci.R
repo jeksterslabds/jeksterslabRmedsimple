@@ -1,4 +1,4 @@
-#' Monte Carlo Simulation Results - Nonparametric Bootstrap Confidence Intervals (Multivariate Normal with Data Missing Completely at Random)
+#' Results: Simple Mediation Model - Multivariate Normal Distribution - Data Missing Completely at Random - Monte Carlo Method Confidence Intervals Structural Equation Modeling with Full Information Maximum Likelihood Parameter Estimates and Standard Errors
 #'
 #' @family results
 #' @keywords results

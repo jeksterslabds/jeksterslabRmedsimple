@@ -1,10 +1,14 @@
 #' ---
-#' title: "Data: Parametric Bootstrap Confidence Intervals - Multivariate Normal - Complete Data"
+#' title: "Data: Simple Mediation Model - Multivariate Normal Distribution - Complete Data - Parametric Bootstrap Confidence Intervals Assuming Multivariate Normal Distribution"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
 #'   rmarkdown::html_vignette:
 #'     toc: true
+#' vignette: >
+#'   %\VignetteIndexEntry{Data: Simple Mediation Model - Multivariate Normal Distribution - Complete Data - Parametric Bootstrap Confidence Intervals Assuming Multivariate Normal Distribution}
+#'   %\VignetteEngine{knitr::rmarkdown}
+#'   %\VignetteEncoding{UTF-8}
 #' ---
 #'
 #+ data

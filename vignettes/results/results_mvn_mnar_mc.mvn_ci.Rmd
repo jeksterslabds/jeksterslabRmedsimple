@@ -1,10 +1,10 @@
 ---
-title: "Results: Monte Carlo Method Confidence Intervals - Multivariate Normal - Data Missing Not at Random - Structural Equation Modeling Estimates and Standard Errors"
+title: "Results: Simple Mediation Model - Multivariate Normal Distribution - Data Missing Not at Random - Monte Carlo Method Confidence Intervals Structural Equation Modeling with Full Information Maximum Likelihood Parameter Estimates and Standard Errors"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Results: Monte Carlo Method Confidence Intervals - Multivariate Normal - Data Missing Not at Random - Structural Equation Modeling Estimates and Standard Errors}
+  %\VignetteIndexEntry{Results: Simple Mediation Model - Multivariate Normal Distribution - Data Missing Not at Random - Monte Carlo Method Confidence Intervals Structural Equation Modeling with Full Information Maximum Likelihood Parameter Estimates and Standard Errors}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

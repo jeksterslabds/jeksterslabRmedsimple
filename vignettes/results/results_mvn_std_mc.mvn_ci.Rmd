@@ -1,10 +1,10 @@
 ---
-title: "Results: Monte Carlo Method Confidence Intervals for Standardized Indirect Effect - Multivariate Normal - Complete Data - Structural Equation Modeling Estimates and Standard Errors"
+title: "Results: Monte Carlo Method Confidence Intervals for Standardized Indirect Effect - Multivariate Normal - Complete Data"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Results: Monte Carlo Method Confidence Intervals for Standardized Indirect Effect - Multivariate Normal - Complete Data - Structural Equation Modeling Estimates and Standard Errors}
+  %\VignetteIndexEntry{Results: Monte Carlo Method Confidence Intervals for Standardized Indirect Effect - Multivariate Normal - Complete Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -39,6 +39,11 @@ results_mvn_std_mc.mvn_ci <- rbind(
 plot_type1(results_mvn_std_mc.mvn_ci)
 plot_power(results_mvn_std_mc.mvn_ci)
 plot_miss(results_mvn_std_mc.mvn_ci)
+```
+
+```{r fig.height = 8, fig.width = 11}
+plot_type1(results_mvn_std_mc.mvn_ci, criteria = "liberal")
+plot_miss(results_mvn_std_mc.mvn_ci, criteria = "liberal")
 ```
 
 ```{r fig.height = 8, fig.width = 11}

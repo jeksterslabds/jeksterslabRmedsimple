@@ -1,4 +1,5 @@
-#' Results: Fit Simple Mediation Model for Data Generated from a Multivariate Normal Distribution - Structural Equation Modeling
+#' Results: Simple Mediation Model - Multivariate Normal Distribution - Complete Data - Fit Structural Equation Modeling
+#'
 #' @family results
 #' @keywords results
 #' @inherit A details

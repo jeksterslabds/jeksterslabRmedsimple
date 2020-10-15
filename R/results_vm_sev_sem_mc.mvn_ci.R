@@ -1,4 +1,4 @@
-#' Monte Carlo Simulation Results - Nonparametric Bootstrap Confidence Intervals (Multivariate Normal with Complete Data)
+#' Results: Simple Mediation Model - Vale and Maurelli (1983) - Skewness = 3, Kurtosis = 21 - Complete Data - Monte Carlo Method Confidence Intervals with Structural Equation Modeling Parameter Estimates and Robust Standard Errors
 #'
 #' @family results
 #' @keywords results

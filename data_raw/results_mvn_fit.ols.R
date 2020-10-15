@@ -1,10 +1,14 @@
 #' ---
-#' title: "Data: Fit Simple Mediation Model for Data Generated from a Multivariate Normal Distribution - Ordinary Least Squares"
+#' title: "Data: Simple Mediation Model - Multivariate Normal Distribution - Complete Data - Fit Ordinary Least Squares"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
 #'   rmarkdown::html_vignette:
 #'     toc: true
+#' vignette: >
+#'   %\VignetteIndexEntry{Data: Simple Mediation Model - Multivariate Normal Distribution - Complete Data - Fit Ordinary Least Squares}
+#'   %\VignetteEngine{knitr::rmarkdown}
+#'   %\VignetteEncoding{UTF-8}
 #' ---
 #'
 #+ data

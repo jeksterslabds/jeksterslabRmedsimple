@@ -1,10 +1,14 @@
 #' ---
-#' title: "Data: Fit Simple Mediation Model for Data Generated from a Multivariate Normal Distribution with Data Missing at Random - Structural Equation Modeling"
+#' title: "Data: Simple Mediation Model - Multivariate Normal Distribution - Data Missing at Random - Fit Structural Equation Modeling with Full Information Maximum Likelihood"
 #' author: "Ivan Jacob Agaloos Pesigan"
 #' date: "`r Sys.Date()`"
 #' output:
 #'   rmarkdown::html_vignette:
 #'     toc: true
+#' vignette: >
+#'   %\VignetteIndexEntry{Data: Simple Mediation Model - Multivariate Normal Distribution - Data Missing at Random - Fit Structural Equation Modeling with Full Information Maximum Likelihood}
+#'   %\VignetteEngine{knitr::rmarkdown}
+#'   %\VignetteEncoding{UTF-8}
 #' ---
 #'
 #+ data

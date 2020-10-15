@@ -1,4 +1,4 @@
-#' Monte Carlo Simulation Results - Parametric Bootstrap Confidence Intervals (Multivariate Normal with Complete Data)
+#' Results: Simple Mediation Model - Vale and Maurelli (1983) - Skewness = 3, Kurtosis = 21 - Complete Data - Parametric Bootstrap Confidence Intervals Assuming Multivariate Normal Distribution
 #'
 #' @family results
 #' @keywords results

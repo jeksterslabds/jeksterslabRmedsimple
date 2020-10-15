@@ -22,10 +22,26 @@ reference:
   desc:  Vale and Maurelli (1983).
 - contents:
   - has_keyword("vm")
+- title: Exponential X
+  desc:  Data generation with exponential X.
+- contents:
+  - has_keyword("exp")
+- title: Beta X
+  desc:  Data generation with beta X.
+- contents:
+  - has_keyword("beta")
 - title: Vale and Maurelli (1983) Multivariate Nonnormal Data
   desc:  Data generation using the Vale and Maurelli (1983) approach.
 - contents:
   - has_keyword("vm_dat")
+- title: Exponential X
+  desc:  Data generation with exponential X.
+- contents:
+  - has_keyword("exp_dat")
+- title: Beta X
+  desc:  Data generation with beta X.
+- contents:
+  - has_keyword("beta_dat")
 - title: Simple mediation model
   desc:  Fitting the simple mediation model.
 - contents:

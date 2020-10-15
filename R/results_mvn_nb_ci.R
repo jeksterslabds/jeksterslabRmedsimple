@@ -1,4 +1,4 @@
-#' Monte Carlo Simulation Results - Nonparametric Bootstrap Confidence Intervals (Multivariate Normal with Complete Data)
+#' Results: Simple Mediation Model - Multivariate Normal Distribution - Complete Data - Nonparametric Bootstrap Confidence Intervals
 #'
 #' @family results
 #' @keywords results

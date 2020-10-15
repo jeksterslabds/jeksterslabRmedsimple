@@ -1,4 +1,4 @@
-#' Results: Fit Standardized Simple Mediation Model for Data Generated from a Multivariate Normal Distribution - Structural Equation Modeling
+#' Results: Simple Mediation Model - Multivariate Normal Distribution - Standardized - Complete Data - Fit Structural Equation Modeling
 #'
 #' @details The standardized simple mediation model is given by the following measurement model and regression model.
 #'
