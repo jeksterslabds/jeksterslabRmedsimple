@@ -44,8 +44,8 @@ beta_pb.mvn <- function(data,
 #' @inheritParams beta_fit.ols_task
 #' @export
 beta_pb.mvn_task <- function(taskid,
-                              dir = getwd(),
-                              overwrite = FALSE) {
+                             dir = getwd(),
+                             overwrite = FALSE) {
   # for socks to load package in the namespace
   requireNamespace(
     "jeksterslabRmedsimple",
@@ -133,18 +133,18 @@ beta_pb.mvn_task <- function(taskid,
 #' @inheritParams beta_dat_simulation
 #' @export
 beta_pb.mvn_simulation <- function(dir = getwd(),
-                                    all = TRUE,
-                                    taskid = NULL,
-                                    overwrite = FALSE,
-                                    par = TRUE,
-                                    ncores = NULL,
-                                    blas_threads = TRUE,
-                                    mc = TRUE,
-                                    lb = FALSE,
-                                    cl_eval = FALSE,
-                                    cl_export = FALSE,
-                                    cl_expr,
-                                    cl_vars) {
+                                   all = TRUE,
+                                   taskid = NULL,
+                                   overwrite = FALSE,
+                                   par = TRUE,
+                                   ncores = NULL,
+                                   blas_threads = TRUE,
+                                   mc = TRUE,
+                                   lb = FALSE,
+                                   cl_eval = FALSE,
+                                   cl_export = FALSE,
+                                   cl_expr,
+                                   cl_vars) {
   if (all) {
     ncase <- nrow(jeksterslabRmedsimple::paramsbeta)
     taskid <- 1:ncase
@@ -186,7 +186,7 @@ beta_pb.mvn_simulation <- function(dir = getwd(),
 #' @inheritParams beta_dat_task
 #' @export
 beta_pb.mvn_pcci_task <- function(taskid,
-                                   dir = getwd()) {
+                                  dir = getwd()) {
   # for socks to load package in the namespace
   requireNamespace(
     "jeksterslabRmedsimple",
@@ -252,17 +252,17 @@ beta_pb.mvn_pcci_task <- function(taskid,
 #' @inheritParams beta_dat_simulation
 #' @export
 beta_pb.mvn_pcci_simulation <- function(dir = getwd(),
-                                         all = TRUE,
-                                         taskid = NULL,
-                                         par = TRUE,
-                                         ncores = NULL,
-                                         blas_threads = TRUE,
-                                         mc = TRUE,
-                                         lb = FALSE,
-                                         cl_eval = FALSE,
-                                         cl_export = FALSE,
-                                         cl_expr,
-                                         cl_vars) {
+                                        all = TRUE,
+                                        taskid = NULL,
+                                        par = TRUE,
+                                        ncores = NULL,
+                                        blas_threads = TRUE,
+                                        mc = TRUE,
+                                        lb = FALSE,
+                                        cl_eval = FALSE,
+                                        cl_export = FALSE,
+                                        cl_expr,
+                                        cl_vars) {
   if (all) {
     ncase <- nrow(jeksterslabRmedsimple::paramsbeta)
     taskid <- 1:ncase
@@ -314,7 +314,7 @@ beta_pb.mvn_pcci_simulation <- function(dir = getwd(),
 #' @inheritParams beta_dat_task
 #' @export
 beta_pb.mvn_bcci_task <- function(taskid,
-                                   dir = getwd()) {
+                                  dir = getwd()) {
   # for socks to load package in the namespace
   requireNamespace(
     "jeksterslabRmedsimple",
@@ -380,17 +380,17 @@ beta_pb.mvn_bcci_task <- function(taskid,
 #' @inheritParams beta_dat_simulation
 #' @export
 beta_pb.mvn_bcci_simulation <- function(dir = getwd(),
-                                         all = TRUE,
-                                         taskid = NULL,
-                                         par = TRUE,
-                                         ncores = NULL,
-                                         blas_threads = TRUE,
-                                         mc = TRUE,
-                                         lb = FALSE,
-                                         cl_eval = FALSE,
-                                         cl_export = FALSE,
-                                         cl_expr,
-                                         cl_vars) {
+                                        all = TRUE,
+                                        taskid = NULL,
+                                        par = TRUE,
+                                        ncores = NULL,
+                                        blas_threads = TRUE,
+                                        mc = TRUE,
+                                        lb = FALSE,
+                                        cl_eval = FALSE,
+                                        cl_export = FALSE,
+                                        cl_expr,
+                                        cl_vars) {
   if (all) {
     ncase <- nrow(jeksterslabRmedsimple::paramsbeta)
     taskid <- 1:ncase
@@ -442,7 +442,7 @@ beta_pb.mvn_bcci_simulation <- function(dir = getwd(),
 #' @inheritParams beta_dat_task
 #' @export
 beta_pb.mvn_bcaci_task <- function(taskid,
-                                    dir = getwd()) {
+                                   dir = getwd()) {
   # for socks to load package in the namespace
   requireNamespace(
     "jeksterslabRmedsimple",
@@ -554,17 +554,17 @@ beta_pb.mvn_bcaci_task <- function(taskid,
 #' @inheritParams beta_dat_simulation
 #' @export
 beta_pb.mvn_bcaci_simulation <- function(dir = getwd(),
-                                          all = TRUE,
-                                          taskid = NULL,
-                                          par = TRUE,
-                                          ncores = NULL,
-                                          blas_threads = TRUE,
-                                          mc = TRUE,
-                                          lb = FALSE,
-                                          cl_eval = FALSE,
-                                          cl_export = FALSE,
-                                          cl_expr,
-                                          cl_vars) {
+                                         all = TRUE,
+                                         taskid = NULL,
+                                         par = TRUE,
+                                         ncores = NULL,
+                                         blas_threads = TRUE,
+                                         mc = TRUE,
+                                         lb = FALSE,
+                                         cl_eval = FALSE,
+                                         cl_export = FALSE,
+                                         cl_expr,
+                                         cl_vars) {
   if (all) {
     ncase <- nrow(jeksterslabRmedsimple::paramsbeta)
     taskid <- 1:ncase
