@@ -13,6 +13,7 @@
 #' )
 #' @export
 setparamsbeta <- function(taskid) {
+  paramsbeta <- jeksterslabRmedsimple::paramsbeta
   paramsbeta <- paramsbeta[which(paramsbeta$taskid == taskid), ]
   shape1 <- paramsbeta$shape1
   shape2 <- paramsbeta$shape2

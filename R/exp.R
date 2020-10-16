@@ -13,6 +13,7 @@
 #' )
 #' @export
 setparamsexp <- function(taskid) {
+  paramsexp <- jeksterslabRmedsimple::paramsexp
   paramsexp <- paramsexp[which(paramsexp$taskid == taskid), ]
   rate <- paramsexp$rate
   n <- paramsexp$n

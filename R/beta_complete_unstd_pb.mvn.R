@@ -43,7 +43,7 @@ beta_pb.mvn <- function(data,
 #' @inheritParams beta_pb.mvn
 #' @inheritParams beta_fit.ols_task
 #' @export
-beta_pb.beta_task <- function(taskid,
+beta_pb.mvn_task <- function(taskid,
                               dir = getwd(),
                               overwrite = FALSE) {
   # for socks to load package in the namespace
@@ -62,7 +62,7 @@ beta_pb.beta_task <- function(taskid,
     ".Rds"
   )
   fn <- paste0(
-    "medsimple_beta_pb.beta_",
+    "medsimple_beta_pb.mvn_",
     sprintf(
       "%05.0f",
       taskid
@@ -128,11 +128,11 @@ beta_pb.beta_task <- function(taskid,
 #' @family parametric functions
 #' @keywords pb
 #' @importFrom jeksterslabRpar par_lapply
-#' @inheritParams beta_pb.beta_task
+#' @inheritParams beta_pb.mvn_task
 #' @inheritParams jeksterslabRpar::par_lapply
 #' @inheritParams beta_dat_simulation
 #' @export
-beta_pb.beta_simulation <- function(dir = getwd(),
+beta_pb.mvn_simulation <- function(dir = getwd(),
                                     all = TRUE,
                                     taskid = NULL,
                                     overwrite = FALSE,
@@ -158,7 +158,7 @@ beta_pb.beta_simulation <- function(dir = getwd(),
   out <- invisible(
     par_lapply(
       X = taskid,
-      FUN = beta_pb.beta_task,
+      FUN = beta_pb.mvn_task,
       dir = dir,
       overwrite = overwrite,
       par = par,
@@ -185,7 +185,7 @@ beta_pb.beta_simulation <- function(dir = getwd(),
 #' @keywords pb
 #' @inheritParams beta_dat_task
 #' @export
-beta_pb.beta_pcci_task <- function(taskid,
+beta_pb.mvn_pcci_task <- function(taskid,
                                    dir = getwd()) {
   # for socks to load package in the namespace
   requireNamespace(
@@ -203,7 +203,7 @@ beta_pb.beta_pcci_task <- function(taskid,
   wd <- getwd()
   setwd(dir)
   fndata <- paste0(
-    "medsimple_beta_pb.beta_",
+    "medsimple_beta_pb.mvn_",
     sprintf(
       "%05.0f",
       taskid
@@ -247,11 +247,11 @@ beta_pb.beta_pcci_task <- function(taskid,
 #' @family parametric functions
 #' @keywords pb
 #' @importFrom jeksterslabRpar par_lapply
-#' @inheritParams beta_pb.beta_pcci_task
+#' @inheritParams beta_pb.mvn_pcci_task
 #' @inheritParams jeksterslabRpar::par_lapply
 #' @inheritParams beta_dat_simulation
 #' @export
-beta_pb.beta_pcci_simulation <- function(dir = getwd(),
+beta_pb.mvn_pcci_simulation <- function(dir = getwd(),
                                          all = TRUE,
                                          taskid = NULL,
                                          par = TRUE,
@@ -276,7 +276,7 @@ beta_pb.beta_pcci_simulation <- function(dir = getwd(),
   out <- invisible(
     par_lapply(
       X = taskid,
-      FUN = beta_pb.beta_pcci_task,
+      FUN = beta_pb.mvn_pcci_task,
       dir = dir,
       par = par,
       ncores = ncores,
@@ -296,7 +296,7 @@ beta_pb.beta_pcci_simulation <- function(dir = getwd(),
     model = "Simple mediation model",
     std = FALSE
   )
-  fn <- "summary_medsimple_beta_pb.beta_pcci.Rds"
+  fn <- "summary_medsimple_beta_pb.mvn_pcci.Rds"
   saveRDS(
     object = out,
     file = fn
@@ -313,7 +313,7 @@ beta_pb.beta_pcci_simulation <- function(dir = getwd(),
 #' @keywords pb
 #' @inheritParams beta_dat_task
 #' @export
-beta_pb.beta_bcci_task <- function(taskid,
+beta_pb.mvn_bcci_task <- function(taskid,
                                    dir = getwd()) {
   # for socks to load package in the namespace
   requireNamespace(
@@ -331,7 +331,7 @@ beta_pb.beta_bcci_task <- function(taskid,
   wd <- getwd()
   setwd(dir)
   fndata <- paste0(
-    "medsimple_beta_pb.beta_",
+    "medsimple_beta_pb.mvn_",
     sprintf(
       "%05.0f",
       taskid
@@ -375,11 +375,11 @@ beta_pb.beta_bcci_task <- function(taskid,
 #' @family parametric functions
 #' @keywords pb
 #' @importFrom jeksterslabRpar par_lapply
-#' @inheritParams beta_pb.beta_bcci_task
+#' @inheritParams beta_pb.mvn_bcci_task
 #' @inheritParams jeksterslabRpar::par_lapply
 #' @inheritParams beta_dat_simulation
 #' @export
-beta_pb.beta_bcci_simulation <- function(dir = getwd(),
+beta_pb.mvn_bcci_simulation <- function(dir = getwd(),
                                          all = TRUE,
                                          taskid = NULL,
                                          par = TRUE,
@@ -404,7 +404,7 @@ beta_pb.beta_bcci_simulation <- function(dir = getwd(),
   out <- invisible(
     par_lapply(
       X = taskid,
-      FUN = beta_pb.beta_bcci_task,
+      FUN = beta_pb.mvn_bcci_task,
       dir = dir,
       par = par,
       ncores = ncores,
@@ -424,7 +424,7 @@ beta_pb.beta_bcci_simulation <- function(dir = getwd(),
     model = "Simple mediation model",
     std = FALSE
   )
-  fn <- "summary_medsimple_beta_pb.beta_bcci.Rds"
+  fn <- "summary_medsimple_beta_pb.mvn_bcci.Rds"
   saveRDS(
     object = out,
     file = fn
@@ -441,7 +441,7 @@ beta_pb.beta_bcci_simulation <- function(dir = getwd(),
 #' @keywords pb
 #' @inheritParams beta_dat_task
 #' @export
-beta_pb.beta_bcaci_task <- function(taskid,
+beta_pb.mvn_bcaci_task <- function(taskid,
                                     dir = getwd()) {
   # for socks to load package in the namespace
   requireNamespace(
@@ -474,7 +474,7 @@ beta_pb.beta_bcaci_task <- function(taskid,
     ".Rds"
   )
   fnpb <- paste0(
-    "medsimple_beta_pb.beta_",
+    "medsimple_beta_pb.mvn_",
     sprintf(
       "%05.0f",
       taskid
@@ -549,11 +549,11 @@ beta_pb.beta_bcaci_task <- function(taskid,
 #' @family parametric functions
 #' @keywords pb
 #' @importFrom jeksterslabRpar par_lapply
-#' @inheritParams beta_pb.beta_bcaci_task
+#' @inheritParams beta_pb.mvn_bcaci_task
 #' @inheritParams jeksterslabRpar::par_lapply
 #' @inheritParams beta_dat_simulation
 #' @export
-beta_pb.beta_bcaci_simulation <- function(dir = getwd(),
+beta_pb.mvn_bcaci_simulation <- function(dir = getwd(),
                                           all = TRUE,
                                           taskid = NULL,
                                           par = TRUE,
@@ -578,7 +578,7 @@ beta_pb.beta_bcaci_simulation <- function(dir = getwd(),
   out <- invisible(
     par_lapply(
       X = taskid,
-      FUN = beta_pb.beta_bcaci_task,
+      FUN = beta_pb.mvn_bcaci_task,
       dir = dir,
       par = par,
       ncores = ncores,
@@ -598,7 +598,7 @@ beta_pb.beta_bcaci_simulation <- function(dir = getwd(),
     model = "Simple mediation model",
     std = FALSE
   )
-  fn <- "summary_medsimple_beta_pb.beta_bcaci.Rds"
+  fn <- "summary_medsimple_beta_pb.mvn_bcaci.Rds"
   saveRDS(
     object = out,
     file = fn

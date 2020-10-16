@@ -43,7 +43,7 @@ exp_pb.mvn <- function(data,
 #' @inheritParams exp_pb.mvn
 #' @inheritParams exp_fit.ols_task
 #' @export
-exp_pb.exp_task <- function(taskid,
+exp_pb.mvn_task <- function(taskid,
                             dir = getwd(),
                             overwrite = FALSE) {
   # for socks to load package in the namespace
@@ -62,7 +62,7 @@ exp_pb.exp_task <- function(taskid,
     ".Rds"
   )
   fn <- paste0(
-    "medsimple_exp_pb.exp_",
+    "medsimple_exp_pb.mvn_",
     sprintf(
       "%05.0f",
       taskid
@@ -128,11 +128,11 @@ exp_pb.exp_task <- function(taskid,
 #' @family parametric functions
 #' @keywords pb
 #' @importFrom jeksterslabRpar par_lapply
-#' @inheritParams exp_pb.exp_task
+#' @inheritParams exp_pb.mvn_task
 #' @inheritParams jeksterslabRpar::par_lapply
 #' @inheritParams exp_dat_simulation
 #' @export
-exp_pb.exp_simulation <- function(dir = getwd(),
+exp_pb.mvn_simulation <- function(dir = getwd(),
                                   all = TRUE,
                                   taskid = NULL,
                                   overwrite = FALSE,
@@ -158,7 +158,7 @@ exp_pb.exp_simulation <- function(dir = getwd(),
   out <- invisible(
     par_lapply(
       X = taskid,
-      FUN = exp_pb.exp_task,
+      FUN = exp_pb.mvn_task,
       dir = dir,
       overwrite = overwrite,
       par = par,
@@ -185,7 +185,7 @@ exp_pb.exp_simulation <- function(dir = getwd(),
 #' @keywords pb
 #' @inheritParams exp_dat_task
 #' @export
-exp_pb.exp_pcci_task <- function(taskid,
+exp_pb.mvn_pcci_task <- function(taskid,
                                  dir = getwd()) {
   # for socks to load package in the namespace
   requireNamespace(
@@ -203,7 +203,7 @@ exp_pb.exp_pcci_task <- function(taskid,
   wd <- getwd()
   setwd(dir)
   fndata <- paste0(
-    "medsimple_exp_pb.exp_",
+    "medsimple_exp_pb.mvn_",
     sprintf(
       "%05.0f",
       taskid
@@ -247,11 +247,11 @@ exp_pb.exp_pcci_task <- function(taskid,
 #' @family parametric functions
 #' @keywords pb
 #' @importFrom jeksterslabRpar par_lapply
-#' @inheritParams exp_pb.exp_pcci_task
+#' @inheritParams exp_pb.mvn_pcci_task
 #' @inheritParams jeksterslabRpar::par_lapply
 #' @inheritParams exp_dat_simulation
 #' @export
-exp_pb.exp_pcci_simulation <- function(dir = getwd(),
+exp_pb.mvn_pcci_simulation <- function(dir = getwd(),
                                        all = TRUE,
                                        taskid = NULL,
                                        par = TRUE,
@@ -276,7 +276,7 @@ exp_pb.exp_pcci_simulation <- function(dir = getwd(),
   out <- invisible(
     par_lapply(
       X = taskid,
-      FUN = exp_pb.exp_pcci_task,
+      FUN = exp_pb.mvn_pcci_task,
       dir = dir,
       par = par,
       ncores = ncores,
@@ -296,7 +296,7 @@ exp_pb.exp_pcci_simulation <- function(dir = getwd(),
     model = "Simple mediation model",
     std = FALSE
   )
-  fn <- "summary_medsimple_exp_pb.exp_pcci.Rds"
+  fn <- "summary_medsimple_exp_pb.mvn_pcci.Rds"
   saveRDS(
     object = out,
     file = fn
@@ -313,7 +313,7 @@ exp_pb.exp_pcci_simulation <- function(dir = getwd(),
 #' @keywords pb
 #' @inheritParams exp_dat_task
 #' @export
-exp_pb.exp_bcci_task <- function(taskid,
+exp_pb.mvn_bcci_task <- function(taskid,
                                  dir = getwd()) {
   # for socks to load package in the namespace
   requireNamespace(
@@ -331,7 +331,7 @@ exp_pb.exp_bcci_task <- function(taskid,
   wd <- getwd()
   setwd(dir)
   fndata <- paste0(
-    "medsimple_exp_pb.exp_",
+    "medsimple_exp_pb.mvn_",
     sprintf(
       "%05.0f",
       taskid
@@ -375,11 +375,11 @@ exp_pb.exp_bcci_task <- function(taskid,
 #' @family parametric functions
 #' @keywords pb
 #' @importFrom jeksterslabRpar par_lapply
-#' @inheritParams exp_pb.exp_bcci_task
+#' @inheritParams exp_pb.mvn_bcci_task
 #' @inheritParams jeksterslabRpar::par_lapply
 #' @inheritParams exp_dat_simulation
 #' @export
-exp_pb.exp_bcci_simulation <- function(dir = getwd(),
+exp_pb.mvn_bcci_simulation <- function(dir = getwd(),
                                        all = TRUE,
                                        taskid = NULL,
                                        par = TRUE,
@@ -404,7 +404,7 @@ exp_pb.exp_bcci_simulation <- function(dir = getwd(),
   out <- invisible(
     par_lapply(
       X = taskid,
-      FUN = exp_pb.exp_bcci_task,
+      FUN = exp_pb.mvn_bcci_task,
       dir = dir,
       par = par,
       ncores = ncores,
@@ -424,7 +424,7 @@ exp_pb.exp_bcci_simulation <- function(dir = getwd(),
     model = "Simple mediation model",
     std = FALSE
   )
-  fn <- "summary_medsimple_exp_pb.exp_bcci.Rds"
+  fn <- "summary_medsimple_exp_pb.mvn_bcci.Rds"
   saveRDS(
     object = out,
     file = fn
@@ -441,7 +441,7 @@ exp_pb.exp_bcci_simulation <- function(dir = getwd(),
 #' @keywords pb
 #' @inheritParams exp_dat_task
 #' @export
-exp_pb.exp_bcaci_task <- function(taskid,
+exp_pb.mvn_bcaci_task <- function(taskid,
                                   dir = getwd()) {
   # for socks to load package in the namespace
   requireNamespace(
@@ -474,7 +474,7 @@ exp_pb.exp_bcaci_task <- function(taskid,
     ".Rds"
   )
   fnpb <- paste0(
-    "medsimple_exp_pb.exp_",
+    "medsimple_exp_pb.mvn_",
     sprintf(
       "%05.0f",
       taskid
@@ -549,11 +549,11 @@ exp_pb.exp_bcaci_task <- function(taskid,
 #' @family parametric functions
 #' @keywords pb
 #' @importFrom jeksterslabRpar par_lapply
-#' @inheritParams exp_pb.exp_bcaci_task
+#' @inheritParams exp_pb.mvn_bcaci_task
 #' @inheritParams jeksterslabRpar::par_lapply
 #' @inheritParams exp_dat_simulation
 #' @export
-exp_pb.exp_bcaci_simulation <- function(dir = getwd(),
+exp_pb.mvn_bcaci_simulation <- function(dir = getwd(),
                                         all = TRUE,
                                         taskid = NULL,
                                         par = TRUE,
@@ -578,7 +578,7 @@ exp_pb.exp_bcaci_simulation <- function(dir = getwd(),
   out <- invisible(
     par_lapply(
       X = taskid,
-      FUN = exp_pb.exp_bcaci_task,
+      FUN = exp_pb.mvn_bcaci_task,
       dir = dir,
       par = par,
       ncores = ncores,
@@ -598,7 +598,7 @@ exp_pb.exp_bcaci_simulation <- function(dir = getwd(),
     model = "Simple mediation model",
     std = FALSE
   )
-  fn <- "summary_medsimple_exp_pb.exp_bcaci.Rds"
+  fn <- "summary_medsimple_exp_pb.mvn_bcaci.Rds"
   saveRDS(
     object = out,
     file = fn
