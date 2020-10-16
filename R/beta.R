@@ -160,7 +160,7 @@ useparamsbeta <- function(taskid) {
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Exponential
+#' @title Beta
 #'
 #' @family beta X data functions
 #' @keywords beta

@@ -1,6 +1,6 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Nonparametric Bootstrap Estimates of Indirect Effect in a Simple Mediation Model for Data with Exponential X
+#' @title Nonparametric Bootstrap Estimates of Indirect Effect in a Simple Mediation Model for Data with Beta X
 #'
 #' @family nonparametric functions
 #' @keywords nb
@@ -34,7 +34,7 @@ beta_nb <- function(data,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Nonparametric Bootstrap Estimates of Indirect Effect in a Simple Mediation Model for Data with Exponential X
+#' @title Nonparametric Bootstrap Estimates of Indirect Effect in a Simple Mediation Model for Data with Beta X
 #'   (Single Task)
 #'
 #' @family nonparametric functions
@@ -121,7 +121,7 @@ beta_nb_task <- function(taskid,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Nonparametric Bootstrap Estimates of Indirect Effect in a Simple Mediation Model for Data with Exponential X
+#' @title Nonparametric Bootstrap Estimates of Indirect Effect in a Simple Mediation Model for Data with Beta X
 #'   (Simulation)
 #'
 #' @family nonparametric functions
@@ -177,7 +177,7 @@ beta_nb_simulation <- function(dir = getwd(),
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Nonparametric Bootstrap Percentile Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Single Task)
 #'
 #' @family nonparametric functions
@@ -240,7 +240,7 @@ beta_nb_pcci_task <- function(taskid,
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Nonparametric Bootstrap Percentile Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Simulation)
 #'
 #' @family nonparametric functions
@@ -305,7 +305,7 @@ beta_nb_pcci_simulation <- function(dir = getwd(),
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Nonparametric Bootstrap Bias-Corrected Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Single Task)
 #'
 #' @family nonparametric functions
@@ -368,7 +368,7 @@ beta_nb_bcci_task <- function(taskid,
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Nonparametric Bootstrap Bias-Corrected Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Simulation)
 #'
 #' @family nonparametric functions
@@ -433,7 +433,7 @@ beta_nb_bcci_simulation <- function(dir = getwd(),
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Nonparametric Bootstrap Bias-Corrected and Accelerated Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Single Task)
 #'
 #' @family nonparametric functions
@@ -542,7 +542,7 @@ beta_nb_bcaci_task <- function(taskid,
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Nonparametric Bootstrap Bias-Corrected and Accelerated Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Simulation)
 #'
 #' @family nonparametric functions

@@ -1,6 +1,6 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Parametric Bootstrap Estimates of Indirect Effect in a Simple Mediation Model for Data with Exponential X
+#' @title Parametric Bootstrap Estimates of Indirect Effect in a Simple Mediation Model for Data with Beta X
 #'
 #' @family parametric functions
 #' @keywords pb
@@ -35,7 +35,7 @@ beta_pb.mvn <- function(data,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Parametric Bootstrap Estimates of Indirect Effect in a Simple Mediation Model for Data with Exponential X
+#' @title Parametric Bootstrap Estimates of Indirect Effect in a Simple Mediation Model for Data with Beta X
 #'   (Single Task)
 #'
 #' @family parametric functions
@@ -122,7 +122,7 @@ beta_pb.mvn_task <- function(taskid,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Parametric Bootstrap Estimates of Indirect Effect in a Simple Mediation Model for Data with Exponential X
+#' @title Parametric Bootstrap Estimates of Indirect Effect in a Simple Mediation Model for Data with Beta X
 #'   (Simulation)
 #'
 #' @family parametric functions
@@ -178,7 +178,7 @@ beta_pb.mvn_simulation <- function(dir = getwd(),
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Parametric Bootstrap Percentile Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Single Task)
 #'
 #' @family parametric functions
@@ -241,7 +241,7 @@ beta_pb.mvn_pcci_task <- function(taskid,
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Parametric Bootstrap Percentile Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Simulation)
 #'
 #' @family parametric functions
@@ -306,7 +306,7 @@ beta_pb.mvn_pcci_simulation <- function(dir = getwd(),
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Parametric Bootstrap Bias-Corrected Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Single Task)
 #'
 #' @family parametric functions
@@ -369,7 +369,7 @@ beta_pb.mvn_bcci_task <- function(taskid,
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Parametric Bootstrap Bias-Corrected Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Simulation)
 #'
 #' @family parametric functions
@@ -434,7 +434,7 @@ beta_pb.mvn_bcci_simulation <- function(dir = getwd(),
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Parametric Bootstrap Bias-Corrected and Accelerated Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Single Task)
 #'
 #' @family parametric functions
@@ -543,7 +543,7 @@ beta_pb.mvn_bcaci_task <- function(taskid,
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Parametric Bootstrap Bias-Corrected and Accelerated Confidence Intervals for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Simulation)
 #'
 #' @family parametric functions

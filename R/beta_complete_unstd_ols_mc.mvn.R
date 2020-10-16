@@ -1,7 +1,7 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Monte Carlo Method Assuming Multivariate Normal Distribution for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'
 #' @family monte carlo method functions
 #' @keywords mc
@@ -43,7 +43,7 @@ beta_ols_mc.mvn <- function(taskid,
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Monte Carlo Method Assuming Multivariate Normal Distribution for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Single Task)
 #'
 #' @family monte carlo method functions
@@ -132,7 +132,7 @@ beta_ols_mc.mvn_task <- function(taskid,
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Monte Carlo Method Assuming Multivariate Normal Distribution for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Simulation)
 #'
 #' @family monte carlo method functions
@@ -188,7 +188,7 @@ beta_ols_mc.mvn_simulation <- function(dir = getwd(),
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Monte Carlo Method Confidence Intervals Assuming Multivariate Normal Distribution for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Single Task)
 #'
 #' @family monte carlo method functions
@@ -251,7 +251,7 @@ beta_ols_mc.mvn_pcci_task <- function(taskid,
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @title Monte Carlo Method Confidence Intervals Assuming Multivariate Normal Distribution for Indirect Effect in a Simple Mediation Model
-#'   for Data with Exponential X
+#'   for Data with Beta X
 #'   (Simulation)
 #'
 #' @family monte carlo method functions

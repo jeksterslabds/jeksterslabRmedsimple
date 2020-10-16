@@ -1,6 +1,6 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data with Exponential X
+#' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data with Beta X
 #'
 #' @family jackknife functions
 #' @keywords jack
@@ -34,7 +34,7 @@ beta_jack <- function(data,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data with Exponential X (Single Task)
+#' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data with Beta X (Single Task)
 #'
 #' @family jackknife functions
 #' @keywords jack
@@ -120,7 +120,7 @@ beta_jack_task <- function(taskid,
 
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data with Exponential X (Simulation)
+#' @title Jackknife Estimates of Indirect Effect in a Simple Mediation Model for Data with Beta X (Simulation)
 #'
 #' @family jackknife functions
 #' @keywords jack
